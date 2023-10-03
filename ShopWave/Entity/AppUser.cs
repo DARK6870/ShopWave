@@ -1,0 +1,14 @@
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ShopWave.Entity
+{
+	public class AppUser : IdentityUser
+	{
+		[NotMapped]
+		public virtual ICollection<Review> Reviews { get; set; }
+		[NotMapped]
+		public virtual ICollection<UserAvatar> UserAvatars { get; set; }
+	}
+}
