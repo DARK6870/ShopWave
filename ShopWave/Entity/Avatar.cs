@@ -16,6 +16,6 @@ namespace ShopWave.Entity
 
 
 		[NotMapped]
-		public ICollection<UserAvatar> UserAvatars { get; set; }
+		public ICollection<UserData> UserAvatars { get; set; }
 	}
 }

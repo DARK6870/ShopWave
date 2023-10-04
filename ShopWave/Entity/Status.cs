@@ -12,5 +12,9 @@ namespace ShopWave.Entity
 		[Required, Column(TypeName = "varchar(20)")]
 		[StringLength(20)]
 		public string StatusName { get; set; }
+
+
+		[NotMapped]
+		public ICollection<Product> Products { get; set; }
 	}
 }

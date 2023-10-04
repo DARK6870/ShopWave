@@ -19,15 +19,21 @@ namespace ShopWave.Context
 		public DbSet<Image> Images { get; set; }
 		public DbSet<Product> Products { get; set; }
 		public DbSet<ProductImage> ProductImages { get; set; }
-		public DbSet<Review> Reviews { get; set; }
+		//public DbSet<Review> Reviews { get; set; }
 		public DbSet<Status> Statuses { get; set; }
 		public DbSet<Avatar> Avatars { get; set; }
-		public DbSet<UserAvatar> UserAvatars{ get; set; }
+		public DbSet<UserData> UserDatas { get; set; }
+		public DbSet<Variation> Variations { get; set; }
+		public DbSet<ProductVariation> ProductVariations { get; set; }
+		public DbSet<ProductCategory> ProductCategories { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<ProductImage>().HasNoKey();
-			modelBuilder.Entity<UserAvatar>().HasNoKey();
+			modelBuilder.Entity<UserData>().HasNoKey();
+			modelBuilder.Entity<ProductVariation>().HasNoKey();
+			modelBuilder.Entity<ProductCategory>().HasNoKey();
+
 			base.OnModelCreating(modelBuilder);
 		}
 	}

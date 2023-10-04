@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShopWave.Entity
@@ -10,24 +11,48 @@ namespace ShopWave.Entity
 		public int ProductId { get; set; }
 
 
+		[Required, ForeignKey(nameof(AppUsers))]
+		public string AppUserId { get; set; }
+		public virtual AppUser AppUsers { get; set; }
+
+
 		[Required, Column(TypeName = "varchar(50)")]
 		[StringLength(50)]
 		public string ProductName { get; set; }
 
 
-		[Required, Column(TypeName = "varchar(600)")]
-		[StringLength(600)]
+		[Required, Column(TypeName = "varchar(800)")]
+		[StringLength(800)]
 		public string Description { get; set; }
 
 
-		[Required, ForeignKey(nameof(Categories))]
-		public short CategoryId { get; set; }
-		public virtual Categories Categories { get; set; }
+
+		[Column(TypeName = "Decimal(3,2)")]
+		public decimal? AvgStars { get; set; }
+
+
+
+		[Required, DefaultValue(0)]
+		public int OrderCounts { get; set; }
+
+
+
+		[Required, ForeignKey(nameof(Statuses))]
+		public byte StatusId { get; set; }
+		public virtual Status Statuses { get; set; }
+
+
+		[Required]
+		public int quantity { get; set; }
 
 
 		[NotMapped]
 		public ICollection<ProductImage> ProductImages { get; set; }
 		[NotMapped]
 		public ICollection<Review> Reviews { get; set; }
+		[NotMapped]
+		public ICollection<ProductVariation> ProductVariations { get; set; }
+		[NotMapped]
+		public ICollection<ProductCategory> ProductCategories { get; set; }
 	}
 }

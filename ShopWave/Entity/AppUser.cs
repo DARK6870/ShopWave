@@ -9,6 +9,8 @@ namespace ShopWave.Entity
 		[NotMapped]
 		public virtual ICollection<Review> Reviews { get; set; }
 		[NotMapped]
-		public virtual ICollection<UserAvatar> UserAvatars { get; set; }
+		public virtual ICollection<UserData> UserAvatars { get; set; }
+		[NotMapped]
+		public virtual ICollection<Product> Products { get; set; }
 	}
 }
