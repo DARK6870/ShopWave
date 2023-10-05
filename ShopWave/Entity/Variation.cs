@@ -16,5 +16,7 @@ namespace ShopWave.Entity
 
 		[NotMapped]
 		public virtual ICollection<ProductVariation> ProductVariations { get; set; }
+		[NotMapped]
+		public virtual ICollection<Order> Orders { get; set; }
 	}
 }

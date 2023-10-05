@@ -3,11 +3,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShopWave.Entity
 {
-	[Table("Review")]
-	public class Review
+	[Table("Order")]
+	public class Order
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int ReviewId { get; set; }
+		public int OrderId { get; set; }
 
 
 		[Required, ForeignKey(nameof(Products))]
@@ -15,17 +15,19 @@ namespace ShopWave.Entity
 		public virtual Product Products { get; set; }
 
 
+
 		[Required, ForeignKey(nameof(AppUsers))]
 		public string AppUserId { get; set; }
 		public virtual AppUser AppUsers { get; set; }
 
 
-		[Required, Column(TypeName = "tinyint")]
-		public byte NumOfStarts { get; set; }
+		[Required, ForeignKey(nameof(Variations))]
+		public int VartiationId { get; set; }
+		public virtual Variation Variations { get; set; }
 
 
-
-		[Column(TypeName = "varchar(400)")]
-		public string? ReviewText { get; set; }
+		[Required, ForeignKey(nameof(Statuses))]
+		public byte StatusId { get; set; }
+		public virtual Status Statuses { get; set; }
 	}
 }

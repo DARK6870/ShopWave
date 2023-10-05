@@ -49,10 +49,10 @@ namespace ShopWave.Entity
 		[NotMapped]
 		public ICollection<ProductImage> ProductImages { get; set; }
 		[NotMapped]
-		public ICollection<Review> Reviews { get; set; }
-		[NotMapped]
 		public ICollection<ProductVariation> ProductVariations { get; set; }
 		[NotMapped]
 		public ICollection<ProductCategory> ProductCategories { get; set; }
+		[NotMapped]
+		public ICollection<Order> Orders { get; set; }
 	}
 }

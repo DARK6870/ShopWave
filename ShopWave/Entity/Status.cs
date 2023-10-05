@@ -16,5 +16,7 @@ namespace ShopWave.Entity
 
 		[NotMapped]
 		public ICollection<Product> Products { get; set; }
+		[NotMapped]
+		public ICollection<Order> Orders { get; set; }
 	}
 }

@@ -22,9 +22,14 @@ namespace ShopWave.Entity
 		public string PhoneNumber { get; set; }
 
 
-		[Required, Column(TypeName = "varchar(25)")]
-		[StringLength(25)]
-		public string Country { get; set; }
+		[Required, Column(TypeName = "varchar(60)")]
+		[StringLength(60)]
+		public string FIO { get; set; }
+
+
+		[Required, ForeignKey(nameof(Countryess))]
+		public byte CountryId { get; set; }
+		public virtual Countryes Countryess { get; set; }
 
 
 		[Required, Column(TypeName = "varchar(35)")]
