@@ -14,6 +14,15 @@ namespace ShopWave.Entity
 		[StringLength(10)]
 		public string VariationName { get; set;}
 
+
+		[Required]
+		public int quantity { get; set; }
+
+
+		[Required, Column(TypeName = "Decimal(6,2)")]
+		public decimal price { get; set; }
+
+
 		[NotMapped]
 		public virtual ICollection<ProductVariation> ProductVariations { get; set; }
 		[NotMapped]

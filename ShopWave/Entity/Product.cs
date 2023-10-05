@@ -42,9 +42,6 @@ namespace ShopWave.Entity
 		public virtual Status Statuses { get; set; }
 
 
-		[Required]
-		public int quantity { get; set; }
-
 
 		[NotMapped]
 		public ICollection<ProductImage> ProductImages { get; set; }

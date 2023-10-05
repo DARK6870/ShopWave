@@ -16,5 +16,9 @@ namespace ShopWave.Entity
 		public virtual ICollection<Card> Cards { get; set; }
 		[NotMapped]
 		public virtual ICollection<Order> Orders { get; set; }
+		[NotMapped]
+		public virtual ICollection<SellerData> SellerDatas { get; set; }
+		[NotMapped]
+		public virtual ICollection<Avatar> Avatars { get; set; }
 	}
 }

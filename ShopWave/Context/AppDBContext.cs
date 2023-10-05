@@ -14,7 +14,7 @@ namespace ShopWave.Context
 		}
 
 		public DbSet<Support> Supports { get; set; }
-		public DbSet<AppUser> AppUsers { get; set; }
+		//public DbSet<AppUser> AppUsers { get; set; }
 		public DbSet<Categories> Categories { get; set; }
 		public DbSet<Image> Images { get; set; }
 		public DbSet<Product> Products { get; set; }
@@ -29,6 +29,7 @@ namespace ShopWave.Context
 		public DbSet<Countryes> Countryes { get; set; }
 		public DbSet<Order> Orders { get; set; }
 		public DbSet<Card> Cards { get; set; }
+		public DbSet<SellerData> SellerDatas { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
@@ -36,6 +37,8 @@ namespace ShopWave.Context
 			modelBuilder.Entity<UserData>().HasNoKey();
 			modelBuilder.Entity<ProductVariation>().HasNoKey();
 			modelBuilder.Entity<ProductCategory>().HasNoKey();
+			modelBuilder.Entity<SellerData>().HasNoKey();
+			modelBuilder.Entity<Avatar>().HasNoKey();
 
 
 			modelBuilder.Entity<Review>()

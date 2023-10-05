@@ -230,17 +230,15 @@ namespace ShopWave.Migrations
 
             modelBuilder.Entity("ShopWave.Entity.Avatar", b =>
                 {
-                    b.Property<int>("AvatarId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AvatarId"));
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<byte[]>("Data")
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
 
-                    b.HasKey("AvatarId");
+                    b.HasIndex("AppUserId");
 
                     b.ToTable("Avatar");
                 });
@@ -379,9 +377,6 @@ namespace ShopWave.Migrations
                     b.Property<byte>("StatusId")
                         .HasColumnType("tinyint");
 
-                    b.Property<int>("quantity")
-                        .HasColumnType("int");
-
                     b.HasKey("ProductId");
 
                     b.HasIndex("AppUserId");
@@ -466,6 +461,36 @@ namespace ShopWave.Migrations
                     b.ToTable("Review");
                 });
 
+            modelBuilder.Entity("ShopWave.Entity.SellerData", b =>
+                {
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("FIO")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("FullAddress")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("varchar(60)");
+
+                    b.Property<string>("IDPN")
+                        .IsRequired()
+                        .HasMaxLength(13)
+                        .HasColumnType("varchar(13)");
+
+                    b.Property<byte[]>("Photo")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("SellerData");
+                });
+
             modelBuilder.Entity("ShopWave.Entity.Status", b =>
                 {
                     b.Property<byte>("StatusId")
@@ -521,9 +546,6 @@ namespace ShopWave.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("AvatarId")
-                        .HasColumnType("int");
-
                     b.Property<byte>("CountryId")
                         .HasColumnType("tinyint");
 
@@ -554,8 +576,6 @@ namespace ShopWave.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.HasIndex("AvatarId");
-
                     b.HasIndex("CountryId");
 
                     b.ToTable("UserData");
@@ -573,6 +593,12 @@ namespace ShopWave.Migrations
                         .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("varchar(10)");
+
+                    b.Property<decimal>("price")
+                        .HasColumnType("Decimal(6,2)");
+
+                    b.Property<int>("quantity")
+                        .HasColumnType("int");
 
                     b.HasKey("VariationId");
 
@@ -635,6 +661,17 @@ namespace ShopWave.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ShopWave.Entity.Avatar", b =>
+                {
+                    b.HasOne("ShopWave.Entity.AppUser", "AppUsers")
+                        .WithMany()
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUsers");
                 });
 
             modelBuilder.Entity("ShopWave.Entity.Card", b =>
@@ -786,7 +823,7 @@ namespace ShopWave.Migrations
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("ShopWave.Entity.UserData", b =>
+            modelBuilder.Entity("ShopWave.Entity.SellerData", b =>
                 {
                     b.HasOne("ShopWave.Entity.AppUser", "AppUsers")
                         .WithMany()
@@ -794,9 +831,14 @@ namespace ShopWave.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ShopWave.Entity.Avatar", "Avatars")
+                    b.Navigation("AppUsers");
+                });
+
+            modelBuilder.Entity("ShopWave.Entity.UserData", b =>
+                {
+                    b.HasOne("ShopWave.Entity.AppUser", "AppUsers")
                         .WithMany()
-                        .HasForeignKey("AvatarId")
+                        .HasForeignKey("AppUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -807,8 +849,6 @@ namespace ShopWave.Migrations
                         .IsRequired();
 
                     b.Navigation("AppUsers");
-
-                    b.Navigation("Avatars");
 
                     b.Navigation("Countryess");
                 });

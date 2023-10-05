@@ -10,13 +10,6 @@ namespace ShopWave.Entity
 		public string AppUserId { get; set; }
 		public virtual AppUser AppUsers { get; set; }
 
-
-		[Required, ForeignKey(nameof(Avatars))]
-		public int AvatarId { get; set; }
-		public virtual Avatar Avatars { get; set; }
-
-
-
 		[Required, Column(TypeName = "varchar(15)")]
 		[StringLength(15)]
 		public string PhoneNumber { get; set; }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ShopWave.Migrations
 {
     /// <inheritdoc />
-    public partial class @new : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -49,19 +49,6 @@ namespace ShopWave.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Avatar",
-                columns: table => new
-                {
-                    AvatarId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Data = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Avatar", x => x.AvatarId);
                 });
 
             migrationBuilder.CreateTable(
@@ -138,7 +125,9 @@ namespace ShopWave.Migrations
                 {
                     VariationId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    VariationName = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
+                    VariationName = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false),
+                    quantity = table.Column<int>(type: "int", nullable: false),
+                    price = table.Column<decimal>(type: "Decimal(6,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -252,11 +241,47 @@ namespace ShopWave.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Avatar",
+                columns: table => new
+                {
+                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Data = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.ForeignKey(
+                        name: "FK_Avatar_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SellerData",
+                columns: table => new
+                {
+                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    FIO = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
+                    IDPN = table.Column<string>(type: "varchar(13)", maxLength: 13, nullable: false),
+                    FullAddress = table.Column<string>(type: "varchar(60)", maxLength: 60, nullable: false),
+                    Photo = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.ForeignKey(
+                        name: "FK_SellerData_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserData",
                 columns: table => new
                 {
                     AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    AvatarId = table.Column<int>(type: "int", nullable: false),
                     PhoneNumber = table.Column<string>(type: "varchar(15)", maxLength: 15, nullable: false),
                     FIO = table.Column<string>(type: "varchar(60)", maxLength: 60, nullable: false),
                     CountryId = table.Column<byte>(type: "tinyint", nullable: false),
@@ -271,12 +296,6 @@ namespace ShopWave.Migrations
                         column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_UserData_Avatar_AvatarId",
-                        column: x => x.AvatarId,
-                        principalTable: "Avatar",
-                        principalColumn: "AvatarId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_UserData_Countryes_CountryId",
@@ -297,8 +316,7 @@ namespace ShopWave.Migrations
                     Description = table.Column<string>(type: "varchar(800)", maxLength: 800, nullable: false),
                     AvgStars = table.Column<decimal>(type: "Decimal(3,2)", nullable: true),
                     OrderCounts = table.Column<int>(type: "int", nullable: false),
-                    StatusId = table.Column<byte>(type: "tinyint", nullable: false),
-                    quantity = table.Column<int>(type: "int", nullable: false)
+                    StatusId = table.Column<byte>(type: "tinyint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -517,6 +535,11 @@ namespace ShopWave.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Avatar_AppUserId",
+                table: "Avatar",
+                column: "AppUserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Card_AppUserId",
                 table: "Card",
                 column: "AppUserId");
@@ -597,14 +620,14 @@ namespace ShopWave.Migrations
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserData_AppUserId",
-                table: "UserData",
+                name: "IX_SellerData_AppUserId",
+                table: "SellerData",
                 column: "AppUserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserData_AvatarId",
+                name: "IX_UserData_AppUserId",
                 table: "UserData",
-                column: "AvatarId");
+                column: "AppUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserData_CountryId",
@@ -631,6 +654,9 @@ namespace ShopWave.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Avatar");
+
+            migrationBuilder.DropTable(
                 name: "Card");
 
             migrationBuilder.DropTable(
@@ -647,6 +673,9 @@ namespace ShopWave.Migrations
 
             migrationBuilder.DropTable(
                 name: "Review");
+
+            migrationBuilder.DropTable(
+                name: "SellerData");
 
             migrationBuilder.DropTable(
                 name: "Support");
@@ -668,9 +697,6 @@ namespace ShopWave.Migrations
 
             migrationBuilder.DropTable(
                 name: "Product");
-
-            migrationBuilder.DropTable(
-                name: "Avatar");
 
             migrationBuilder.DropTable(
                 name: "Countryes");
