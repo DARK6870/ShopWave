@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using ShopWave.Context;
@@ -20,6 +21,8 @@ builder.Services.Configure<RazorViewEngineOptions>(o =>
 {
 	o.ViewLocationFormats.Clear();
 	o.ViewLocationFormats.Add("/Pages/HomePage/Views/{0}" + RazorViewEngine.ViewExtension);
+	o.ViewLocationFormats.Add("/Pages/AccountPage/Views/{0}" + RazorViewEngine.ViewExtension);
+	o.ViewLocationFormats.Add("/Pages/AuthorizePage/Views/{0}" + RazorViewEngine.ViewExtension);
 	o.ViewLocationFormats.Add("/Pages/Shared/{0}" + RazorViewEngine.ViewExtension);
 	o.ViewLocationFormats.Add("/Pages/{0}" + RazorViewEngine.ViewExtension);
 });
@@ -47,5 +50,18 @@ app.UseAuthorization();
 app.MapControllerRoute(
 	name: "default",
 	pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+	name: "account",
+	pattern: "{action}",
+	defaults: new { Controller = "Account" });
+
+app.MapControllerRoute(
+	name: "authorize",
+	pattern: "{action}",
+	defaults: new { Controller = "Authorize" });
+
+
+
 
 app.Run();

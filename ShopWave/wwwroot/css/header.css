@@ -64,7 +64,7 @@ Blueish tint overlay
 */
     .hero:after {
         content: '';
-        background: rgba(0, 0, 64, 0.5);
+        background: rgb(43 62 163 / 61%);
         position: absolute;
         top: 0;
         width: 100%;
@@ -80,7 +80,7 @@ Making sure everything in .hero sits above our :after elements
     }
 
 #masthead {
-    padding: 2.5em 0;
+    padding: 1em 0; /* Уменьшаем верхний и нижний отступ */
     position: relative;
 }
 
@@ -122,7 +122,7 @@ https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/
     display: inline-block;
     float: left;
     font: inherit;
-    margin: 0.8125em 0 0;
+    margin: 0 0 0;
     overflow: visible;
     outline: none;
     padding: 0;
@@ -234,7 +234,7 @@ https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/
     flex-direction: column;
     height: 0;
     overflow: hidden;
-    padding-top: 2.5em;
+    padding-top: 0; /* Уменьшаем верхний отступ */
 }
 
     #site-nav.is-active {
@@ -443,3 +443,27 @@ https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/
         transform: translateY(0);
     }
 }
+
+#top-icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+}
+
+/* Если меню активно, делаем текст "Account" черным */
+#masthead.is-active .top-icon:nth-child(2) span {
+    color: #000;
+}
+
