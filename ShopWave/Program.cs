@@ -11,11 +11,22 @@ builder.Services.AddControllersWithViews();
 var configuration = builder.Configuration;
 string connectionString = configuration.GetConnectionString("default");
 builder.Services.AddDbContext<AppDBContext>(c => c.UseSqlServer(connectionString));
-builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDBContext>();
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+{
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireUppercase = false;
+}).AddEntityFrameworkStores<AppDBContext>();
 
 //builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 //builder.Services.AddLazyCache();
 
+builder.Services.AddAuthentication()
+	.AddGoogle(options =>
+	{
+		options.ClientId = "798726742753-kc46gaemmk3gu970juhv8bcg486i6ant.apps.googleusercontent.com";
+		options.ClientSecret = "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";
+	});
 
 builder.Services.Configure<RazorViewEngineOptions>(o =>
 {

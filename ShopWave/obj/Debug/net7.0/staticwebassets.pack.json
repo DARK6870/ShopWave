@@ -5,20 +5,36 @@
       "PackagePath": "staticwebassets\\ShopWave.bundle.scp.css"
     },
     {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\Auth.css",
+      "PackagePath": "staticwebassets\\css\\Auth.css"
+    },
+    {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\header.css",
       "PackagePath": "staticwebassets\\css\\header.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\loader.css",
+      "PackagePath": "staticwebassets\\css\\loader.css"
     },
     {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\favicon.ico",
-      "PackagePath": "staticwebassets\\favicon.ico"
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\Favico.svg",
+      "PackagePath": "staticwebassets\\img\\Favico.svg"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\ShopWaveIco.png",
+      "PackagePath": "staticwebassets\\img\\ShopWaveIco.png"
     },
     {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\userIco.png",
       "PackagePath": "staticwebassets\\img\\userIco.png"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\js\\loader.js",
+      "PackagePath": "staticwebassets\\js\\loader.js"
     },
     {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\js\\site.js",

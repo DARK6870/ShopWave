@@ -160,3 +160,4 @@ D:\Repositoryes\ShopWave\ShopWave\obj\Debug\net7.0\refint\ShopWave.dll
 D:\Repositoryes\ShopWave\ShopWave\obj\Debug\net7.0\ShopWave.pdb
 D:\Repositoryes\ShopWave\ShopWave\obj\Debug\net7.0\ShopWave.genruntimeconfig.cache
 D:\Repositoryes\ShopWave\ShopWave\obj\Debug\net7.0\ref\ShopWave.dll
+D:\Repositoryes\ShopWave\ShopWave\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.Google.dll

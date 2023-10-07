@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "eeUmWd9f+uU91K/7SKh3ks9gjz4UQhDG1h4Opt1L38KtRpEREYB/XlUP0WQ2dKpywsUMCzLFMABoou+1GqR4HQ==",
+  "dgSpecHash": "7uQrXBMxOhXu9ec1uvurcA4XrE+31w7+4EzCLIJtKknousTkq3DL7O0Eje4tptf2G4iGpsPZiKeChcF3bNIlBA==",
   "success": true,
   "projectFilePath": "D:\\Repositoryes\\ShopWave\\ShopWave\\ShopWave.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tsymb\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\tsymb\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\tsymb\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\tsymb\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\7.0.11\\microsoft.aspnetcore.authentication.google.7.0.11.nupkg.sha512",
     "C:\\Users\\tsymb\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.11\\microsoft.aspnetcore.cryptography.internal.7.0.11.nupkg.sha512",
     "C:\\Users\\tsymb\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.11\\microsoft.aspnetcore.cryptography.keyderivation.7.0.11.nupkg.sha512",
     "C:\\Users\\tsymb\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\7.0.11\\microsoft.aspnetcore.identity.entityframeworkcore.7.0.11.nupkg.sha512",

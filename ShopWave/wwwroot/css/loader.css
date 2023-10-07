@@ -1,0 +1,35 @@
+﻿.loader {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #232A32;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.75s, visibility 0.75s;
+}
+
+.loader--hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader img {
+    animation: fadeOutAndIn 2s 10;
+}
+
+
+@keyframes fadeOutAndIn {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+}

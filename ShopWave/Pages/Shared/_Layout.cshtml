@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/header.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ShopWave.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/loader.css" asp-append-version="true" />
+    <link rel="icon" type="image/png" href="/img/ShopWaveIco.png">
 </head>
 <body>
     <header>
@@ -37,10 +39,10 @@
                             </span>
                             <span class="hamburger-label">Menu</span>
                         </button>
-                        <button class="top-icon">
+                        <a href="profile" class="top-icon text-white">
                             <img src="/img/userIco.png" style="height: 40px;" />
                             <span style="margin-left: 10px;">Account</span>
-                        </button>
+                        </a>
                     </div>
 
         <nav id="site-nav" role="navigation">
@@ -73,8 +75,14 @@
             <ul>
               <li><a href="#">Profile</a></li>
               <li><a href="#">My card</a></li>
-              <li><a href="#">My orders</a></li>
-              <li><a href="#">Profile settings</a></li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <li class="menu-item"><a style="color: gray;" asp-area="" asp-controller="Authorize" asp-action="logout">Logout</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="login">Login</a></li>
+                                }
             </ul>               
           </div>
           <div class="col">
@@ -89,8 +97,12 @@
   </header>
 </div>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="main-container" style="margin-left: 0; margin-right: 0;">
+        <main role="main" class="mb-5">
+            <div class="loader">
+                <img height="200px" src="~/img/ShopWaveIco.png" alt="Your Logo">
+            </div>
+
             @RenderBody()
         </main>
     </div>
@@ -103,6 +115,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/loader.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
