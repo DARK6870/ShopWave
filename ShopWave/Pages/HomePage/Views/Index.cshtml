@@ -1,8 +1,122 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
+<link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt-2 text-center">
+            <p class="title">Welcome to ShopWave</p>
+            <form method="get" action="/search">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control custom-input" placeholder="Search for products..." aria-label="Search" aria-describedby="search-button">
+                    <div class="input-group-append">
+                        <button class="btn custom-button" type="submit" id="search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="container mt-0">
+    <div class="row">
+        <div class="col-md-12">
+            <img src="/img/main_ru.png" alt="E-commerce Banner" id="bannerImage" class="img-fluid shadow" style="border-radius: 20px;">
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center mt-5 title">Explore Categories</h2>
+            <div class="category-scroll">
+                <div class="category-card">
+                    <a href="#">
+                    <img src="/img/electronicIco.png" alt="Category 1" class="category-icon">
+                    <p class="category-title">Electronic</p>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="#">
+                        <img src="/img/animalIco.png" alt="Category 1" class="category-icon">
+                        <p class="category-title">For animals</p>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="#">
+                        <img src="/img/beautyIco.png" alt="Category 1" class="category-icon">
+                        <p class="category-title">Beauty</p>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="#">
+                        <img src="/img/foodIco.png" alt="Category 1" class="category-icon">
+                        <p class="category-title">Food</p>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="#">
+                        <img src="/img/gamingIco.png" alt="Category 1" class="category-icon">
+                        <p class="category-title">Gaming</p>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="#">
+                        <img src="/img/healthIco.png" alt="Category 1" class="category-icon">
+                        <p class="category-title">Heath</p>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="#">
+                        <img src="/img/houseIco.png" alt="Category 1" class="category-icon">
+                        <p class="category-title">For house</p>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="#">
+                        <img src="/img/kidsIco.png" alt="Category 1" class="category-icon">
+                        <p class="category-title">For kids</p>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="#">
+                        <img src="/img/penIco.png" alt="Category 1" class="category-icon">
+                        <p class="category-title">Office</p>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="#">
+                        <img src="/img/shoesIco.png" alt="Category 1" class="category-icon">
+                        <p class="category-title">Shoes</p>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="#">
+                        <img src="/img/sportIco.png" alt="Category 1" class="category-icon">
+                        <p class="category-title">Sport</p>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="#">
+                        <img src="/img/clothsIco.png" alt="Category 1" class="category-icon">
+                        <p class="category-title">Clothes</p>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="#">
+                        <img src="/img/transportIco.png" alt="Category 1" class="category-icon">
+                        <p class="category-title">Transport</p>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mt-3">
+
 </div>

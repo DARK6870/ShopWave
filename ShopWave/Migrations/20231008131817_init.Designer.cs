@@ -12,7 +12,7 @@ using ShopWave.Context;
 namespace ShopWave.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20231005162443_init")]
+    [Migration("20231008131817_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -364,6 +364,9 @@ namespace ShopWave.Migrations
                     b.Property<decimal?>("AvgStars")
                         .HasColumnType("Decimal(3,2)");
 
+                    b.Property<short>("CategoryId")
+                        .HasColumnType("smallint");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(800)
@@ -384,24 +387,11 @@ namespace ShopWave.Migrations
 
                     b.HasIndex("AppUserId");
 
+                    b.HasIndex("CategoryId");
+
                     b.HasIndex("StatusId");
 
                     b.ToTable("Product");
-                });
-
-            modelBuilder.Entity("ShopWave.Entity.ProductCategory", b =>
-                {
-                    b.Property<short>("CategoryId")
-                        .HasColumnType("smallint");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductCategory");
                 });
 
             modelBuilder.Entity("ShopWave.Entity.ProductImage", b =>
@@ -739,6 +729,12 @@ namespace ShopWave.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ShopWave.Entity.Categories", "Categoriess")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("ShopWave.Entity.Status", "Statuses")
                         .WithMany()
                         .HasForeignKey("StatusId")
@@ -747,26 +743,9 @@ namespace ShopWave.Migrations
 
                     b.Navigation("AppUsers");
 
+                    b.Navigation("Categoriess");
+
                     b.Navigation("Statuses");
-                });
-
-            modelBuilder.Entity("ShopWave.Entity.ProductCategory", b =>
-                {
-                    b.HasOne("ShopWave.Entity.Categories", "Categories")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ShopWave.Entity.Product", "Products")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Categories");
-
-                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("ShopWave.Entity.ProductImage", b =>

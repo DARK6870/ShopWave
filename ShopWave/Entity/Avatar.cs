@@ -11,8 +11,9 @@ namespace ShopWave.Entity
 		public virtual AppUser AppUsers { get; set; }
 
 
-		[Required]
-		public byte[] Data { get; set; }
+        [Required]
+        [MaxLength]
+        public string Data { get; set; }
 
-	}
+    }
 }

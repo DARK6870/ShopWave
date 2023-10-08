@@ -41,14 +41,16 @@ namespace ShopWave.Entity
 		public byte StatusId { get; set; }
 		public virtual Status Statuses { get; set; }
 
+		[Required, ForeignKey(nameof(Categoriess))]
+		public short CategoryId { get; set; }
+		public virtual Categories Categoriess { get; set; }
+
 
 
 		[NotMapped]
 		public ICollection<ProductImage> ProductImages { get; set; }
 		[NotMapped]
 		public ICollection<ProductVariation> ProductVariations { get; set; }
-		[NotMapped]
-		public ICollection<ProductCategory> ProductCategories { get; set; }
 		[NotMapped]
 		public ICollection<Order> Orders { get; set; }
 	}

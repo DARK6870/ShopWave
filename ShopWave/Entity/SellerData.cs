@@ -26,7 +26,8 @@ namespace ShopWave.Entity
 		[StringLength(60)]
 		public string FullAddress { get; set; }
 
-		[Required]
-		public byte[] Photo { get; set; }
-	}
+        [Required]
+        [MaxLength]
+        public string Data { get; set; }
+    }
 }

@@ -14,7 +14,6 @@ namespace ShopWave.Context
 		}
 
 		public DbSet<Support> Supports { get; set; }
-		//public DbSet<AppUser> AppUsers { get; set; }
 		public DbSet<Categories> Categories { get; set; }
 		public DbSet<Image> Images { get; set; }
 		public DbSet<Product> Products { get; set; }
@@ -24,7 +23,6 @@ namespace ShopWave.Context
 		public DbSet<Avatar> Avatars { get; set; }
 		public DbSet<Variation> Variations { get; set; }
 		public DbSet<ProductVariation> ProductVariations { get; set; }
-		public DbSet<ProductCategory> ProductCategories { get; set; }
 		public DbSet<UserData> UserDatas { get; set; }
 		public DbSet<Countryes> Countryes { get; set; }
 		public DbSet<Order> Orders { get; set; }
@@ -36,7 +34,6 @@ namespace ShopWave.Context
 			modelBuilder.Entity<ProductImage>().HasNoKey();
 			modelBuilder.Entity<UserData>().HasNoKey();
 			modelBuilder.Entity<ProductVariation>().HasNoKey();
-			modelBuilder.Entity<ProductCategory>().HasNoKey();
 			modelBuilder.Entity<SellerData>().HasNoKey();
 			modelBuilder.Entity<Avatar>().HasNoKey();
 

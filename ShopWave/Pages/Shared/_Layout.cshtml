@@ -9,7 +9,13 @@
     <link rel="stylesheet" href="~/css/header.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ShopWave.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/loader.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="icon" type="image/png" href="/img/ShopWaveIco.png">
+    <link rel="stylesheet" href="~/css/animate.css" asp-append-version="true" />
+    <script src="~/js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
 </head>
 <body>
     <header>
@@ -29,7 +35,7 @@
 
 <div class="hero">
     <header id="masthead" role="banner">
-      <div class="container">
+                <div class="container">
                     <div id="top-icons">
                         <button class="top-icon" id="menu-button">
                             <span class="hamburger hamburger--boring">
@@ -106,16 +112,39 @@
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
+    <footer class="footer position-relative" style="line-height: 30px; background-color: #2d3147;">
         <div class="container">
-            &copy; 2023 - ShopWave - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row">
+                <div class="col-md-4 mt-3 mb-3">
+                    <a href="/" class="footer-logo title" style="color: #1E90FF;">ShopWave</a>
+                    <p class="t mt-2 mb-1">E-commerce open-source web site</p>
+                    <img height="90" class="mt-2" src="/img/ShopWaveIco.png"/>
+                </div>
+                <div class="col-md-4 mt-3 mb-3">
+                    <h4 class="mb-2">Contact Us</h4>
+                    <p class="t"><i class="t fas fa-envelope"></i> Email: admin@ShopWave.com</p>
+                    <p class="t"><i class="t fas fa-envelope"></i> Email: support@ShopWave.com</p>
+                    <p class="t"><i class="t fas fa-phone"></i> Phone: +1 (123) 456-7890</p>
+                </div>
+                <div class="col-md-4 mt-3 mb-3">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a class="l" href="/">Home</a></li>
+                        <li><a class="l" href="/profile">Profile</a></li>
+                        <li><a class="l" href="/login">Sign In</a></li>
+                        <li><a class="l" href="/card">Card</a></li>
+                        <li><a class="l" href="/about">About Us</a></li>
+                        <li><a class="l" href="/support">Support</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/loader.js" asp-append-version="true"></script>
+    <script src="~/js/Banner.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

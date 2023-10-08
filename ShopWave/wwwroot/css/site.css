@@ -30,3 +30,80 @@ a{
 html, body, main{
     margin: 0 !important;
 }
+
+
+.title {
+    text-align: center;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    margin: 10px 0 10px 0;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+
+.custom-input {
+    border: 2px solid #7480be;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Стилизация кнопки */
+.custom-button {
+    border: 2px solid #7480be;
+    background-color: #7480be;
+    border-radius: 0 10px 10px 0;
+    padding: 10px 15px;
+    cursor: pointer;
+    color: white;
+}
+
+
+    .custom-button i {
+        font-size: 18px;
+    }
+
+
+
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+
+.footer {
+    background-color: #23252B;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+}
+
+    .footer i {
+        margin-right: 5px;
+    }
+
+.footer-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.l{
+    color: darkgray!important;
+}
+
+.btn-sm-custom {
+    font-size: 0.9rem;
+    padding: 0.20rem 0.5rem;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    font-family: "Quicksand", sans-serif;
+}

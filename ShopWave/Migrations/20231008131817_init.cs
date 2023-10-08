@@ -316,7 +316,8 @@ namespace ShopWave.Migrations
                     Description = table.Column<string>(type: "varchar(800)", maxLength: 800, nullable: false),
                     AvgStars = table.Column<decimal>(type: "Decimal(3,2)", nullable: true),
                     OrderCounts = table.Column<int>(type: "int", nullable: false),
-                    StatusId = table.Column<byte>(type: "tinyint", nullable: false)
+                    StatusId = table.Column<byte>(type: "tinyint", nullable: false),
+                    CategoryId = table.Column<short>(type: "smallint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -326,6 +327,12 @@ namespace ShopWave.Migrations
                         column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Product_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "CategoryId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Product_Status_StatusId",
@@ -396,29 +403,6 @@ namespace ShopWave.Migrations
                         principalTable: "Variation",
                         principalColumn: "VariationId",
                         onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ProductCategory",
-                columns: table => new
-                {
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    CategoryId = table.Column<short>(type: "smallint", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.ForeignKey(
-                        name: "FK_ProductCategory_Categories_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Categories",
-                        principalColumn: "CategoryId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ProductCategory_Product_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Product",
-                        principalColumn: "ProductId",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -575,19 +559,14 @@ namespace ShopWave.Migrations
                 column: "AppUserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Product_StatusId",
+                name: "IX_Product_CategoryId",
                 table: "Product",
-                column: "StatusId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ProductCategory_CategoryId",
-                table: "ProductCategory",
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductCategory_ProductId",
-                table: "ProductCategory",
-                column: "ProductId");
+                name: "IX_Product_StatusId",
+                table: "Product",
+                column: "StatusId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProductImage_ImageId",
@@ -663,9 +642,6 @@ namespace ShopWave.Migrations
                 name: "Order");
 
             migrationBuilder.DropTable(
-                name: "ProductCategory");
-
-            migrationBuilder.DropTable(
                 name: "ProductImage");
 
             migrationBuilder.DropTable(
@@ -687,9 +663,6 @@ namespace ShopWave.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Categories");
-
-            migrationBuilder.DropTable(
                 name: "Image");
 
             migrationBuilder.DropTable(
@@ -703,6 +676,9 @@ namespace ShopWave.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Status");
