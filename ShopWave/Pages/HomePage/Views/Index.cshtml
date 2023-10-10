@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Product>
+@{
     ViewData["Title"] = "Home";
 }
 <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
@@ -117,6 +118,55 @@
         </div>
     </div>
 </div>
-<div class="mt-3">
-
+<div class="container" style="margin-top: 50px;">
+    <h3 style="margin-left: 3px;">New products:</h3>
+    <div class="row">
+        @foreach (var product in Model.Take(28))
+        {
+            for (int i = 0; i < 24; i++)
+            {
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="card mb-2">
+                        <div class="card__top">
+                            <!-- Изображение-ссылка товара -->
+                            <a href="#" class="card__image">
+                                <img src="data:image/jpeg;base64, @product.ProductImages.FirstOrDefault()?.Images.Data" alt="@product.ProductName">
+                            </a>
+                            <!-- Скидка на товар -->
+                            <div class="card__label">-10%</div>
+                        </div>
+                        <!-- Нижняя часть -->
+                        <div class="card__bottom">
+                            <!-- Цены на товар (с учетом скидки и без)-->
+                            <div class="card__prices">
+                                <div class="card__price card__price--discount">135 000</div>
+                            </div>
+                            <!-- Ссылка-название товара -->
+                            <a href="#" class="card__title">
+                                Смартфон Apple IPhone 14 Pro Max 256Gb, золотой
+                            </a>
+                            <!-- Кнопка добавить в корзину -->
+                            <button class="card__add">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
 </div>
+
+
+@* @foreach (var product in Model)
+{
+    <div>
+        <h3>@product.ProductName</h3>
+        <p>@product.Description</p>
+        <div class="product-images">
+            @foreach (var productImage in product.ProductImages)
+            {
+                <img src="data:image/jpeg;base64, @productImage.Images.Data" alt="@product.ProductName">
+            }
+        </div>
+    </div>
+}
+ *@
