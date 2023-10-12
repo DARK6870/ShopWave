@@ -14,14 +14,13 @@ namespace ShopWave.Context
 		}
 
 		public DbSet<Support> Supports { get; set; }
-		public DbSet<Categories> Categories { get; set; }
-		public DbSet<Image> Images { get; set; }
+        public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<Categories> Categories { get; set; }
 		public DbSet<Product> Products { get; set; }
-		public DbSet<ProductImage> ProductImages { get; set; }
+		public DbSet<ProductImages> ProductImages { get; set; }
 		public DbSet<Review> Reviews { get; set; }
 		public DbSet<Status> Statuses { get; set; }
 		public DbSet<Avatar> Avatars { get; set; }
-		public DbSet<Variation> Variations { get; set; }
 		public DbSet<ProductVariation> ProductVariations { get; set; }
 		public DbSet<UserData> UserDatas { get; set; }
 		public DbSet<Countryes> Countryes { get; set; }
@@ -31,14 +30,9 @@ namespace ShopWave.Context
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			modelBuilder.Entity<ProductImage>().HasNoKey();
-			modelBuilder.Entity<UserData>().HasNoKey();
-			modelBuilder.Entity<ProductVariation>().HasNoKey();
-			modelBuilder.Entity<SellerData>().HasNoKey();
-			modelBuilder.Entity<Avatar>().HasNoKey();
 
 
-			modelBuilder.Entity<Review>()
+            modelBuilder.Entity<Review>()
 		.HasOne(r => r.Products)
 		.WithMany() // Assuming there is a navigation property in the Product class pointing back to reviews
 		.HasForeignKey(r => r.ProductId)
@@ -51,13 +45,6 @@ namespace ShopWave.Context
 		.HasForeignKey(c => c.ProductId)
 		.OnDelete(DeleteBehavior.Restrict);
 
-		  modelBuilder.Entity<Card>().HasNoKey();
-
-		   modelBuilder.Entity<Order>()
-		.HasOne(o => o.Products)
-		.WithMany() // Assuming there is a navigation property in the Product class pointing back to orders
-		.HasForeignKey(o => o.ProductId)
-		.OnDelete(DeleteBehavior.Restrict); // Use DeleteBehavior.Restrict to prevent cascading delete
 
 			modelBuilder.Entity<Order>()
 				.HasOne(o => o.AppUsers)
@@ -66,15 +53,9 @@ namespace ShopWave.Context
 				.OnDelete(DeleteBehavior.Restrict); // Use DeleteBehavior.Restrict to prevent cascading delete
 
 			modelBuilder.Entity<Order>()
-				.HasOne(o => o.Variations)
-				.WithMany() // Assuming there is a navigation property in the Variation class pointing back to orders
-				.HasForeignKey(o => o.VartiationId)
-				.OnDelete(DeleteBehavior.Restrict); // Use DeleteBehavior.Restrict to prevent cascading delete
-
-			modelBuilder.Entity<Order>()
-				.HasOne(o => o.Statuses)
+				.HasOne(o => o.ProductVariations)
 				.WithMany() // Assuming there is a navigation property in the Status class pointing back to orders
-				.HasForeignKey(o => o.StatusId)
+				.HasForeignKey(o => o.VariationId)
 				.OnDelete(DeleteBehavior.Restrict);
 
 			base.OnModelCreating(modelBuilder);

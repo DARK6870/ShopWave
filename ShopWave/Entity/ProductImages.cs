@@ -5,15 +5,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace ShopWave.Entity
 {
 	[Table("ProductImage")]
-	public class ProductImage
+	public class ProductImages
 	{
-		[Required, ForeignKey(nameof(Products))]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+
+        [Required, ForeignKey(nameof(Products))]
 		public int ProductId { get; set; }
 		public virtual Product Products { get; set; }
 
 
-		[Required, ForeignKey(nameof(Images))]
-		public int ImageId { get; set; }
-		public virtual Image Images { get; set; }
-	}
+        [MaxLength]
+        public string Data { get; set; }
+    }
 }

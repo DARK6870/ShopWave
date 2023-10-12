@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShopWave.Entity
@@ -10,20 +11,14 @@ namespace ShopWave.Entity
 		public int OrderId { get; set; }
 
 
-		[Required, ForeignKey(nameof(Products))]
-		public int ProductId { get; set; }
-		public virtual Product Products { get; set; }
-
+		[Required, ForeignKey(nameof(ProductVariations))]
+		public int VariationId { get; set; }
+		public virtual ProductVariation ProductVariations { get; set; }
 
 
 		[Required, ForeignKey(nameof(AppUsers))]
 		public string AppUserId { get; set; }
 		public virtual AppUser AppUsers { get; set; }
-
-
-		[Required, ForeignKey(nameof(Variations))]
-		public int VartiationId { get; set; }
-		public virtual Variation Variations { get; set; }
 
 
 		[Required, ForeignKey(nameof(Statuses))]

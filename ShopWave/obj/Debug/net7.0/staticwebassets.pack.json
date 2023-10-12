@@ -25,8 +25,8 @@
       "PackagePath": "staticwebassets\\css\\loader.css"
     },
     {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\site.css",
-      "PackagePath": "staticwebassets\\css\\site.css"
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\main.css",
+      "PackagePath": "staticwebassets\\css\\main.css"
     },
     {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\18Ico.png",
@@ -61,8 +61,8 @@
       "PackagePath": "staticwebassets\\img\\foodIco.png"
     },
     {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\gamingIco.png",
-      "PackagePath": "staticwebassets\\img\\gamingIco.png"
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\gameIco.png",
+      "PackagePath": "staticwebassets\\img\\gameIco.png"
     },
     {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\healthIco.png",
@@ -105,8 +105,8 @@
       "PackagePath": "staticwebassets\\img\\usIco.png"
     },
     {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\userIco.png",
-      "PackagePath": "staticwebassets\\img\\userIco.png"
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\userIcon.png",
+      "PackagePath": "staticwebassets\\img\\userIcon.png"
     },
     {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\js\\Banner.js",

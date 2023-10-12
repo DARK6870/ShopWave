@@ -14,7 +14,6 @@ namespace ShopWave.Entity
 		public string CategoryName { get; set; }
 
 
-		[NotMapped]
 		public ICollection<Product> Products { get; set; }
 	}
 }

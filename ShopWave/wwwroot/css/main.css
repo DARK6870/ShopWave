@@ -123,7 +123,7 @@ body {
 }
 
     .card:hover {
-        box-shadow: 4px 8px 16px rgba(255, 102, 51, 0.2);
+        box-shadow: 4px 8px 16px rgba(116,128,190, 0.3);
     }
 
 .card__top {
@@ -181,7 +181,7 @@ body {
 }
 
 .card__price::after {
-    content: "₽";
+    content: "$";
     margin-left: 4px;
     position: relative;
 }

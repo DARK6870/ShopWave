@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HAxdBkGXXBRbV1EtmECO0+pAUC2uF+oKthp+LSQG76Y=",
+  "Hash": "+4KvkOp5QNXGp0OHLTFJiBJiuB4J4bwyXSUiy5uiSxU=",
   "Source": "ShopWave",
   "BasePath": "_content/ShopWave",
   "Mode": "Default",
@@ -136,12 +136,12 @@
       "OriginalItemSpec": "wwwroot\\css\\loader.css"
     },
     {
-      "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\site.css",
+      "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\main.css",
       "SourceId": "ShopWave",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\",
       "BasePath": "_content/ShopWave",
-      "RelativePath": "css/site.css",
+      "RelativePath": "css/main.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -150,7 +150,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\site.css"
+      "OriginalItemSpec": "wwwroot\\css\\main.css"
     },
     {
       "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\18Ico.png",
@@ -272,12 +272,12 @@
       "OriginalItemSpec": "wwwroot\\img\\foodIco.png"
     },
     {
-      "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\gamingIco.png",
+      "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\gameIco.png",
       "SourceId": "ShopWave",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\",
       "BasePath": "_content/ShopWave",
-      "RelativePath": "img/gamingIco.png",
+      "RelativePath": "img/gameIco.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -286,7 +286,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\gamingIco.png"
+      "OriginalItemSpec": "wwwroot\\img\\gameIco.png"
     },
     {
       "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\healthIco.png",
@@ -459,12 +459,12 @@
       "OriginalItemSpec": "wwwroot\\img\\transportIco.png"
     },
     {
-      "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\userIco.png",
+      "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\userIcon.png",
       "SourceId": "ShopWave",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\",
       "BasePath": "_content/ShopWave",
-      "RelativePath": "img/userIco.png",
+      "RelativePath": "img/userIcon.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -473,7 +473,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\userIco.png"
+      "OriginalItemSpec": "wwwroot\\img\\userIcon.png"
     },
     {
       "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\usIco.png",

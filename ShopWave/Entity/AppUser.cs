@@ -6,19 +6,12 @@ namespace ShopWave.Entity
 {
 	public class AppUser : IdentityUser
 	{
-		[NotMapped]
-		public virtual ICollection<Review> Reviews { get; set; }
-		[NotMapped]
-		public virtual ICollection<UserData> UserAvatars { get; set; }
-		[NotMapped]
-		public virtual ICollection<Product> Products { get; set; }
-		[NotMapped]
-		public virtual ICollection<Card> Cards { get; set; }
-		[NotMapped]
-		public virtual ICollection<Order> Orders { get; set; }
-		[NotMapped]
-		public virtual ICollection<SellerData> SellerDatas { get; set; }
-		[NotMapped]
-		public virtual ICollection<Avatar> Avatars { get; set; }
+		public ICollection<Review> Reviews { get; set; }
+		public ICollection<UserData> UserAvatars { get; set; }
+		public  ICollection<Product> Products { get; set; }
+		public ICollection<Card> Cards { get; set; }
+		public ICollection<Order> Orders { get; set; }
+		public ICollection<SellerData> SellerDatas { get; set; }
+		public ICollection<Avatar> Avatars { get; set; }
 	}
 }

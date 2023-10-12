@@ -6,9 +6,14 @@ namespace ShopWave.Entity
 	[Table("UserData")]
 	public class UserData
 	{
-		[ForeignKey(nameof(AppUsers))]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+		public int Id { get; set; }
+
+
+        [ForeignKey(nameof(AppUsers))]
 		public string AppUserId { get; set; }
 		public virtual AppUser AppUsers { get; set; }
+
 
 		[Required, Column(TypeName = "varchar(15)")]
 		[StringLength(15)]

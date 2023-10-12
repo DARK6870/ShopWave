@@ -6,9 +6,14 @@ namespace ShopWave.Entity
 	[Table("Avatar")]
 	public class Avatar
 	{
-		[ForeignKey(nameof(AppUsers))]
-		public string AppUserId { get; set; }
-		public virtual AppUser AppUsers { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+
+        [ForeignKey(nameof(AppUsers))]
+        public string? AppUserId { get; set; }
+        public virtual AppUser? AppUsers { get; set; }
 
 
         [Required]

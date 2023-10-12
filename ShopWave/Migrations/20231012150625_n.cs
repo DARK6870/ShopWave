@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ShopWave.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class n : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -78,19 +78,6 @@ namespace ShopWave.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Image",
-                columns: table => new
-                {
-                    ImageId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Data = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Image", x => x.ImageId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Status",
                 columns: table => new
                 {
@@ -117,21 +104,6 @@ namespace ShopWave.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Support", x => x.SupportId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Variation",
-                columns: table => new
-                {
-                    VariationId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    VariationName = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false),
-                    quantity = table.Column<int>(type: "int", nullable: false),
-                    price = table.Column<decimal>(type: "Decimal(6,2)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Variation", x => x.VariationId);
                 });
 
             migrationBuilder.CreateTable(
@@ -244,31 +216,36 @@ namespace ShopWave.Migrations
                 name: "Avatar",
                 columns: table => new
                 {
-                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Data = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    Data = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_Avatar", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Avatar_AspNetUsers_AppUserId",
                         column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
                 name: "SellerData",
                 columns: table => new
                 {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     FIO = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     IDPN = table.Column<string>(type: "varchar(13)", maxLength: 13, nullable: false),
                     FullAddress = table.Column<string>(type: "varchar(60)", maxLength: 60, nullable: false),
-                    Photo = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
+                    Data = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_SellerData", x => x.Id);
                     table.ForeignKey(
                         name: "FK_SellerData_AspNetUsers_AppUserId",
                         column: x => x.AppUserId,
@@ -281,6 +258,8 @@ namespace ShopWave.Migrations
                 name: "UserData",
                 columns: table => new
                 {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     PhoneNumber = table.Column<string>(type: "varchar(15)", maxLength: 15, nullable: false),
                     FIO = table.Column<string>(type: "varchar(60)", maxLength: 60, nullable: false),
@@ -291,6 +270,7 @@ namespace ShopWave.Migrations
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_UserData", x => x.Id);
                     table.ForeignKey(
                         name: "FK_UserData_AspNetUsers_AppUserId",
                         column: x => x.AppUserId,
@@ -317,7 +297,8 @@ namespace ShopWave.Migrations
                     AvgStars = table.Column<decimal>(type: "Decimal(3,2)", nullable: true),
                     OrderCounts = table.Column<int>(type: "int", nullable: false),
                     StatusId = table.Column<byte>(type: "tinyint", nullable: false),
-                    CategoryId = table.Column<short>(type: "smallint", nullable: false)
+                    CategoryId = table.Column<short>(type: "smallint", nullable: false),
+                    sale = table.Column<byte>(type: "tinyint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -346,11 +327,14 @@ namespace ShopWave.Migrations
                 name: "Card",
                 columns: table => new
                 {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_Card", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Card_AspNetUsers_AppUserId",
                         column: x => x.AppUserId,
@@ -366,60 +350,17 @@ namespace ShopWave.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Order",
-                columns: table => new
-                {
-                    OrderId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    VartiationId = table.Column<int>(type: "int", nullable: false),
-                    StatusId = table.Column<byte>(type: "tinyint", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Order", x => x.OrderId);
-                    table.ForeignKey(
-                        name: "FK_Order_AspNetUsers_AppUserId",
-                        column: x => x.AppUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Order_Product_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Product",
-                        principalColumn: "ProductId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Order_Status_StatusId",
-                        column: x => x.StatusId,
-                        principalTable: "Status",
-                        principalColumn: "StatusId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Order_Variation_VartiationId",
-                        column: x => x.VartiationId,
-                        principalTable: "Variation",
-                        principalColumn: "VariationId",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ProductImage",
                 columns: table => new
                 {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     ProductId = table.Column<int>(type: "int", nullable: false),
-                    ImageId = table.Column<int>(type: "int", nullable: false)
+                    Data = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.ForeignKey(
-                        name: "FK_ProductImage_Image_ImageId",
-                        column: x => x.ImageId,
-                        principalTable: "Image",
-                        principalColumn: "ImageId",
-                        onDelete: ReferentialAction.Cascade);
+                    table.PrimaryKey("PK_ProductImage", x => x.Id);
                     table.ForeignKey(
                         name: "FK_ProductImage_Product_ProductId",
                         column: x => x.ProductId,
@@ -432,22 +373,21 @@ namespace ShopWave.Migrations
                 name: "ProductVariation",
                 columns: table => new
                 {
-                    ProductId = table.Column<int>(type: "int", nullable: false),
                     VariationId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    VariationName = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false),
+                    quantity = table.Column<int>(type: "int", nullable: false),
+                    price = table.Column<decimal>(type: "Decimal(6,2)", nullable: false)
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_ProductVariation", x => x.VariationId);
                     table.ForeignKey(
                         name: "FK_ProductVariation_Product_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Product",
                         principalColumn: "ProductId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ProductVariation_Variation_VariationId",
-                        column: x => x.VariationId,
-                        principalTable: "Variation",
-                        principalColumn: "VariationId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -477,6 +417,45 @@ namespace ShopWave.Migrations
                         principalTable: "Product",
                         principalColumn: "ProductId",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Order",
+                columns: table => new
+                {
+                    OrderId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    VariationId = table.Column<int>(type: "int", nullable: false),
+                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    StatusId = table.Column<byte>(type: "tinyint", nullable: false),
+                    AppUserId1 = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Order", x => x.OrderId);
+                    table.ForeignKey(
+                        name: "FK_Order_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Order_AspNetUsers_AppUserId1",
+                        column: x => x.AppUserId1,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Order_ProductVariation_VariationId",
+                        column: x => x.VariationId,
+                        principalTable: "ProductVariation",
+                        principalColumn: "VariationId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Order_Status_StatusId",
+                        column: x => x.StatusId,
+                        principalTable: "Status",
+                        principalColumn: "StatusId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -539,9 +518,9 @@ namespace ShopWave.Migrations
                 column: "AppUserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Order_ProductId",
+                name: "IX_Order_AppUserId1",
                 table: "Order",
-                column: "ProductId");
+                column: "AppUserId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Order_StatusId",
@@ -549,9 +528,9 @@ namespace ShopWave.Migrations
                 column: "StatusId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Order_VartiationId",
+                name: "IX_Order_VariationId",
                 table: "Order",
-                column: "VartiationId");
+                column: "VariationId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Product_AppUserId",
@@ -569,11 +548,6 @@ namespace ShopWave.Migrations
                 column: "StatusId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductImage_ImageId",
-                table: "ProductImage",
-                column: "ImageId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_ProductImage_ProductId",
                 table: "ProductImage",
                 column: "ProductId");
@@ -582,11 +556,6 @@ namespace ShopWave.Migrations
                 name: "IX_ProductVariation_ProductId",
                 table: "ProductVariation",
                 column: "ProductId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ProductVariation_VariationId",
-                table: "ProductVariation",
-                column: "VariationId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Review_AppUserId",
@@ -645,9 +614,6 @@ namespace ShopWave.Migrations
                 name: "ProductImage");
 
             migrationBuilder.DropTable(
-                name: "ProductVariation");
-
-            migrationBuilder.DropTable(
                 name: "Review");
 
             migrationBuilder.DropTable(
@@ -663,16 +629,13 @@ namespace ShopWave.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Image");
-
-            migrationBuilder.DropTable(
-                name: "Variation");
-
-            migrationBuilder.DropTable(
-                name: "Product");
+                name: "ProductVariation");
 
             migrationBuilder.DropTable(
                 name: "Countryes");
+
+            migrationBuilder.DropTable(
+                name: "Product");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

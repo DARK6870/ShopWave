@@ -61,7 +61,7 @@
                 </div>
                 <div class="category-card">
                     <a href="#">
-                        <img src="/img/gamingIco.png" alt="Category 1" class="category-icon">
+                        <img src="/img/gameIco.png" alt="Category 1" class="category-icon">
                         <p class="category-title">Gaming</p>
                     </a>
                 </div>
@@ -123,34 +123,40 @@
     <div class="row">
         @foreach (var product in Model.Take(28))
         {
-            for (int i = 0; i < 24; i++)
-            {
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="card mb-2">
                         <div class="card__top">
-                            <!-- Изображение-ссылка товара -->
                             <a href="#" class="card__image">
-                                <img src="data:image/jpeg;base64, @product.ProductImages.FirstOrDefault()?.Images.Data" alt="@product.ProductName">
+                                <img src="data:image/jpeg;base64, @product.ProductImages.FirstOrDefault()?.Data" alt="@product.ProductName">
                             </a>
-                            <!-- Скидка на товар -->
-                            <div class="card__label">-10%</div>
+                            @if (product.sale > 0)
+                            {
+                                <div class="card__label">@product.sale%</div>
+                            }
+                            else
+                            {
+                                
+                            }
                         </div>
                         <!-- Нижняя часть -->
                         <div class="card__bottom">
                             <!-- Цены на товар (с учетом скидки и без)-->
                             <div class="card__prices">
-                                <div class="card__price card__price--discount">135 000</div>
+                            @{
+                                decimal? price = @product.ProductVariations.FirstOrDefault()?.price;
+                                if (product.sale > 0) price = price - ((price * product.sale)/100);
+                            }
+                                <div class="card__price card__price--discount">@price</div>
                             </div>
                             <!-- Ссылка-название товара -->
                             <a href="#" class="card__title">
-                                Смартфон Apple IPhone 14 Pro Max 256Gb, золотой
+                                @product.ProductName
                             </a>
                             <!-- Кнопка добавить в корзину -->
-                            <button class="card__add">В корзину</button>
+                            <button class="card__add">Add to card</button>
                         </div>
                     </div>
                 </div>
-            }
         }
     </div>
 </div>

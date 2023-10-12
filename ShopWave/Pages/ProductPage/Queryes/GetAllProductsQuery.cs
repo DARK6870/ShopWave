@@ -17,25 +17,30 @@ namespace ShopWave.Pages.ProductPage.Queryes
 
         public async Task<List<Product>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
         {
-            var products = await _context.Products
-                .Include(p => p.Categoriess) // Include Categories navigation property
-                .Include(p => p.Statuses) // Include Statuses navigation property
-                .ToListAsync();
+            var products = _context.Products
+                .Include(p => p.Categoriess)
+                .Include(p => p.Statuses)
+                .Include(p => p.ProductImages) // Включить ProductImages для каждого товара
+                .Include(p => p.ProductVariations) // Включить ProductVariations для каждого товара
+                .ToList();
+
+
+
 
             // Fetch ProductIds
-            var productIds = products.Select(p => p.ProductId).ToList();
+            //var productIds = products.Select(p => p.ProductId).ToList();
 
-            // Fetch ProductImages and Images using Join and Select
-            var productImages = await _context.ProductImages
-                .Where(pi => productIds.Contains(pi.ProductId))
-                .Include(pi => pi.Images) // Include Images navigation property
-                .ToListAsync();
+            //// Fetch ProductImages and Images using Join and Select
+            //var productImages = await _context.ProductImages
+            //    .Where(pi => productIds.Contains(pi.ProductId))
+            //    .Include(pi => pi.Images) // Include Images navigation property
+            //    .ToListAsync();
 
-            // Attach ProductImages and Images to their respective Products
-            foreach (var product in products)
-            {
-                product.ProductImages = productImages.Where(pi => pi.ProductId == product.ProductId).ToList();
-            }
+            //// Attach ProductImages and Images to their respective Products
+            //foreach (var product in products)
+            //{
+            //    product.ProductImages = productImages.Where(pi => pi.ProductId == product.ProductId).ToList();
+            //}
 
             return products;
         }

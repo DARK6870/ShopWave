@@ -6,6 +6,10 @@ namespace ShopWave.Entity
 	[Table("Card")]
 	public class Card
 	{
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+
 		[Required, ForeignKey(nameof(AppUsers))]
 		public string AppUserId { get; set; }
 		public virtual AppUser AppUsers { get; set; }
