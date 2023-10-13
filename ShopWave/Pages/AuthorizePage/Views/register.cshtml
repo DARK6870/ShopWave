@@ -45,3 +45,18 @@
         </div>
     </div>
 </div>
+
+@if (TempData["ErrorAlert"] as bool? == true)
+{
+    <script>
+        Swal.fire({
+            title: 'Registration Error',
+            text: 'Check the data and try again!',
+            icon: 'error',
+            showConfirmButton: true,
+            confirmButtonText: 'Close',
+            timer: 4000,
+            timerProgressBar: true,
+        });
+    </script>
+}

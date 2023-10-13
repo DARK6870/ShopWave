@@ -148,11 +148,9 @@
                             }
                                 <div class="card__price card__price--discount">@price</div>
                             </div>
-                            <!-- Ссылка-название товара -->
                             <a href="#" class="card__title">
                                 @product.ProductName
                             </a>
-                            <!-- Кнопка добавить в корзину -->
                             <button class="card__add">Add to card</button>
                         </div>
                     </div>
@@ -161,18 +159,17 @@
     </div>
 </div>
 
-
-@* @foreach (var product in Model)
+@if (TempData["ShowAlert"] as bool? == true)
 {
-    <div>
-        <h3>@product.ProductName</h3>
-        <p>@product.Description</p>
-        <div class="product-images">
-            @foreach (var productImage in product.ProductImages)
-            {
-                <img src="data:image/jpeg;base64, @productImage.Images.Data" alt="@product.ProductName">
-            }
-        </div>
-    </div>
+    <script>
+        Swal.fire({
+            title: 'Successful authorization',
+            text: 'You are successfully authorized!',
+            icon: 'success',
+            showConfirmButton: true,
+            confirmButtonText: 'Close',
+            timer: 4000,
+            timerProgressBar: true,
+        });
+    </script>
 }
- *@

@@ -35,6 +35,8 @@ builder.Services.Configure<RazorViewEngineOptions>(o =>
 	o.ViewLocationFormats.Add("/Pages/HomePage/Views/{0}" + RazorViewEngine.ViewExtension);
 	o.ViewLocationFormats.Add("/Pages/AccountPage/Views/{0}" + RazorViewEngine.ViewExtension);
 	o.ViewLocationFormats.Add("/Pages/AuthorizePage/Views/{0}" + RazorViewEngine.ViewExtension);
+	o.ViewLocationFormats.Add("/Pages/SupportPage/Views/{0}" + RazorViewEngine.ViewExtension);
+	o.ViewLocationFormats.Add("/Pages/ProductPage/Views/{0}" + RazorViewEngine.ViewExtension);
 	o.ViewLocationFormats.Add("/Pages/Shared/{0}" + RazorViewEngine.ViewExtension);
 	o.ViewLocationFormats.Add("/Pages/{0}" + RazorViewEngine.ViewExtension);
 });
@@ -73,7 +75,26 @@ app.MapControllerRoute(
 	pattern: "{action}",
 	defaults: new { Controller = "Authorize" });
 
+app.MapControllerRoute(
+    name: "support",
+    pattern: "{action}",
+    defaults: new { Controller = "Support" });
 
+app.MapControllerRoute(
+    name: "product",
+    pattern: "{action}",
+    defaults: new { Controller = "Product" });
+
+app.MapControllerRoute(
+    name: "home",
+    pattern: "{action}",
+    defaults: new { Controller = "Home" });
+
+app.MapControllerRoute(
+        name: "NotFound",
+        pattern: "{*url}",
+        defaults: new { controller = "Home", action = "NotFound" }
+    );
 
 
 app.Run();

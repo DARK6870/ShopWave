@@ -46,16 +46,17 @@ namespace ShopWave.Pages.AuthorizePage
 				if (result.Succeeded)
 				{
 					await signInManager.SignInAsync(user, isPersistent: false);
-					return RedirectToAction("Index", "Home");
+                    TempData["ShowAlert"] = true;
+                    return Redirect("/");
 				}
 
 				foreach (var error in result.Errors)
 				{
 					ModelState.AddModelError(string.Empty, error.Description);
 				}
-			}
-
-			return View(model);
+            }
+            TempData["ErrorAlert"] = true;
+            return View(model);
 		}
 
 
@@ -63,7 +64,7 @@ namespace ShopWave.Pages.AuthorizePage
         {
             await signInManager.SignOutAsync();
 
-            return RedirectToAction("Login");
+            return Redirect("/login");
         }
 
 		[HttpGet]
@@ -96,7 +97,8 @@ namespace ShopWave.Pages.AuthorizePage
 					}
 					else
 					{
-						return RedirectToAction("Index", "Home");
+                        TempData["ShowAlert"] = true;
+                        return RedirectToAction("Index", "Home");
 					}
 				}
 
@@ -104,8 +106,8 @@ namespace ShopWave.Pages.AuthorizePage
 			}
 
 			model.ExternalLogins = (await signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-
-			return View(model);
+            TempData["ErrorLogin"] = true;
+            return View(model);
 		}
 
 
@@ -144,7 +146,7 @@ namespace ShopWave.Pages.AuthorizePage
 				ModelState
 					.AddModelError(string.Empty, $"Error from external provider: {remoteError}");
 
-				return View("Login", loginViewModel);
+				return View("login", loginViewModel);
 			}
 
 			var info = await signInManager.GetExternalLoginInfoAsync();
@@ -153,7 +155,7 @@ namespace ShopWave.Pages.AuthorizePage
 				ModelState
 					.AddModelError(string.Empty, "Error loading external login information.");
 
-				return View("Login", loginViewModel);
+				return View("login", loginViewModel);
 			}
 
 
@@ -162,7 +164,8 @@ namespace ShopWave.Pages.AuthorizePage
 
 			if (signInResult.Succeeded)
 			{
-				return LocalRedirect(returnUrl);
+                TempData["ShowAlert"] = true;
+                return LocalRedirect(returnUrl);
 			}
 
 			else

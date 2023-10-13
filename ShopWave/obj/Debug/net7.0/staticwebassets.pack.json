@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\Auth.css"
     },
     {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\NotFound.css",
+      "PackagePath": "staticwebassets\\css\\NotFound.css"
+    },
+    {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\animate.css",
       "PackagePath": "staticwebassets\\css\\animate.css"
     },
@@ -119,14 +123,6 @@
     {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
-    },
-    {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\js\\wow.js",
-      "PackagePath": "staticwebassets\\js\\wow.js"
-    },
-    {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\js\\wow.min.js",
-      "PackagePath": "staticwebassets\\js\\wow.min.js"
     },
     {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\LICENSE",

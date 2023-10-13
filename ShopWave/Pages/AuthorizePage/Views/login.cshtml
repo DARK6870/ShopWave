@@ -84,3 +84,17 @@
         </div>
     </div>
 </div>
+@if (TempData["ErrorLogin"] as bool? == true)
+{
+    <script>
+        Swal.fire({
+            title: 'Authorization error',
+            text: 'Check the data and try again!',
+            icon: 'error',
+            showConfirmButton: true,
+            confirmButtonText: 'Close',
+            timer: 4000,
+            timerProgressBar: true,
+        });
+    </script>
+}

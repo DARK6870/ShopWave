@@ -163,3 +163,4 @@ D:\Repositoryes\ShopWave\ShopWave\obj\Debug\net7.0\ref\ShopWave.dll
 D:\Repositoryes\ShopWave\ShopWave\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.Google.dll
 D:\Repositoryes\ShopWave\ShopWave\bin\Debug\net7.0\MediatR.dll
 D:\Repositoryes\ShopWave\ShopWave\bin\Debug\net7.0\MediatR.Contracts.dll
+D:\Repositoryes\ShopWave\ShopWave\bin\Debug\net7.0\CurrieTechnologies.Razor.SweetAlert2.dll

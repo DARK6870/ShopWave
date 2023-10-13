@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "products";
+    @model List<Product>
+}
+<div class="container" style="margin-top: 50px;">
+    <h3 style="margin-left: 3px;">New products:</h3>
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-6 col-lg-4 col-xl-3">
+                <div class="card mb-2">
+                    <div class="card__top">
+                        <a href="#" class="card__image">
+                            <img src="data:image/jpeg;base64, @product.ProductImages.FirstOrDefault()?.Data" alt="@product.ProductName">
+                        </a>
+                        @if (product.sale > 0)
+                        {
+                            <div class="card__label">@product.sale%</div>
+                        }
+                        else
+                        {
+
+                        }
+                    </div>
+                    <!-- Нижняя часть -->
+                    <div class="card__bottom">
+                        <!-- Цены на товар (с учетом скидки и без)-->
+                        <div class="card__prices">
+                            @{
+                                decimal? price = @product.ProductVariations.FirstOrDefault()?.price;
+                                if (product.sale > 0) price = price - ((price * product.sale) / 100);
+                            }
+                            <div class="card__price card__price--discount">@price</div>
+                        </div>
+                        <a href="#" class="card__title">
+                            @product.ProductName
+                        </a>
+                        <button class="card__add">Add to card</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
