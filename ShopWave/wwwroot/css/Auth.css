@@ -115,6 +115,12 @@
 
 
 li {
-    list-style: none;
+    margin-left: 20px;
+    list-style: url(/img/pngError.png);
     margin-bottom: 10px;
+    font-size: 16px;
+    color: red;
+    font-weight: bold;
 }
+
+

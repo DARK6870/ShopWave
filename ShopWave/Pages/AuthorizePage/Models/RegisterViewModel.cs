@@ -13,6 +13,7 @@ namespace ShopWave.Pages.AuthorizePage.Models
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
+        [MinLength(10, ErrorMessage = "Password must have 10 or more characters")]
         [Display(Name = "Confirm password")]
         [Compare("Password",
             ErrorMessage = "Password and confirmation password do not match.")]
