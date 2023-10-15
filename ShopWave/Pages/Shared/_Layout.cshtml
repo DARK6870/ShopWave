@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject UserManager<IdentityUser> userManager
+@using Microsoft.AspNetCore.Identity
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -48,9 +50,54 @@
                             <span class="hamburger-label">Menu</span>
                         </button>
                         <a href="profile" class="top-icon text-white">
-                            <img src="/img/userIcon.png" style="height: 40px;" />
+                            @if(User.Identity.IsAuthenticated){
+                                string? userId;
+                                try
+                                {
+                                    var user = await userManager.GetUserAsync(User);
+                                    userId = user.Id;
+                                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Подключаем jQuery (если еще не подключено) -->
+
+                                    <script>
+                                        // Функция для загрузки аватарки пользователя с сервера
+                                        function loadAvatar() {
+                                            var userId = "@userId"; // Вставьте значение userId, полученное из Razor
+
+                                            $.ajax({
+                                                url: "/Home/GetAvatar?userId=" + userId,
+                                                type: "GET",
+                                                dataType: "text",
+                                                success: function (avatarBase64) {
+                                                    var imgElement = document.getElementById("user-avatar");
+                                                    imgElement.src = "data:image/png;base64, " + avatarBase64;
+                                                },
+                                                error: function () {
+                                                    
+                                                }
+                                            });
+                                        }
+
+                                        
+                                        loadAvatar();
+                                    </script>
+                                    <img class="avatar" id="user-avatar"/>
+                                }
+                                catch
+                                {
+                                    <img class="avatar" src="/img/userIcon.png">
+                                }
+                            }
+                            else
+                            {
+                                <img class="avatar" src="/img/userIcon.png">
+                            }
+
+
                             <span style="margin-left: 10px;">Account</span>
                         </a>
+
+
+
                     </div>
 
         <nav id="site-nav" role="navigation">
@@ -94,7 +141,7 @@
             </ul>               
           </div>
           <div class="col">
-            <ul class="social">
+            <ul class="social mt-3">
               <li><a href=""><svg title="Facebook"><use xlink:href="#icon-facebook"></use></svg></a></li>
               <li><a href=""><svg title="Twitter"><use xlink:href="#icon-twitter"></use></svg></a></li>
               <li><a href=""><svg title="LinkedIn"><use xlink:href="#icon-linkedin"></use></svg></a></li>
@@ -108,9 +155,8 @@
     <div class="main-container" style="margin-left: 0; margin-right: 0;">
         <main role="main" class="mb-5">
             <div class="loader">
-                <img height="200px" src="~/img/ShopWaveIco.png" alt="Your Logo">
+                <span class="loader-inner"></span>
             </div>
-
             @RenderBody()
         </main>
     </div>

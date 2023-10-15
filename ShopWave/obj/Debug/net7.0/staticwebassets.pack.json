@@ -61,6 +61,10 @@
       "PackagePath": "staticwebassets\\img\\electronicIco.png"
     },
     {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\errorIco.svg",
+      "PackagePath": "staticwebassets\\img\\errorIco.svg"
+    },
+    {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\foodIco.png",
       "PackagePath": "staticwebassets\\img\\foodIco.png"
     },
@@ -91,6 +95,10 @@
     {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\penIco.png",
       "PackagePath": "staticwebassets\\img\\penIco.png"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\pngError.png",
+      "PackagePath": "staticwebassets\\img\\pngError.png"
     },
     {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\shoesIco.png",

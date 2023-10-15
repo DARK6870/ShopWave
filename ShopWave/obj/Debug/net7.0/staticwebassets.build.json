@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "s7/xPUz5Y3TqJR/IS2pMGf1TrBMRnkLhTBQxPYHo4/0=",
+  "Hash": "9wngm89EC8QtpyuuRVjK6OgXj8mmTDxfvA3qeCPSCBw=",
   "Source": "ShopWave",
   "BasePath": "_content/ShopWave",
   "Mode": "Default",
@@ -833,6 +833,23 @@
       "OriginalItemSpec": "wwwroot\\img\\electronicIco.png"
     },
     {
+      "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\errorIco.svg",
+      "SourceId": "ShopWave",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\",
+      "BasePath": "_content/ShopWave",
+      "RelativePath": "img/errorIco.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\errorIco.svg"
+    },
+    {
       "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\Favico.svg",
       "SourceId": "ShopWave",
       "SourceType": "Discovered",
@@ -984,6 +1001,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\penIco.png"
+    },
+    {
+      "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\pngError.png",
+      "SourceId": "ShopWave",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\",
+      "BasePath": "_content/ShopWave",
+      "RelativePath": "img/pngError.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\pngError.png"
     },
     {
       "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\shoesIco.png",

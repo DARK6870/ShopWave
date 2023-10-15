@@ -6,7 +6,7 @@ namespace ShopWave.Entity
 {
 	public class AppUser : IdentityUser
 	{
-		public ICollection<Review> Reviews { get; set; }
+        public ICollection<Review> Reviews { get; set; }
 		public ICollection<UserData> UserAvatars { get; set; }
 		public  ICollection<Product> Products { get; set; }
 		public ICollection<Card> Cards { get; set; }

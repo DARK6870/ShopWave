@@ -240,7 +240,6 @@ namespace ShopWave.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Data")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -765,7 +764,7 @@ namespace ShopWave.Migrations
             modelBuilder.Entity("ShopWave.Entity.ProductImages", b =>
                 {
                     b.HasOne("ShopWave.Entity.Product", "Products")
-                        .WithMany()
+                        .WithMany("ProductImages")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -776,7 +775,7 @@ namespace ShopWave.Migrations
             modelBuilder.Entity("ShopWave.Entity.ProductVariation", b =>
                 {
                     b.HasOne("ShopWave.Entity.Product", "Products")
-                        .WithMany()
+                        .WithMany("ProductVariations")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -836,6 +835,13 @@ namespace ShopWave.Migrations
             modelBuilder.Entity("ShopWave.Entity.Categories", b =>
                 {
                     b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("ShopWave.Entity.Product", b =>
+                {
+                    b.Navigation("ProductImages");
+
+                    b.Navigation("ProductVariations");
                 });
 
             modelBuilder.Entity("ShopWave.Entity.ProductVariation", b =>

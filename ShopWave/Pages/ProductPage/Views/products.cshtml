@@ -38,7 +38,7 @@
                 <div class="card mb-2">
                     <div class="card__top">
                         <a href="@Url.Action("details", "Product", new { id = product.ProductId })" class="card__image">
-                            <img src="data:image/jpeg;base64, @product.ProductImages.FirstOrDefault()?.Data" alt="@product.ProductName">
+                            <img src="data:image/png;base64, @product.ProductImages.FirstOrDefault()?.Data" alt="@product.ProductName">
                         </a>
                         @if (product.sale > 0)
                         {

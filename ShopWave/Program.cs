@@ -12,6 +12,7 @@ builder.Services.AddControllersWithViews();
 var configuration = builder.Configuration;
 string connectionString = configuration.GetConnectionString("default");
 builder.Services.AddDbContext<AppDBContext>(c => c.UseSqlServer(connectionString));
+
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 {
     options.Password.RequireNonAlphanumeric = false;
@@ -21,6 +22,11 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 //builder.Services.AddLazyCache();
+
+builder.Services.AddSession();
+
+
+
 
 builder.Services.AddAuthentication()
 	.AddGoogle(options =>
@@ -46,6 +52,7 @@ builder.Services.Configure<RazorViewEngineOptions>(o =>
 
 var app = builder.Build();
 
+app.UseSession();
 
 if (!app.Environment.IsDevelopment())
 {
