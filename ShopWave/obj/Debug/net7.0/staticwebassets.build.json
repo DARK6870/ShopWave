@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9wngm89EC8QtpyuuRVjK6OgXj8mmTDxfvA3qeCPSCBw=",
+  "Hash": "LV3ojW/6GpztdPSuGUlsD/0L4038P/CVU3q8ARKJwek=",
   "Source": "ShopWave",
   "BasePath": "_content/ShopWave",
   "Mode": "Default",
@@ -746,6 +746,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\NotFound.css"
+    },
+    {
+      "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\support.css",
+      "SourceId": "ShopWave",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\",
+      "BasePath": "_content/ShopWave",
+      "RelativePath": "css/support.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\support.css"
     },
     {
       "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\18Ico.png",

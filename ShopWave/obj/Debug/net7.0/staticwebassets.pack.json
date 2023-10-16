@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\css\\main.css"
     },
     {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\support.css",
+      "PackagePath": "staticwebassets\\css\\support.css"
+    },
+    {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\18Ico.png",
       "PackagePath": "staticwebassets\\img\\18Ico.png"
     },

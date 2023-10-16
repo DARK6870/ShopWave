@@ -24,6 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Pages\AccountPage\Commands\" />
+    <Folder Include="Pages\AccountPage\Models\" />
+    <Folder Include="Pages\AccountPage\Queryes\" />
     <Folder Include="Pages\ProductPage\Commands\" />
   </ItemGroup>
 

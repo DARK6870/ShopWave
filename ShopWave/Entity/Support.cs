@@ -15,13 +15,18 @@ namespace ShopWave.Entity
 		public string Email { get; set; }
 
 
-		[Required, Column(TypeName = "varchar(50)")]
-		[StringLength(50)]
-		public string FullName { get; set; }
+		[Required, Column(TypeName = "varchar(25)")]
+		[StringLength(25)]
+		public string FirstName { get; set; }
+
+
+        [Required, Column(TypeName = "varchar(25)")]
+        [StringLength(25)]
+        public string LastName { get; set; }
 
 
 
-		[Required, Column(TypeName = "varchar(600)")]
+        [Required, Column(TypeName = "varchar(600)")]
 		[StringLength(600)]
 		public string ProblemText { get; set; }
 

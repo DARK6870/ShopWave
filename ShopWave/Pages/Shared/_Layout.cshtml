@@ -13,13 +13,8 @@
     <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="icon" type="image/png" href="/img/ShopWaveIco.png">
-    <link rel="stylesheet" href="~/css/animate.css" asp-append-version="true" />
-    <script src="~/js/wow.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
-    <script>
-        new WOW().init();
-    </script>
 </head>
 <body>
     <header>
@@ -56,12 +51,11 @@
                                 {
                                     var user = await userManager.GetUserAsync(User);
                                     userId = user.Id;
-                                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Подключаем jQuery (если еще не подключено) -->
+                                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
                                     <script>
-                                        // Функция для загрузки аватарки пользователя с сервера
                                         function loadAvatar() {
-                                            var userId = "@userId"; // Вставьте значение userId, полученное из Razor
+                                            var userId = "@userId";
 
                                             $.ajax({
                                                 url: "/Home/GetAvatar?userId=" + userId,
@@ -192,7 +186,6 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/loader.js" asp-append-version="true"></script>
-    <script src="~/js/Banner.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

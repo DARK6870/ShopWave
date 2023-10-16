@@ -1,1 +1,50 @@
-﻿
+﻿@{
+    ViewData["Title"] = "Contact Support";
+    @model Support
+}
+
+@inject UserManager<IdentityUser> userManager
+@using Microsoft.AspNetCore.Identity
+
+<link rel="stylesheet" href="~/css/support.css" asp-append-version="true" />
+<div class="container">
+    <form class="form">
+        <p class="title">Get support </p>
+        <p class="message">Fill the form to get support</p>
+        <div class="flex">
+            
+            <label>
+            <input name="FirstName" maxlength="25" minlength="2" required placeholder="" type="text" class="input">
+            <span>Firstname</span>
+        </label>
+
+        <label>
+            <input name="LastName" maxlength="25" minlength="3" required placeholder="" type="text" class="input">
+            <span>Lastname</span>
+        </label>
+    </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            var user = await userManager.GetUserAsync(User);
+            <label>
+                <input name="Email" maxlength="50" required value="@user.Email" type="email" class="input">
+                <span class="valid">Email</span>
+            </label>
+
+        }
+        else
+        {
+                    <label>
+        <input name="Email" maxlength="50" required placeholder="" type="email" class="input">
+        <span>Email</span>
+    </label>
+        }
+
+        <label>
+            <textarea name="ProblemText" maxlength="600" minlength="30" required placeholder="" type="text" class="input"></textarea>
+            <span>Problem</span>
+        </label>
+
+    <button class="submit">Submit</button>
+</form>
+</div>
