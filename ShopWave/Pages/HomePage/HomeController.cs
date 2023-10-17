@@ -26,8 +26,16 @@ namespace ShopWave.Pages.HomePage
 
         public async Task<IActionResult> Index()
         {
+            try
+            {
             var res = await _mediator.Send(new GetAllProductsQuery());
             return View(res);
+            }
+            catch
+            {
+                return NotFound();
+            }
+            
         }
 
         public IActionResult NotFound()

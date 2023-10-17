@@ -1,0 +1,385 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\obj\\Release\\net7.0\\scopedcss\\projectbundle\\ShopWave.bundle.scp.css",
+      "PackagePath": "staticwebassets\\ShopWave.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\Auth.css",
+      "PackagePath": "staticwebassets\\css\\Auth.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\NotFound.css",
+      "PackagePath": "staticwebassets\\css\\NotFound.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\animate.css",
+      "PackagePath": "staticwebassets\\css\\animate.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\header.css",
+      "PackagePath": "staticwebassets\\css\\header.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\home.css",
+      "PackagePath": "staticwebassets\\css\\home.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\loader.css",
+      "PackagePath": "staticwebassets\\css\\loader.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\main.css",
+      "PackagePath": "staticwebassets\\css\\main.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\support.css",
+      "PackagePath": "staticwebassets\\css\\support.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\18Ico.png",
+      "PackagePath": "staticwebassets\\img\\18Ico.png"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\Favico.svg",
+      "PackagePath": "staticwebassets\\img\\Favico.svg"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\ShopWaveIco.png",
+      "PackagePath": "staticwebassets\\img\\ShopWaveIco.png"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\animalIco.png",
+      "PackagePath": "staticwebassets\\img\\animalIco.png"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\beautyIco.png",
+      "PackagePath": "staticwebassets\\img\\beautyIco.png"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\clothsIco.png",
+      "PackagePath": "staticwebassets\\img\\clothsIco.png"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\electronicIco.png",
+      "PackagePath": "staticwebassets\\img\\electronicIco.png"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\errorIco.svg",
+      "PackagePath": "staticwebassets\\img\\errorIco.svg"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\foodIco.png",
+      "PackagePath": "staticwebassets\\img\\foodIco.png"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\gameIco.png",
+      "PackagePath": "staticwebassets\\img\\gameIco.png"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\healthIco.png",
+      "PackagePath": "staticwebassets\\img\\healthIco.png"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\houseIco.png",
+      "PackagePath": "staticwebassets\\img\\houseIco.png"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\kidsIco.png",
+      "PackagePath": "staticwebassets\\img\\kidsIco.png"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\main_mobile_ru.jpg",
+      "PackagePath": "staticwebassets\\img\\main_mobile_ru.jpg"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\main_ru.png",
+      "PackagePath": "staticwebassets\\img\\main_ru.png"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\penIco.png",
+      "PackagePath": "staticwebassets\\img\\penIco.png"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\pngError.png",
+      "PackagePath": "staticwebassets\\img\\pngError.png"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\shoesIco.png",
+      "PackagePath": "staticwebassets\\img\\shoesIco.png"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\sportIco.png",
+      "PackagePath": "staticwebassets\\img\\sportIco.png"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\transportIco.png",
+      "PackagePath": "staticwebassets\\img\\transportIco.png"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\usIco.png",
+      "PackagePath": "staticwebassets\\img\\usIco.png"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\userIcon.png",
+      "PackagePath": "staticwebassets\\img\\userIcon.png"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\js\\Banner.js",
+      "PackagePath": "staticwebassets\\js\\Banner.js"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\js\\loader.js",
+      "PackagePath": "staticwebassets\\js\\loader.js"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.ShopWave.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.build.ShopWave.props",
+      "PackagePath": "build\\ShopWave.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.ShopWave.props",
+      "PackagePath": "buildMultiTargeting\\ShopWave.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.buildTransitive.ShopWave.props",
+      "PackagePath": "buildTransitive\\ShopWave.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

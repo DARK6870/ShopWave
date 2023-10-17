@@ -465,6 +465,9 @@ namespace ShopWave.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ProductId1")
+                        .HasColumnType("int");
+
                     b.Property<string>("ReviewText")
                         .HasColumnType("varchar(400)");
 
@@ -473,6 +476,8 @@ namespace ShopWave.Migrations
                     b.HasIndex("AppUserId");
 
                     b.HasIndex("ProductId");
+
+                    b.HasIndex("ProductId1");
 
                     b.ToTable("Review");
                 });
@@ -802,6 +807,10 @@ namespace ShopWave.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("ShopWave.Entity.Product", null)
+                        .WithMany("Reviews")
+                        .HasForeignKey("ProductId1");
+
                     b.Navigation("AppUsers");
 
                     b.Navigation("Products");
@@ -847,6 +856,8 @@ namespace ShopWave.Migrations
                     b.Navigation("ProductImages");
 
                     b.Navigation("ProductVariations");
+
+                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("ShopWave.Entity.ProductVariation", b =>

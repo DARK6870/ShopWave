@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Этот файл используется процессом публикации или упаковки вашего веб-проекта. Можно настроить поведение этого процесса,
+изменив этот файл MSBuild. Подробности см. на странице https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword />
+    <_PublishTargetUrl>ftp://win6053.site4now.net:21/technovibe</_PublishTargetUrl>
+    <History>False|2023-10-17T06:48:22.3860029Z;False|2023-10-17T09:46:59.8661216+03:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

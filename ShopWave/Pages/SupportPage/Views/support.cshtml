@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" href="~/css/support.css" asp-append-version="true" />
 <div class="container">
-    <form class="form">
+    <form asp-action="PostSupport" asp-controller="Support" method="post" class="form" id="support-form">
         <p class="title">Get support </p>
         <p class="message">Fill the form to get support</p>
         <div class="flex">
@@ -41,10 +41,39 @@
         }
 
         <label>
-            <textarea name="ProblemText" maxlength="600" minlength="30" required placeholder="" type="text" class="input"></textarea>
-            <span>Problem</span>
+            <textarea name="ProblemText" maxlength="600" minlength="30" required placeholder="Problem description" type="text" class="input"></textarea>
         </label>
 
-    <button class="submit">Submit</button>
+        <button type="submit" class="submit">Submit</button>
+
 </form>
 </div>
+
+
+@if (TempData["Success"] as bool? == true)
+{
+    <script>
+        Swal.fire({
+            title: 'Success',
+            text: 'You will receive a response within 3 days.',
+            icon: 'success',
+            showConfirmButton: true,
+            confirmButtonText: 'Close',
+            allowOutsideClick: false
+        });
+    </script>
+}
+
+@if (TempData["Error"] as bool? == true)
+{
+    <script>
+        Swal.fire({
+            title: 'Error',
+            text: 'Something went wrong.',
+            icon: 'error',
+            showConfirmButton: true,
+            confirmButtonText: 'Close',
+            allowOutsideClick: false
+        });
+    </script>
+}

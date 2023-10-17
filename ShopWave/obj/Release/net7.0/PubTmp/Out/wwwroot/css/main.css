@@ -1,0 +1,251 @@
+﻿html {
+    position: relative;
+    min-height: 100%;
+    font-size: 14px;
+}
+
+.main-container{
+    flex: 1;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+}
+
+body {
+    position: relative;
+    margin-bottom: 60px;
+    background: #e8e8e8;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+html, body, main{
+    margin: 0 !important;
+}
+
+
+.title {
+    text-align: center;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    margin: 10px 0 10px 0;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+
+.custom-input {
+    border: 2px solid #7480be;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Стилизация кнопки */
+.custom-button {
+    border: 3px solid #7480be;
+    background-color: #7480be;
+    border-radius: 0 10px 10px 0;
+    padding: 10px 15px;
+    cursor: pointer;
+    color: white;
+}
+
+
+    .custom-button i {
+        font-size: 18px;
+    }
+
+
+
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+
+.footer {
+    background-color: #23252B;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    position: relative!important;
+}
+
+    .footer i {
+        margin-right: 5px;
+    }
+
+.footer-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.l{
+    color: darkgray!important;
+}
+
+.btn-sm-custom {
+    font-size: 0.9rem;
+    padding: 0.20rem 0.5rem;
+}
+
+
+
+
+.card {
+    width: auto;
+    min-height: 350px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    transition: 0.2s;
+    position: relative;
+}
+
+    .card:hover {
+        box-shadow: 4px 8px 16px rgba(116,128,190, 0.3);
+    }
+
+.card__top {
+    flex: 0 0 220px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Контейнер для картинки */
+.card__image {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+    .card__image > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: 0.2s;
+    }
+
+    /* При наведении - увеличиваем картинку */
+    .card__image:hover > img {
+        transform: scale(1.1);
+    }
+
+/* Размещаем скидку на товар относительно изображения */
+.card__label {
+    padding: 4px 8px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: #7480be;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+}
+
+.card__bottom {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto; /* Занимаем всю оставшуюся высоту карточки */
+    padding: 10px;
+}
+
+.card__prices {
+    display: flex;
+    margin-bottom: 10px;
+    flex: 0 0 50%; /* Размещаем цены равномерно в две колонки */
+}
+
+.card__price::after {
+    content: "$";
+    margin-left: 4px;
+    position: relative;
+}
+
+.card__price--discount {
+    font-weight: 700;
+    font-size: 19px;
+    color: #414141;
+    display: flex;
+    flex-wrap: wrap-reverse;
+}
+
+
+.card__title {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 150%;
+    color: #414141;
+}
+
+    .card__title:hover {
+        color: #7270be;
+    }
+
+.card__add {
+    display: block;
+    width: 100%;
+    font-weight: 400;
+    font-size: 17px;
+    color: #70c05b;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #70c05b;
+    border-radius: 4px;
+    cursor: pointer; /* Меняем курсор при наведении */
+    transition: 0.2s;
+    margin-top: auto; /* Прижимаем кнопку к низу карточки */
+}
+
+    .card__add:hover {
+        border: 1px solid #7480be;
+        background-color: #7480be;
+        color: #fff;
+    }
+
+.limited {
+    min-width: 200px;
+    max-width: 500px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}

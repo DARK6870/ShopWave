@@ -52,6 +52,7 @@ namespace ShopWave.Entity
 
 
         public ICollection<ProductImages> ProductImages { get; set; }
+		public ICollection<Review> Reviews { get; set; }
         public ICollection<ProductVariation> ProductVariations { get; set; }
     }
 }

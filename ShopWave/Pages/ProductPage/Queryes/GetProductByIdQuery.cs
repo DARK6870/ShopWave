@@ -18,7 +18,6 @@ namespace ShopWave.Pages.ProductPage.Queryes
         public async Task<Product> Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
         {
             Product? result = await _context.Products
-                .Include(p => p.Categoriess)
                 .Include(p => p.Statuses)
                 .Include(p => p.ProductImages)
                 .Include(p => p.ProductVariations)

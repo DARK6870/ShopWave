@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LV3ojW/6GpztdPSuGUlsD/0L4038P/CVU3q8ARKJwek=",
+  "Hash": "SDBeCHo1/EXHPcSG1CHU9SonHOFvLUgzWq0u8ePUayk=",
   "Source": "ShopWave",
   "BasePath": "_content/ShopWave",
   "Mode": "Default",
@@ -661,6 +661,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Auth.css"
+    },
+    {
+      "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\details.css",
+      "SourceId": "ShopWave",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\",
+      "BasePath": "_content/ShopWave",
+      "RelativePath": "css/details.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\details.css"
     },
     {
       "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\header.css",

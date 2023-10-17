@@ -1,0 +1,103 @@
+﻿
+.card {
+    border: none
+}
+
+.product {
+    background-color: #eee
+}
+
+.brand {
+    font-size: 13px
+}
+
+.act-price {
+    color: red;
+    font-weight: 700
+}
+
+.dis-price {
+    text-decoration: line-through
+}
+
+.about {
+    font-size: 14px
+}
+
+.color {
+    margin-bottom: 10px
+}
+
+label.radio {
+    cursor: pointer
+}
+
+    label.radio input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        visibility: hidden;
+        pointer-events: none
+    }
+
+    label.radio span {
+        padding: 2px 9px;
+        border: 2px solid #7480be;
+        display: inline-block;
+        color: #7480be;
+        border-radius: 3px;
+        text-transform: uppercase
+    }
+
+    label.radio input:checked + span {
+        border-color: #7480be;
+        background-color: #7480be;
+        color: #fff
+    }
+
+.btn-danger {
+    background-color: #7480be !important;
+    border-color: #7480be !important
+}
+
+    .btn-danger:hover {
+        background-color: #7470be !important;
+        border-color: #7470be !important
+    }
+
+    .btn-danger:focus {
+        box-shadow: none
+    }
+
+.cart i {
+    margin-right: 10px
+}
+
+.images {
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+#main-image {
+    border-radius: 10px;
+    margin-bottom: 10px;    
+    height: 300px;
+    width: 400px;
+    object-fit: contain;
+}
+
+.thumbnail {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+    .thumbnail img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        margin: 0 5px;
+    }
