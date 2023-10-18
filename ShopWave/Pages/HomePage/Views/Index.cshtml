@@ -39,80 +39,74 @@
             <div class="category-scroll">
                 <div class="category-card">
                     <a href="#">
-                    <img src="/img/electronicIco.png" alt="Category 1" class="category-icon">
+                    <i class="fas fa-laptop fa-4x"></i>
                     <p class="category-title">Electronic</p>
                     </a>
                 </div>
                 <div class="category-card">
                     <a href="#">
-                        <img src="/img/animalIco.png" alt="Category 1" class="category-icon">
+                        <i class="fas fa-paw fa-4x"></i>
                         <p class="category-title">For animals</p>
                     </a>
                 </div>
                 <div class="category-card">
                     <a href="#">
-                        <img src="/img/beautyIco.png" alt="Category 1" class="category-icon">
-                        <p class="category-title">Beauty</p>
-                    </a>
-                </div>
-                <div class="category-card">
-                    <a href="#">
-                        <img src="/img/foodIco.png" alt="Category 1" class="category-icon">
+                        <i class="fas fa-utensils fa-4x"></i>
                         <p class="category-title">Food</p>
                     </a>
                 </div>
                 <div class="category-card">
                     <a href="/products?category=Gaming">
-                        <img src="/img/gameIco.png" alt="Category 1" class="category-icon">
+                        <i class="fas fa-gamepad fa-4x"></i>
                         <p class="category-title">Gaming</p>
                     </a>
                 </div>
 
                 <div class="category-card">
                     <a href="#">
-                        <img src="/img/healthIco.png" alt="Category 1" class="category-icon">
+                        <i class="fas fa-heartbeat fa-4x"></i>
                         <p class="category-title">Heath</p>
                     </a>
                 </div>
                 <div class="category-card">
                     <a href="#">
-                        <img src="/img/houseIco.png" alt="Category 1" class="category-icon">
+                        <i class="fas fa-home fa-4x"></i>
                         <p class="category-title">For house</p>
                     </a>
                 </div>
                 <div class="category-card">
                     <a href="#">
-                        <img src="/img/kidsIco.png" alt="Category 1" class="category-icon">
+                        <i class="fas fa-child fa-4x"></i>
                         <p class="category-title">For kids</p>
                     </a>
                 </div>
                 <div class="category-card">
                     <a href="#">
-                        <img src="/img/penIco.png" alt="Category 1" class="category-icon">
+                        <i class="fas fa-briefcase fa-4x"></i>
                         <p class="category-title">Office</p>
                     </a>
                 </div>
                 <div class="category-card">
                     <a href="#">
-                        <img src="/img/shoesIco.png" alt="Category 1" class="category-icon">
+                        <i class="fas fa-shoe-prints fa-4x"></i>
                         <p class="category-title">Shoes</p>
                     </a>
                 </div>
                 <div class="category-card">
                     <a href="#">
-                        <img src="/img/sportIco.png" alt="Category 1" class="category-icon">
+                        <i class="fas fa-dumbbell fa-4x"></i>
                         <p class="category-title">Sport</p>
                     </a>
                 </div>
                 <div class="category-card">
                     <a href="#">
-                        <img src="/img/clothsIco.png" alt="Category 1" class="category-icon">
+                        <i class="fas fa-tshirt fa-4x"></i>
                         <p class="category-title">Clothes</p>
                     </a>
                 </div>
                 <div class="category-card">
                     <a href="#">
-                        <img src="/img/transportIco.png" alt="Category 1" class="category-icon">
+                        <i class="fas fa-car fa-4x"></i>
                         <p class="category-title">Transport</p>
                     </a>
                 </div>
@@ -124,42 +118,55 @@
 <div class="container" style="margin-top: 50px;">
     <h3 style="margin-left: 3px;">New products:</h3>
     <div class="row">
-        @foreach (var product in Model.Take(28))
+        @foreach (var product in Model)
         {
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div class="card mb-2">
-                        <div class="card__top">
-                            <a href="#" class="card__image">
-                                <img src="data:image/jpeg;base64, @product.ProductImages.FirstOrDefault()?.Data" alt="@product.ProductName">
-                            </a>
-                            @if (product.sale > 0)
-                            {
-                                <div class="card__label">@product.sale%</div>
-                            }
-                            else
-                            {
-                                
-                            }
-                        </div>
-                        <!-- Нижняя часть -->
-                        <div class="card__bottom">
-                            <!-- Цены на товар (с учетом скидки и без)-->
-                            <div class="card__prices">
+            <div class="col-md-6 col-lg-4 col-xl-3">
+                <div class="card mb-2">
+                    <div class="card__top">
+                        <a href="@Url.Action("details", "Product", new { id = product.ProductId })" class="card__image">
+                            <img src="data:image/png;base64, @product.ProductImages.FirstOrDefault()?.Data" alt="@product.ProductName">
+                        </a>
+                        @if (product.sale > 0)
+                        {
+                            <div class="card__label">@product.sale%</div>
+                        }
+                        else
+                        {
+
+                        }
+                    </div>
+                    <div class="card__bottom">
+                        <div class="card__prices">
                             @{
                                 decimal? price = @product.ProductVariations.FirstOrDefault()?.price;
-                                if (product.sale > 0) price = price - ((price * product.sale)/100);
+                                if (product.sale > 0) price = price - ((price * product.sale) / 100);
                             }
-                                <div class="card__price card__price--discount">@price</div>
-                            </div>
-                            <a href="#" class="card__title">
-                                @product.ProductName
-                            </a>
-                            <button class="card__add">Add to card</button>
+                            <div class="card__price card__price--discount">@price</div>
                         </div>
+                        <a href="@Url.Action("details", "Product", new { id = product.ProductId })" class="card__title">
+                            <span class="truncate-text">
+                                @product.ProductName
+                            </span>
+                        </a>
+
+                        <div class="d-flex justify-content-between mb-2">
+                            <div class="d-flex flex-row align-items-center">
+                                <i class="fas fa-star text-warning"></i>
+                                <p class="text-secondary fw-bold mt-1 ms-1">@product.AvgStars</p>
+                            </div>
+                            <p class="text-secondary">@product.OrderCounts orders</p>
+                        </div>
+
+
+                        <a href="@Url.Action("details", "Product", new { id = product.ProductId })">
+                            <button class="card__add">Add to card</button>
+                        </a>
                     </div>
                 </div>
+            </div>
         }
     </div>
+</div>
 </div>
 
 @if (TempData["ShowAlert"] as bool? == true)

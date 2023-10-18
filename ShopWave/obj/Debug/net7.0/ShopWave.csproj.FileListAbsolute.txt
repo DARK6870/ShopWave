@@ -164,3 +164,5 @@ D:\Repositoryes\ShopWave\ShopWave\bin\Debug\net7.0\Microsoft.AspNetCore.Authenti
 D:\Repositoryes\ShopWave\ShopWave\bin\Debug\net7.0\MediatR.dll
 D:\Repositoryes\ShopWave\ShopWave\bin\Debug\net7.0\MediatR.Contracts.dll
 D:\Repositoryes\ShopWave\ShopWave\bin\Debug\net7.0\CurrieTechnologies.Razor.SweetAlert2.dll
+D:\Repositoryes\ShopWave\ShopWave\bin\Debug\net7.0\LazyCache.dll
+D:\Repositoryes\ShopWave\ShopWave\bin\Debug\net7.0\LazyCache.AspNetCore.dll

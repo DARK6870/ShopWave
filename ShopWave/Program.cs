@@ -21,7 +21,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 }).AddEntityFrameworkStores<AppDBContext>();
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
-//builder.Services.AddLazyCache();
+builder.Services.AddLazyCache();
 
 builder.Services.AddSession();
 

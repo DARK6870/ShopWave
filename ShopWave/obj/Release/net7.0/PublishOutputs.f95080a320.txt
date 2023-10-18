@@ -7,6 +7,8 @@ D:\Repositoryes\ShopWave\ShopWave\obj\Release\net7.0\PubTmp\Out\ShopWave.pdb
 D:\Repositoryes\ShopWave\ShopWave\obj\Release\net7.0\PubTmp\Out\Azure.Core.dll
 D:\Repositoryes\ShopWave\ShopWave\obj\Release\net7.0\PubTmp\Out\Azure.Identity.dll
 D:\Repositoryes\ShopWave\ShopWave\obj\Release\net7.0\PubTmp\Out\CurrieTechnologies.Razor.SweetAlert2.dll
+D:\Repositoryes\ShopWave\ShopWave\obj\Release\net7.0\PubTmp\Out\LazyCache.dll
+D:\Repositoryes\ShopWave\ShopWave\obj\Release\net7.0\PubTmp\Out\LazyCache.AspNetCore.dll
 D:\Repositoryes\ShopWave\ShopWave\obj\Release\net7.0\PubTmp\Out\MediatR.dll
 D:\Repositoryes\ShopWave\ShopWave\obj\Release\net7.0\PubTmp\Out\MediatR.Contracts.dll
 D:\Repositoryes\ShopWave\ShopWave\obj\Release\net7.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.Google.dll

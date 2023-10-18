@@ -6,6 +6,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ShopWave</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@200;400;600;700&display=swap">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/header.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ShopWave.styles.css" asp-append-version="true" />
@@ -63,15 +65,19 @@
                                                 dataType: "text",
                                                 success: function (avatarBase64) {
                                                     var imgElement = document.getElementById("user-avatar");
-                                                    imgElement.src = "data:image/png;base64, " + avatarBase64;
+                                                    if (avatarBase64) {
+                                                        imgElement.src = "data:image/png;base64, " + avatarBase64;
+                                                    } else {
+                                                        // Используйте изображение по умолчанию
+                                                        imgElement.src = "/img/userIcon.png";
+                                                    }
                                                 },
                                                 error: function () {
-                                                    
+                                                    // Обработка ошибки
                                                 }
                                             });
                                         }
 
-                                        
                                         loadAvatar();
                                     </script>
                                     <img class="avatar" id="user-avatar"/>
@@ -136,9 +142,21 @@
           </div>
           <div class="col">
             <ul class="social mt-3">
-              <li><a href=""><svg title="Facebook"><use xlink:href="#icon-facebook"></use></svg></a></li>
-              <li><a href=""><svg title="Twitter"><use xlink:href="#icon-twitter"></use></svg></a></li>
-              <li><a href=""><svg title="LinkedIn"><use xlink:href="#icon-linkedin"></use></svg></a></li>
+              <li>
+               <a href="https://github.com/DARK6870">
+               <i class="fab fa-github fa-2x"></i>
+               </a>
+               </li>
+              <li>
+               <a href="https://t.me/DarkFlandy">
+               <i class="fab fa-telegram fa-2x"></i>
+               </a>
+               </li>
+               <li>
+               <a href="https://www.linkedin.com/in/vlad-tsymbal-511769296/">
+               <i class="fab fa-linkedin fa-2x"></i>
+               </a>
+               </li>
             </ul>
           </div>
       </nav>

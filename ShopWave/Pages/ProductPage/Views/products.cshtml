@@ -23,12 +23,6 @@
         <div class="text-center">
             <h1>Products not found</h1>
         </div>
-
-        <style>
-            .footer{
-                position: absolute!important;
-            }
-        </style>
     }
 
     <div class="row">
@@ -58,8 +52,20 @@
                             <div class="card__price card__price--discount">@price</div>
                         </div>
                         <a href="@Url.Action("details", "Product", new { id = product.ProductId })" class="card__title">
+                        <span class="truncate-text">
                             @product.ProductName
+                            </span>
                         </a>
+
+                        <div class="d-flex justify-content-between mb-2">
+                            <div class="d-flex flex-row align-items-center">
+                                <i class="fas fa-star text-warning"></i>
+                                <p class="text-secondary fw-bold mt-1 ms-1">@product.AvgStars</p>
+                            </div>
+                            <p class="text-secondary">@product.OrderCounts orders</p>
+                        </div>
+
+
                         <a href="@Url.Action("details", "Product", new { id = product.ProductId })">
                         <button class="card__add">Add to card</button>
                         </a>

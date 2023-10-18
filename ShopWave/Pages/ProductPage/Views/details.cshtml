@@ -4,7 +4,7 @@
     ViewData["Title"] = "Product Details";
 }
 
-<link rel="stylesheet" href="~/css/details.css"/>
+<link rel="stylesheet" href="~/css/details.css" />
 <div class="container mt-5 mb-5">
     <div class="row d-flex justify-content-center">
         <div class="col-md-10">
@@ -12,11 +12,11 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="images p-3">
-                            <div class="text-center p-4"> 
+                            <div class="text-center p-4">
                                 <img id="main-image" src="data:image/png;base64, @Model.ProductImages.FirstOrDefault()?.Data" width="250" />
                             </div>
-                            <div class="thumbnail text-center mt-2"> 
-                                @foreach(var image in Model.ProductImages)
+                            <div class="thumbnail text-center mt-2">
+                                @foreach (var image in Model.ProductImages)
                                 {
                                     <img onclick="change_image(this)" src="data:image/png;base64, @image.Data">
                                 }
@@ -26,39 +26,82 @@
                     <div class="col-md-6">
                         <div class="product p-4">
                             <div class="d-flex justify-content-between align-items-center">
-                                <div class="d-flex align-items-center"> <i class="fa fa-long-arrow-left"></i> <span class="ml-1">Back</span> </div> <i class="fa fa-shopping-cart text-muted"></i>
+                                <div class="d-flex align-items-center">
+                                    <button class="btn btn-secondary" onclick="goBack()">
+                                        <i class="fas fa-arrow-left">
+                                        </i>
+                                        <span style="margin-left: 5px;">Back</span>
+                                    </button>
+                                    <script>
+                                        function goBack() {
+                                            window.history.back();
+                                        }
+                                    </script>
+                                </div>
+                                <a href="/cart">
+                                    <i class="fa fa-shopping-cart text-muted"></i>
+                                </a>
                             </div>
                             <div class="mt-4 mb-3">
                                 <span class="text-uppercase text-muted brand">ProductId: @Model.ProductId</span>
                                 <h5 class="text-uppercase">@Model.ProductName</h5>
                                 <div class="price d-flex flex-row align-items-center">
-                                    <span class="act-price">@Model.ProductVariations.FirstOrDefault().price</span>
-                                    <div class="ml-2"> 
-                                        <small class="dis-price">$59</small> 
-                                        <span>@Model.sale% OFF</span> 
-                                    </div>
+                                    <p>Price:</p>
+                                    <span class="act-price" id="product-price"></span>
                                 </div>
-                            </div>
-                            <ul>
-                                @foreach (var line in Model.Description.Split('\n'))
-                                {
-                                    <li style="list-style:circle">@line</li>
-                                }
-                            </ul>
+                                <div class="d-flex flex-row align-items-center">
+                                    <p class="text-secondary">Quantity:</p>
+                                    <span class="act-price text-secondary" id="product-quantity"></span>
+                                </div>
+                                <div class="d-flex flex-row align-items-center">
+                                    <p class="text-secondary">Order count:</p>
+                                    <span class="act-price text-secondary">@Model.OrderCounts</span>
+                                </div>
 
+                                <div class="d-flex flex-row align-items-center mt-2">
+                                    <div class="stars d-flex">
+                                        @{
+                                            byte filledStars = (byte)Math.Floor(Model.AvgStars);
+                                            byte remainingHalfStar = (byte)((Model.AvgStars - filledStars >= 0.5m) ? 1 : 0);
+                                            byte emptyStars = (byte)(5 - filledStars - remainingHalfStar);
+                                        }
+
+                                        @for (byte i = 0; i < filledStars; i++)
+                                        {
+                                            <i class="fas fa-star text-warning"></i>
+                                        }
+                                        @if (remainingHalfStar > 0)
+                                        {
+                                            <i class="fas fa-star-half-alt text-warning"></i>
+                                        }
+                                        @for (byte i = 0; i < emptyStars; i++)
+                                        {
+                                            <i class="far fa-star text-warning"></i>
+                                        }
+                                    </div>
+                                    <p class="text-muted fw-bold ms-2">@Model.AvgStars</p>
+                                </div>
+
+
+
+                            </div>
                             <div class="sizes mt-5">
                                 <h6 class="text-uppercase">Variations</h6>
-                                @foreach(var variation in Model.ProductVariations)
+                                @foreach (var variation in Model.ProductVariations)
                                 {
-                                <label class="radio mb-1"> 
-                                    <input type="radio" name="VariationId" value="@variation.VariationId" checked> 
-                                    <span>@variation.VariationName</span> 
-                                </label> 
+                                    <label class="radio mb-1">
+                                        <input type="radio" name="VariationId" value="@variation.VariationId" data-price="@variation.price" data-quantity="@variation.quantity" @if (variation == Model.ProductVariations.FirstOrDefault())
+                                        {
+                                            <text>checked="checked"</text>
+                                        }>
+                                        <span>@variation.VariationName</span>
+                                    </label>
                                 }
                             </div>
-                            <div class="cart mt-4 align-items-center"> 
-                                <button class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button> 
-                                <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i> 
+                            <div class="cart mt-4 align-items-center">
+                                <button class="btn btn-danger text-uppercase mr-2 px-4">
+                                    <i class="fa fa-shopping-cart text-white"></i>Add to cart
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -66,13 +109,9 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
 
-<script>
-    function change_image(image) {
-        var container = document.getElementById("main-image");
-        container.src = image.src;
-    }
-    document.addEventListener("DOMContentLoaded", function (event) {
-    });
+
+<script src="/js/details.js">
 </script>
+

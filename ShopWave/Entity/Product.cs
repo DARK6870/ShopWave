@@ -28,7 +28,7 @@ namespace ShopWave.Entity
 
 
 		[Column(TypeName = "Decimal(3,2)")]
-		public decimal? AvgStars { get; set; }
+		public decimal AvgStars { get; set; }
 
 
 

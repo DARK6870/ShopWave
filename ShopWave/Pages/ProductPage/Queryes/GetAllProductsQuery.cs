@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using LazyCache;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using ShopWave.Context;
 using ShopWave.Entity;
@@ -10,19 +11,26 @@ namespace ShopWave.Pages.ProductPage.Queryes
     public class GetAllProductsHandler : IRequestHandler<GetAllProductsQuery, List<Product>>
     {
         private readonly AppDBContext _context;
-        public GetAllProductsHandler(AppDBContext context)
+        private readonly IAppCache _cache;
+        public GetAllProductsHandler(AppDBContext context, IAppCache cache)
         {
             _context = context;
+            _cache = cache;
         }
 
         public async Task<List<Product>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
         {
-            var products = await _context.Products
+            var products = await _cache.GetOrAddAsync("products_data", async () =>
+            {
+                var result = await _context.Products
                 .Include(p => p.Categoriess)
                 .Include(p => p.Statuses)
                 .Include(p => p.ProductImages)
                 .Include(p => p.ProductVariations)
                 .ToListAsync();
+
+                return result;
+            }, TimeSpan.FromHours(24));
 
             return products;
         }

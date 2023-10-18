@@ -116,9 +116,9 @@
 
 form li {
     margin-left: 20px;
-    list-style: url(/img/pngError.png);
     margin-bottom: 10px;
     font-size: 16px;
+    color: red;
     color: red;
     font-weight: bold;
 }

@@ -13,8 +13,8 @@
       "PackagePath": "staticwebassets\\css\\NotFound.css"
     },
     {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\animate.css",
-      "PackagePath": "staticwebassets\\css\\animate.css"
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\details.css",
+      "PackagePath": "staticwebassets\\css\\details.css"
     },
     {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\header.css",
@@ -37,56 +37,8 @@
       "PackagePath": "staticwebassets\\css\\support.css"
     },
     {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\18Ico.png",
-      "PackagePath": "staticwebassets\\img\\18Ico.png"
-    },
-    {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\Favico.svg",
-      "PackagePath": "staticwebassets\\img\\Favico.svg"
-    },
-    {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\ShopWaveIco.png",
       "PackagePath": "staticwebassets\\img\\ShopWaveIco.png"
-    },
-    {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\animalIco.png",
-      "PackagePath": "staticwebassets\\img\\animalIco.png"
-    },
-    {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\beautyIco.png",
-      "PackagePath": "staticwebassets\\img\\beautyIco.png"
-    },
-    {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\clothsIco.png",
-      "PackagePath": "staticwebassets\\img\\clothsIco.png"
-    },
-    {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\electronicIco.png",
-      "PackagePath": "staticwebassets\\img\\electronicIco.png"
-    },
-    {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\errorIco.svg",
-      "PackagePath": "staticwebassets\\img\\errorIco.svg"
-    },
-    {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\foodIco.png",
-      "PackagePath": "staticwebassets\\img\\foodIco.png"
-    },
-    {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\gameIco.png",
-      "PackagePath": "staticwebassets\\img\\gameIco.png"
-    },
-    {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\healthIco.png",
-      "PackagePath": "staticwebassets\\img\\healthIco.png"
-    },
-    {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\houseIco.png",
-      "PackagePath": "staticwebassets\\img\\houseIco.png"
-    },
-    {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\kidsIco.png",
-      "PackagePath": "staticwebassets\\img\\kidsIco.png"
     },
     {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\main_mobile_ru.jpg",
@@ -97,36 +49,16 @@
       "PackagePath": "staticwebassets\\img\\main_ru.png"
     },
     {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\penIco.png",
-      "PackagePath": "staticwebassets\\img\\penIco.png"
-    },
-    {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\pngError.png",
-      "PackagePath": "staticwebassets\\img\\pngError.png"
-    },
-    {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\shoesIco.png",
-      "PackagePath": "staticwebassets\\img\\shoesIco.png"
-    },
-    {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\sportIco.png",
-      "PackagePath": "staticwebassets\\img\\sportIco.png"
-    },
-    {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\transportIco.png",
-      "PackagePath": "staticwebassets\\img\\transportIco.png"
-    },
-    {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\usIco.png",
-      "PackagePath": "staticwebassets\\img\\usIco.png"
-    },
-    {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\userIcon.png",
       "PackagePath": "staticwebassets\\img\\userIcon.png"
     },
     {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\js\\Banner.js",
       "PackagePath": "staticwebassets\\js\\Banner.js"
+    },
+    {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\js\\details.js",
+      "PackagePath": "staticwebassets\\js\\details.js"
     },
     {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\js\\loader.js",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ykNg0+69cuoOBYJONyI63F+dOWN8Sx5MbTP1/xNOpZ75OXS4RV2OYSmt0yISHMb2w1OJhnG3DTrnawF/gA6dPQ==",
+  "dgSpecHash": "QoaaHmuoSi+VgxTT19+H9Qare0CtnD0rE66zyi6zG9VS2+2oYF+CQTZxqXH63qh0zGO4ckMqwwqz8Aq+NtB0SQ==",
   "success": true,
   "projectFilePath": "D:\\Repositoryes\\ShopWave\\ShopWave\\ShopWave.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,8 @@
     "C:\\Users\\tsymb\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\tsymb\\.nuget\\packages\\currietechnologies.razor.sweetalert2\\5.5.0\\currietechnologies.razor.sweetalert2.5.5.0.nupkg.sha512",
     "C:\\Users\\tsymb\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\tsymb\\.nuget\\packages\\lazycache\\2.4.0\\lazycache.2.4.0.nupkg.sha512",
+    "C:\\Users\\tsymb\\.nuget\\packages\\lazycache.aspnetcore\\2.4.0\\lazycache.aspnetcore.2.4.0.nupkg.sha512",
     "C:\\Users\\tsymb\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
     "C:\\Users\\tsymb\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\tsymb\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\7.0.11\\microsoft.aspnetcore.authentication.google.7.0.11.nupkg.sha512",

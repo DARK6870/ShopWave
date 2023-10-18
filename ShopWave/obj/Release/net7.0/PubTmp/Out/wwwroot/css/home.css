@@ -1,15 +1,15 @@
-﻿/* Стилизация карточек категорий */
+﻿
 .category-scroll {
     display: flex;
     overflow-x: scroll;
     padding: 10px 0;
-    gap: 20px;
-    -webkit-overflow-scrolling: touch; /* Для плавного скроллинга на iOS */
+    gap: 10px;
+    -webkit-overflow-scrolling: touch;
 }
 
 .category-card {
     flex: 0 0 auto;
-    width: 150px; /* Ширина карточки */
+    width: 150px;
     text-align: center;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -18,17 +18,14 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.category-icon {
-    width: 80px; /* Размер иконки */
-    height: 80px; /* Размер иконки */
-    margin: 0 auto 10px;
-}
-
 .category-title {
     font-size: 16px;
+    margin-top: 15px;
+    color: #7470be;
+    font-weight: 600;
 }
 
-/* Адаптивный стиль для мобильных устройств */
+
 @media (max-width: 768px) {
     .category-scroll {
         flex-wrap: nowrap;
@@ -36,7 +33,7 @@
     }
 
     .category-card {
-        width: 120px; /* Уменьшите ширину для мобильных устройств */
+        width: 120px;
     }
 }
 
@@ -63,4 +60,9 @@
     }
 
 
+
+.category-card .fas {
+    color: #7480be;
+    margin-top: 10px;
+}
 
