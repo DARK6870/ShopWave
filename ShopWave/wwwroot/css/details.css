@@ -1,6 +1,7 @@
 ﻿
 .card {
-    border: none
+    border: none;
+    height: auto;
 }
 
 .product {
