@@ -9,7 +9,7 @@ namespace ShopWave.Entity
         public ICollection<Review> Reviews { get; set; }
 		public ICollection<UserData> UserAvatars { get; set; }
 		public  ICollection<Product> Products { get; set; }
-		public ICollection<Card> Cards { get; set; }
+		public ICollection<Cart> Cards { get; set; }
 		public ICollection<Order> Orders { get; set; }
 		public ICollection<SellerData> SellerDatas { get; set; }
 		public ICollection<Avatar> Avatars { get; set; }

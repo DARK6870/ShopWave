@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Cart";
+}
+@model List<Cart>
+<div class="container mt-2">
+        @foreach (var product in Model)
+        {
+            <div class="mb-3" style=" max-width: 700px;">
+                <div class="card">
+                    <div class="row g-0">
+                            <img src="data:image/png;base64, @product.Products.ProductImages.FirstOrDefault()?.Data" class="img-fluid rounded-start" alt="Product Image" style="object-fit: contain; height: 100px; width: 100px; padding: 10px;">
+                        <div class="col-md-8">
+                            <div class="card-body" style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <h5 class="card-title">@product.Products.ProductName</h5>
+                                    <p class="card-text">Variation: @product.ProductVariations.VariationName</p>
+                                    <p class="card-text text-success">Price: $@product.ProductVariations.price</p>
+                                </div>
+                                <a href="#" class="text-secondary" style="position: absolute; top: 5px; right: 5px;">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+</div>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Total: $@Model.Sum(product => product.ProductVariations.price)</h4>
+        </div>
+    </div>
+</div>

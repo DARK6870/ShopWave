@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShopWave.Entity
@@ -14,8 +15,12 @@ namespace ShopWave.Entity
 		[Required, Column(TypeName = "varchar(30)")]
 		[StringLength(30)]
 		public string CountryName { get; set; }
-		
-		
+
+
+
+		[Required, DefaultValue(0), Column(TypeName = "tinyint")]
+		public byte DeliveryPrice { get; set; }
+
 		[NotMapped]		
 		public virtual UserData UserDatas { get; set; }
 		

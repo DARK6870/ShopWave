@@ -22,6 +22,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Z.EntityFramework.Plus.EFCore" Version="7.100.0.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +30,7 @@
     <Folder Include="Pages\AccountPage\Models\" />
     <Folder Include="Pages\AccountPage\Queryes\" />
     <Folder Include="Pages\ProductPage\Commands\" />
+    <Folder Include="Views\" />
   </ItemGroup>
 
 </Project>

@@ -24,7 +24,6 @@ namespace ShopWave.Pages.ProductPage.Queryes
             {
                 var result = await _context.Products
                 .Include(p => p.Categoriess)
-                .Include(p => p.Statuses)
                 .Include(p => p.ProductImages)
                 .Include(p => p.ProductVariations)
                 .ToListAsync();

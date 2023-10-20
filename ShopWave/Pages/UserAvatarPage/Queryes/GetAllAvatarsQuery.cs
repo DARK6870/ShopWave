@@ -3,7 +3,6 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using ShopWave.Context;
 using ShopWave.Entity;
-using ShopWave.Migrations;
 
 namespace ShopWave.Pages.UserAvatarPage.Queryes
 {

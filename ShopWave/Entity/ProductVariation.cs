@@ -9,6 +9,7 @@ namespace ShopWave.Entity
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int VariationId { get; set; }
 
+
         [Required, ForeignKey(nameof(Products))]
         public int ProductId { get; set; }
         public virtual Product Products { get; set; }
@@ -28,5 +29,6 @@ namespace ShopWave.Entity
 
 
         public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Cart> Cart { get; set; }
     }
 }

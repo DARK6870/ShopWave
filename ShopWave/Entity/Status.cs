@@ -14,7 +14,6 @@ namespace ShopWave.Entity
 		public string StatusName { get; set; }
 
 
-		public ICollection<Product> Products { get; set; }
 		public ICollection<Order> Orders { get; set; }
 	}
 }

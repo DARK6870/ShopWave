@@ -17,7 +17,7 @@ namespace ShopWave.Entity
 
 
 		[Required, Column(TypeName = "varchar(50)")]
-		[StringLength(50)]
+		[StringLength(60)]
 		public string ProductName { get; set; }
 
 
@@ -31,24 +31,20 @@ namespace ShopWave.Entity
 		public decimal AvgStars { get; set; }
 
 
-
 		[Required, DefaultValue(0)]
 		public int OrderCounts { get; set; }
 
 
+        [Required]
+        public bool Admitered { get; set; }
 
-		[Required, ForeignKey(nameof(Statuses))]
-		public byte StatusId { get; set; }
-		public virtual Status Statuses { get; set; }
+        public DateTime ProductDate { get; set; }
 
 
-		[Required, ForeignKey(nameof(Categoriess))]
+        [Required, ForeignKey(nameof(Categoriess))]
 		public short CategoryId { get; set; }
 		public virtual Categories Categoriess { get; set; }
 
-
-        [DefaultValue(0), Column(TypeName = "tinyint")]
-        public byte sale { get; set; }
 
 
         public ICollection<ProductImages> ProductImages { get; set; }
