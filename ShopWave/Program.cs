@@ -99,6 +99,11 @@ app.MapControllerRoute(
     defaults: new { Controller = "Home" });
 
 app.MapControllerRoute(
+    name: "cart",
+    pattern: "{action}",
+    defaults: new { Controller = "Cart" });
+
+app.MapControllerRoute(
         name: "NotFound",
         pattern: "{*url}",
         defaults: new { controller = "Home", action = "NotFound" }

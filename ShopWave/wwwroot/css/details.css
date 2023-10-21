@@ -124,3 +124,7 @@ label.radio {
 .cas{
     padding-right: 5px;
 }
+
+li{
+    list-style: none;
+}

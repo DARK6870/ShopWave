@@ -38,7 +38,7 @@
                                         }
                                     </script>
                                 </div>
-                                <a href="/cart">
+                                <a href="/mycart">
                                     <i class="fa fa-shopping-cart text-muted"></i>
                                 </a>
                             </div>
@@ -151,7 +151,36 @@
                             Some text 2. Vestibulum in convallis risus. Nullam viverra est sit amet nunc iaculis ullamcorper.
                         </div>
                         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                            Some text 3. Fusce placerat, ante eu sollicitudin volutpat, libero ligula suscipit urna, ut tincidunt odio augue eu erat.
+                            <div class="row">
+                                    <div>
+                                        <h2><i class="fas fa-shipping-fast text-primary"></i> Our Deliveries</h2>
+                                        <p>We take pride in our outstanding delivery services that have made us leaders in the industry. Here's why we're exceptional and why you can always rely on us:</p>
+                                        <ul>
+                                            <li><i class="fas fa-check-circle fa-sm text-success"></i> Instant delivery to Moldova, the USA, China, Ukraine, and many more countries.</li>
+                                            <li><i class="fas fa-check-circle fa-sm text-success"></i> High reliability - your order will always be delivered on time.</li>
+                                            <li><i class="fas fa-check-circle fa-sm text-success"></i> A wide range of delivery options to meet your needs.</li>
+                                            <li><i class="fas fa-check-circle fa-sm text-success"></i> Professional couriers and secure packaging for the safety of your order.</li>
+                                            <li><i class="fas fa-check-circle fa-sm text-success"></i> Transparent order tracking at every stage of delivery.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="mt-4">
+                                        <h2><i class="fas fa-globe text-primary"></i> Available Countries</h2>
+                                        <p>We take pride in delivering goods to various corners of the world. Here are some of the countries we deliver to:</p>
+                                        <ul>
+                                            <li><i class="fas fa-globe-americas fa-sm text-success"></i> USA</li>
+                                        <li><i class="fas fa-globe-europe fa-sm text-success"></i> Moldova</li>
+                                        <li><i class="fas fa-globe-asia fa-sm text-success"></i> China</li>
+                                        <li><i class="fas fa-globe-europe fa-sm text-success"></i> Ukraine</li>
+                                        <li><i class="fas fa-globe-americas fa-sm text-success"></i> Poland</li>
+                                        <li><i class="fas fa-globe-europe fa-sm text-success"></i> Russia</li>
+                                        <li><i class="fas fa-globe-asia fa-sm text-success"></i> Romania</li>
+                                        <li><i class="fas fa-globe-europe fa-sm text-success"></i> Italy</li>
+                                        <li><i class="fas fa-globe-asia fa-sm text-success"></i> Germany</li>
+                                        <li><i class="fas fa-globe-europe fa-sm text-success"></i> India</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
                         </div>
                     </div>
                 </div>
@@ -162,6 +191,7 @@
 
 <script src="/js/details.js">
 </script>
+
 <script>
     function addToCart() {
         var productId = @Model.ProductId;
@@ -173,7 +203,7 @@
             data: { productId: productId, variationId: variationId },
             success: function (result) {
                 if (result.success) {
-                    window.location.href = '/cart'
+                    window.location.href = '/mycart'
                 } else {
                     Swal.fire('Error', 'Failed to add the product to the cart.', 'error');
                 }
