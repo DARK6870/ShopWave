@@ -593,6 +593,11 @@ namespace ShopWave.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("varchar(40)");
+
                     b.Property<string>("AppUserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -600,10 +605,15 @@ namespace ShopWave.Migrations
                     b.Property<byte>("CountryId")
                         .HasColumnType("tinyint");
 
-                    b.Property<string>("FIO")
+                    b.Property<string>("FirtName")
                         .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("varchar(60)");
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("Location")
                         .IsRequired()
@@ -619,11 +629,6 @@ namespace ShopWave.Migrations
                         .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("varchar(10)");
-
-                    b.Property<string>("Street")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("varchar(30)");
 
                     b.HasKey("Id");
 

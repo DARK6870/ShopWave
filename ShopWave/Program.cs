@@ -48,6 +48,10 @@ builder.Services.Configure<RazorViewEngineOptions>(o =>
 	o.ViewLocationFormats.Add("/Pages/{0}" + RazorViewEngine.ViewExtension);
 });
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Login";
+});
 
 
 
@@ -89,11 +93,6 @@ app.MapControllerRoute(
     defaults: new { Controller = "Support" });
 
 app.MapControllerRoute(
-    name: "product",
-    pattern: "{action}/{id}",
-    defaults: new { Controller = "Product" });
-
-app.MapControllerRoute(
     name: "home",
     pattern: "{action}",
     defaults: new { Controller = "Home" });
@@ -104,10 +103,23 @@ app.MapControllerRoute(
     defaults: new { Controller = "Cart" });
 
 app.MapControllerRoute(
+	name: "details",
+    pattern: "{action}/{id}",
+    defaults: new { controller = "Product", action = "details" }
+    );
+
+app.MapControllerRoute(
+    name: "products",
+    pattern: "{action}",
+    defaults: new { controller = "Product", action = "products" }
+);
+
+app.MapControllerRoute(
         name: "NotFound",
         pattern: "{*url}",
         defaults: new { controller = "Home", action = "NotFound" }
     );
+
 
 
 app.Run();

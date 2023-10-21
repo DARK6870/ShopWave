@@ -20,12 +20,16 @@ namespace ShopWave.Entity
 		public string PhoneNumber { get; set; }
 
 
-		[Required, Column(TypeName = "varchar(60)")]
-		[StringLength(60)]
-		public string FIO { get; set; }
+		[Required, Column(TypeName = "varchar(20)")]
+		[StringLength(20)]
+		public string FirtName { get; set; }
+
+        [Required, Column(TypeName = "varchar(20)")]
+        [StringLength(20)]
+        public string LastName { get; set; }
 
 
-		[Required, ForeignKey(nameof(Countryess))]
+        [Required, ForeignKey(nameof(Countryess))]
 		public byte CountryId { get; set; }
 		public virtual Countryes Countryess { get; set; }
 
@@ -35,9 +39,9 @@ namespace ShopWave.Entity
 		public string Location { get; set; }
 
 
-		[Required, Column(TypeName = "varchar(30)")]
-		[StringLength(30)]
-		public string Street { get; set; }
+		[Required, Column(TypeName = "varchar(40)")]
+		[StringLength(40)]
+		public string Address { get; set; }
 
 
 		[Required, Column(TypeName = "varchar(10)")]

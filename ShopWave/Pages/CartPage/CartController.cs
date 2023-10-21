@@ -34,6 +34,7 @@ namespace ShopWave.Pages.CartPage
             }
         }
 
+        [Authorize]
         public async Task<IActionResult> deletefromcart(int id)
         {
             try

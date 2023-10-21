@@ -19,7 +19,14 @@
                             <div class="card-body">
                                 <h5 class="card-title">@product.Products.ProductName</h5>
                                 <p class="card-text">Variation: @product.ProductVariations.VariationName</p>
-                                <p class="card-text text-success">Price: $@product.ProductVariations.price</p>
+                                @if(product.ProductVariations.quantity > 0)
+                                {
+                                    <p class="card-text text-success">Price: $@product.ProductVariations.price</p>
+                                }
+                                else
+                                {
+                                    <p class="card-text text-danger">Product isn't in stock</p>
+                                }
                             </div>
                         </div>
                     </div>
@@ -33,10 +40,14 @@
 </div>
 <div class="container mt-3">
     <div class="row">
-        <div class="col-md-2 d-flex justify-content-between">
+        <div class="col-md-8 d-flex">
             <h3 class="fw-bold text-secondary">Total: </h3>
-            <h3 class="fw-bold text-success ms-2">$@Model.Sum(product => product.ProductVariations.price)</h3>
+            <h3 class="fw-bold text-success ms-2">$@Model.Where(p => p.ProductVariations.quantity > 0).Sum(product => product.ProductVariations.price)</h3>
+        </div>
+        <div class="col-md-4 d-flex justify-content-end">
+            <a class="btn btn-success ms-2">
+                Confirm Order <i class="fas fa-check"></i>
+            </a>
         </div>
     </div>
-
 </div>
