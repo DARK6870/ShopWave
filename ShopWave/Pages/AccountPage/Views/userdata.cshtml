@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Edit user data";
+}
+
+<div class="container mt-4">
+    <div class="card mb-4">
+        <div class="card-header">UserData Data</div>
+        <div class="card-body">
+            <form>
+                <div class="row gx-3 mb-3">
+                    <div class="col-md-6">
+                        <label class="small mb-1 text-secondary" for="inputFirstName">First name</label>
+                        <input required minlength="2" maxlength="20" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="Valerie">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="small mb-1 text-secondary" for="inputLastName">Last name</label>
+                        <input required minlength="5" maxlength="20" class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" value="Luna">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="small mb-1 text-secondary" for="inputPhone">Phone number witout country code like: 69077251</label>
+                    <input required pattern="^\d{8}$" class="form-control" type="text" placeholder="Enter your phone number" value="+37369077251" />
+                </div>
+                <div class="mb-3">
+                    <label class=" small mb-1 text-secondary" for="inputLocation">Location</label>
+                    <input required minlength="3" maxlength="35" class="form-control" type="text" placeholder="Enter your location" value="London" />
+                </div>
+                <div class="mb-3">
+                    <label class=" small mb-1 text-secondary" for="inputAddress">Adress, example: Backer street 22</label>
+                    <input required minlength="10" maxlength="40" class="form-control" type="text" placeholder="Enter your location" value="Baker street 42" />
+                </div>
+                <div class="mb-3">
+                    <label class=" small mb-1 text-secondary">Postal code, example: MD4022</label>
+                    <input required minlength="3" maxlength="10" class="form-control" type="text" placeholder="Enter postal code" value="MD2042" />
+                </div>
+                <button class="btn btn-primary" type="submit">Save changes</button>
+            </form>
+        </div>
+    </div>
+</div>

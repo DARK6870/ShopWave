@@ -1,0 +1,46 @@
+﻿@model IFormFile
+
+@{
+    ViewData["Title"] = "Upload Avatar";
+}
+
+<div class="container">
+    <div class="card mt-4">
+        <div class="card-header">
+            <h1 class="text-secondary mt-2">Upload Photo</h1>
+        </div>
+        <div class="card-body">
+            <form method="post" asp-action="UploadPhoto" asp-controller="Account" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-2 text-center">
+                        <div class="d-flex justify-content-center align-items-center" style="height: 100%; width: 100%;">
+                            <img id="imagePreview" style="height: 150px; width: 150px; border-radius: 100%; display: none; object-fit: cover;" class="shadow" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label" for="customFile">Choose a photo (PNG, JPEG):</label>
+                            <input required type="file" name="file" class="form-control" id="customFile" accept=".png, .jpeg, .jpg" />
+                            <button type="submit" class="btn btn-primary mt-2">Upload</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("customFile").addEventListener("change", function () {
+        var input = this;
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var imagePreview = document.getElementById("imagePreview");
+                imagePreview.src = e.target.result;
+                imagePreview.style.display = "block";
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    });
+</script>

@@ -46,7 +46,7 @@
                             </span>
                             <span class="hamburger-label">Menu</span>
                         </button>
-                        <a href="profile" class="top-icon text-white">
+                        <a href="/profile" class="top-icon text-white">
                             @if(User.Identity.IsAuthenticated){
                                 string? userId;
                                 try
@@ -54,7 +54,6 @@
                                     var user = await userManager.GetUserAsync(User);
                                     userId = user.Id;
                                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
                                     <script>
                                         function loadAvatar() {
                                             var userId = "@userId";

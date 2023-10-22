@@ -35,6 +35,8 @@ body {
 }
 
 
+
+
 a{
     text-decoration: none;
 }
@@ -257,3 +259,13 @@ body {
     object-fit: cover;
     border-radius: 50%;
 }
+
+.btn-primary {
+    background-color: #7480be;
+    border-color: #7480be;
+}
+
+    .btn-primary:hover {
+        background-color: #7470be;
+        border-color: #7470be;
+    }
