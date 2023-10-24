@@ -1,40 +1,173 @@
-﻿@{
+﻿@model UserDataViewModel
+@inject UserManager<IdentityUser> userManager
+@using Microsoft.AspNetCore.Identity
+@{
     ViewData["Title"] = "Edit user data";
 }
-
+<style>
+    .card {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+</style>
 <div class="container mt-4">
     <div class="card mb-4">
         <div class="card-header">UserData Data</div>
         <div class="card-body">
-            <form>
-                <div class="row gx-3 mb-3">
-                    <div class="col-md-6">
-                        <label class="small mb-1 text-secondary" for="inputFirstName">First name</label>
-                        <input required minlength="2" maxlength="20" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="Valerie">
+            <form asp-action="updateuser">
+                @if (Model.UserDatas != null)
+                {
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6 mb-3">
+                            <label class="small mb-1 text-secondary" for="inputFirstName">
+                                <i class="fas fa-user"></i> First name
+                            </label>
+                            <input required minlength="2" maxlength="20" class="form-control" type="text" placeholder="Enter your first name" asp-for="FirstName" value="@Model.UserDatas.FirstName">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="small mb-1 text-secondary" for="inputLastName">
+                                <i class="fas fa-user"></i> Last name
+                            </label>
+                            <input required minlength="5" maxlength="20" class="form-control" type="text" placeholder="Enter your last name" asp-for="LastName" value="@Model.UserDatas.LastName">
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <label class="small mb-1 text-secondary" for="inputLastName">Last name</label>
-                        <input required minlength="5" maxlength="20" class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" value="Luna">
+
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6 mb-3">
+                            <label class="small mb-1 text-secondary" for="inputPhone">
+                                <i class="fas fa-phone"></i> Phone number witout country code like: 69077251
+                            </label>
+                            <input required pattern="^\d{8}$" class="form-control" type="text" placeholder="Enter your phone number" asp-for="PhoneNumber" value="@Model.UserDatas.PhoneNumber"/>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="small mb-1 text-secondary" for="inputPostalCode">
+                                <i class="fas fa-envelope"></i> Postal code, example: MD4022
+                            </label>
+                            <input required minlength="3" maxlength="10" class="form-control" type="text" placeholder="Enter postal code" asp-for="PostalCode" value="@Model.UserDatas.PostalCode"/>
+                        </div>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <label class="small mb-1 text-secondary" for="inputPhone">Phone number witout country code like: 69077251</label>
-                    <input required pattern="^\d{8}$" class="form-control" type="text" placeholder="Enter your phone number" value="+37369077251" />
-                </div>
-                <div class="mb-3">
-                    <label class=" small mb-1 text-secondary" for="inputLocation">Location</label>
-                    <input required minlength="3" maxlength="35" class="form-control" type="text" placeholder="Enter your location" value="London" />
-                </div>
-                <div class="mb-3">
-                    <label class=" small mb-1 text-secondary" for="inputAddress">Adress, example: Backer street 22</label>
-                    <input required minlength="10" maxlength="40" class="form-control" type="text" placeholder="Enter your location" value="Baker street 42" />
-                </div>
-                <div class="mb-3">
-                    <label class=" small mb-1 text-secondary">Postal code, example: MD4022</label>
-                    <input required minlength="3" maxlength="10" class="form-control" type="text" placeholder="Enter postal code" value="MD2042" />
-                </div>
+
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6 mb-3">
+                            <label class="small mb-1 text-secondary" for="inputLocation">
+                                <i class="fas fa-map-marker-alt"></i> Location
+                            </label>
+                            <input required minlength="3" maxlength="35" class="form-control" type="text" placeholder="Enter your location" asp-for="Location" value="@Model.UserDatas.Location"/>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="small mb-1 text-secondary" for="inputAddress">
+                                <i class="fas fa-map-marker"></i> Address, example: Backer street 22
+                            </label>
+                            <input required minlength="10" maxlength="40" class="form-control" type="text" placeholder="Enter your location" asp-for="Address" value="@Model.UserDatas.Address"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="small mb-1 text-secondary" for="inputLocation">
+                            <i class="fas fa-map-marker-alt"></i> Country
+                        </label>
+                        <select required class="form-select" id="CountryId" onchange="updateInputValue(this, 'CT')">
+                            <option value="@Model.UserDatas.CountryId"></option>
+                            @foreach (var item in Model.countryes)
+                            {
+                                <option value="@item.CountryId">@item.CountryName</option>
+                            }
+                        </select>
+                        <input type="text" hidden class="w-100" id="CT" required name="CountryId">
+                    </div>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            var countryId = @Model.UserDatas.CountryId;
+                            var selectElement = document.getElementById("CountryId");
+
+                            if (countryId !== null) {
+                                // Устанавливаем значение в input по умолчанию
+                                updateInputValue(selectElement, "CT");
+                            }
+                        });
+                    </script>
+                }                
+                else
+                {
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6 mb-3">
+                            <label class="small mb-1 text-secondary" for="inputFirstName">
+                                <i class="fas fa-user"></i> First name
+                            </label>
+                            <input required minlength="2" maxlength="20" class="form-control" type="text" placeholder="Enter your first name" asp-for="FirstName">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="small mb-1 text-secondary" for="inputLastName">
+                                <i class="fas fa-user"></i> Last name
+                            </label>
+                            <input required minlength="5" maxlength="20" class="form-control" type="text" placeholder="Enter your last name" asp-for="LastName">
+                        </div>
+                    </div>
+
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6 mb-3">
+                            <label class="small mb-1 text-secondary" for="inputPhone">
+                                <i class="fas fa-phone"></i> Phone number witout country code like: 69077251
+                            </label>
+                            <input required pattern="^\d{8}$" class="form-control" type="text" placeholder="Enter your phone number" asp-for="PhoneNumber" />
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="small mb-1 text-secondary" for="inputPostalCode">
+                                <i class="fas fa-envelope"></i> Postal code, example: MD4022
+                            </label>
+                            <input required minlength="3" maxlength="10" class="form-control" type="text" placeholder="Enter postal code" asp-for="PostalCode" />
+                        </div>
+                    </div>
+
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6 mb-3">
+                            <label class="small mb-1 text-secondary" for="inputLocation">
+                                <i class="fas fa-map-marker-alt"></i> Location
+                            </label>
+                            <input required minlength="3" maxlength="35" class="form-control" type="text" placeholder="Enter your location" asp-for="Location" />
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="small mb-1 text-secondary" for="inputAddress">
+                                <i class="fas fa-map-marker"></i> Address, example: Backer street 22
+                            </label>
+                            <input required minlength="10" maxlength="40" class="form-control" type="text" placeholder="Enter your location" asp-for="Address" />
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="small mb-1 text-secondary" for="inputLocation">
+                            <i class="fas fa-map-marker-alt"></i> Country
+                        </label>
+                        <select required class="form-select" id="CountryId" onchange="updateInputValue(this, 'CT')">
+                            <option value=""></option>
+                            @foreach (var item in Model.countryes)
+                            {
+                                <option value="@item.CountryId">@item.CountryName</option>
+                            }
+                        </select>
+                        <input type="text" hidden class="w-100" id="CT" required name="CountryId">
+                    </div>
+
+                }
+                @{
+                    var user = await userManager.GetUserAsync(User);
+                    string userId = user.Id;
+                }
+                <input type="hidden" asp-for="AppUserId" value="@userId">
                 <button class="btn btn-primary" type="submit">Save changes</button>
+
             </form>
         </div>
     </div>
 </div>
+<script>
+    function updateInputValue(selectElement, inputId) {
+        var inputElement = document.getElementById(inputId);
+        var selectedOption = selectElement.options[selectElement.selectedIndex];
+        inputElement.value = selectedOption.value;
+    }
+</script>

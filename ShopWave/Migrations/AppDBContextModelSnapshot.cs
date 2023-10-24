@@ -605,7 +605,7 @@ namespace ShopWave.Migrations
                     b.Property<byte>("CountryId")
                         .HasColumnType("tinyint");
 
-                    b.Property<string>("FirtName")
+                    b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("varchar(20)");

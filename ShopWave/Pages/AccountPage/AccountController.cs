@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using ShopWave.Entity;
 using ShopWave.Pages.AccountPage.Commands;
 using ShopWave.Pages.AccountPage.Queryes;
+using ShopWave.Pages.AccountPage.ViewModels;
+using ShopWave.Pages.AdminCountryPage.Queryes;
 
 namespace ShopWave.Pages.AccountPage
 {
@@ -65,13 +67,57 @@ namespace ShopWave.Pages.AccountPage
         }
 
 
+        [Authorize]
         public async Task<IActionResult> userdata()
         {
-            return View();
+            try
+            {
+                var currentUser = await _userManager.GetUserAsync(User);
+                var userId = currentUser.Id;
+
+                UserData? user = await _mediator.Send(new GetPostalDataByIdQuery(userId));
+
+                var model = new UserDataViewModel
+                {
+                    countryes = await _mediator.Send(new GetCountryesQuery()),
+                    UserDatas = user
+                };
+
+                return View(model);
+
+            }
+            catch
+            {
+                return Redirect("/Error");
+            }
+            
+        }
+
+        [Authorize]
+        public async Task<IActionResult> updateuser(UserData data)
+        {
+            try
+            {
+                bool result = await _mediator.Send(new ChangeUserDataCommand(data));
+                if (result)
+                {
+                    TempData["Success"] = true;
+                    return Redirect("/profile");
+                }
+                else
+                {   TempData["Error"] = true;
+                    return Redirect("/profile");
+                }
+            }
+            catch
+            {
+                return Redirect("/Error");
+            }
         }
 
 
-    
+
+
         public async Task<IActionResult> avatar()
         {
             return View();

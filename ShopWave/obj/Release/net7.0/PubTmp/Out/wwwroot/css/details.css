@@ -1,6 +1,7 @@
 ﻿
 .card {
-    border: none
+    border: none;
+    height: auto;
 }
 
 .product {
@@ -85,8 +86,8 @@ label.radio {
     border-radius: 10px;
     margin-bottom: 10px;    
     height: 300px;
-    min-width: 200px;
-    max-width: 400px;
+    width: auto;
+    max-width: 100%;
     object-fit: contain;
 }
 
@@ -118,4 +119,12 @@ label.radio {
     .product {
         height: 100%;
     }
+}
+
+.cas{
+    padding-right: 5px;
+}
+
+li{
+    list-style: none;
 }

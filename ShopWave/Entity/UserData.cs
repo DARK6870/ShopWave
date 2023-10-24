@@ -17,16 +17,16 @@ namespace ShopWave.Entity
 
 		[Required, Column(TypeName = "varchar(15)")]
 		[StringLength(15)]
-		public string PhoneNumber { get; set; }
+		public string? PhoneNumber { get; set; }
 
 
 		[Required, Column(TypeName = "varchar(20)")]
 		[StringLength(20)]
-		public string FirtName { get; set; }
+		public string? FirstName { get; set; }
 
         [Required, Column(TypeName = "varchar(20)")]
         [StringLength(20)]
-        public string LastName { get; set; }
+        public string? LastName { get; set; }
 
 
         [Required, ForeignKey(nameof(Countryess))]
@@ -36,16 +36,16 @@ namespace ShopWave.Entity
 
 		[Required, Column(TypeName = "varchar(35)")]
 		[StringLength(35)]
-		public string Location { get; set; }
+		public string? Location { get; set; }
 
 
 		[Required, Column(TypeName = "varchar(40)")]
 		[StringLength(40)]
-		public string Address { get; set; }
+		public string? Address { get; set; }
 
 
 		[Required, Column(TypeName = "varchar(10)")]
 		[StringLength(10)]
-		public string PostalCode { get; set; }
+		public string? PostalCode { get; set; }
 	}
 }

@@ -16,8 +16,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Repositoryes\ShopWave\ShopWave
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Repositoryes/ShopWave/ShopWave/Pages/AccountPage/Views/avatar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFBhZ2VcVmlld3NcYXZhdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Repositoryes/ShopWave/ShopWave/Pages/AccountPage/Views/profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFBhZ2VcVmlld3NccHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Repositoryes/ShopWave/ShopWave/Pages/AccountPage/Views/userdata.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFBhZ2VcVmlld3NcdXNlcmRhdGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Repositoryes/ShopWave/ShopWave/Pages/AuthorizePage/Views/login.cshtml]
@@ -26,6 +34,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Repositoryes/ShopWave/ShopWave/Pages/AuthorizePage/Views/register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aG9yaXplUGFnZVxWaWV3c1xyZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Repositoryes/ShopWave/ShopWave/Pages/CartPage/Views/mycart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydFBhZ2VcVmlld3NcbXljYXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Repositoryes/ShopWave/ShopWave/Pages/HomePage/Views/Error.cshtml]
