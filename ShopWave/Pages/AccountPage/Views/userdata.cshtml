@@ -52,7 +52,7 @@
                     <div class="row gx-3 mb-3">
                         <div class="col-md-6 mb-3">
                             <label class="small mb-1 text-secondary" for="inputLocation">
-                                <i class="fas fa-map-marker-alt"></i> Location
+                                <i class="fas fa-map-marker-alt"></i> Location, example: London
                             </label>
                             <input required minlength="3" maxlength="35" class="form-control" type="text" placeholder="Enter your location" asp-for="Location" value="@Model.UserDatas.Location"/>
                         </div>
@@ -66,27 +66,29 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label class="small mb-1 text-secondary" for="inputLocation">
-                            <i class="fas fa-map-marker-alt"></i> Country
+                            <i class="fas fa-flag-usa"></i>
+                            Country
                         </label>
                         <select required class="form-select" id="CountryId" onchange="updateInputValue(this, 'CT')">
-                            <option value="@Model.UserDatas.CountryId"></option>
                             @foreach (var item in Model.countryes)
                             {
-                                <option value="@item.CountryId">@item.CountryName</option>
+                                if (item.CountryId == Model.UserDatas.CountryId)
+                                {
+                                    <option selected="selected" value="@item.CountryId">@item.CountryName</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.CountryId">@item.CountryName</option>
+                                }
                             }
                         </select>
                         <input type="text" hidden class="w-100" id="CT" required name="CountryId">
                     </div>
                     <script>
-                        document.addEventListener("DOMContentLoaded", function () {
-                            var countryId = @Model.UserDatas.CountryId;
+                        window.onload = function () {
                             var selectElement = document.getElementById("CountryId");
-
-                            if (countryId !== null) {
-                                // Устанавливаем значение в input по умолчанию
-                                updateInputValue(selectElement, "CT");
-                            }
-                        });
+                            updateInputValue(selectElement, "CT");
+                        }
                     </script>
                 }                
                 else
@@ -126,7 +128,7 @@
                     <div class="row gx-3 mb-3">
                         <div class="col-md-6 mb-3">
                             <label class="small mb-1 text-secondary" for="inputLocation">
-                                <i class="fas fa-map-marker-alt"></i> Location
+                                <i class="fas fa-map-marker-alt"></i> Location, example: London
                             </label>
                             <input required minlength="3" maxlength="35" class="form-control" type="text" placeholder="Enter your location" asp-for="Location" />
                         </div>
@@ -140,10 +142,11 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label class="small mb-1 text-secondary" for="inputLocation">
-                            <i class="fas fa-map-marker-alt"></i> Country
+                            <i class="fas fa-flag-usa"></i>
+                            Country
                         </label>
                         <select required class="form-select" id="CountryId" onchange="updateInputValue(this, 'CT')">
-                            <option value=""></option>
+                            <option value="">Select country</option>
                             @foreach (var item in Model.countryes)
                             {
                                 <option value="@item.CountryId">@item.CountryName</option>

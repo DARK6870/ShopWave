@@ -269,3 +269,8 @@ body {
         background-color: #7470be;
         border-color: #7470be;
     }
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(116, 128, 190, 0.25); /* Фиолетовая тень */
+    border-color: #7480be; /* Фиолетовая рамка */
+}

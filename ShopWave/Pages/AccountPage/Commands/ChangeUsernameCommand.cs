@@ -18,7 +18,14 @@ namespace ShopWave.Pages.AccountPage.Commands
         public async Task<bool> Handle(ChangeUsernameCommand request, CancellationToken cancellationToken)
         {
             var user = await _context.Users.FirstOrDefaultAsync(p => p.Id == request.Id);
-            user.UserName = request.username;
+            if (user.UserName != request.username)
+            {
+                user.UserName = request.username;
+            }
+            else
+            {
+                return true;
+            }
 
             int result = await _context.SaveChangesAsync();
 

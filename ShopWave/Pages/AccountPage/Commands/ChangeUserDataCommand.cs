@@ -20,13 +20,28 @@ namespace ShopWave.Pages.AccountPage.Commands
             var user = await _context.UserDatas.FirstOrDefaultAsync(p => p.AppUserId == request.data.AppUserId);
             if (user != null)
             {
-                user.PhoneNumber = request.data.PhoneNumber;
-                user.FirstName = request.data.FirstName;
-                user.LastName = request.data.LastName;
-                user.CountryId = request.data.CountryId;
-                user.Location = request.data.Location;
-                user.Address = request.data.Address;
-                user.PostalCode = request.data.PostalCode;
+                bool dataChanged = user.PhoneNumber != request.data.PhoneNumber ||
+                                  user.FirstName != request.data.FirstName ||
+                                  user.LastName != request.data.LastName ||
+                                  user.CountryId != request.data.CountryId ||
+                                  user.Location != request.data.Location ||
+                                  user.Address != request.data.Address ||
+                                  user.PostalCode != request.data.PostalCode;
+
+                if (dataChanged)
+                {
+                    user.PhoneNumber = request.data.PhoneNumber;
+                    user.FirstName = request.data.FirstName;
+                    user.LastName = request.data.LastName;
+                    user.CountryId = request.data.CountryId;
+                    user.Location = request.data.Location;
+                    user.Address = request.data.Address;
+                    user.PostalCode = request.data.PostalCode;
+                }
+                else
+                {
+                    return true;
+                }
             }
             else
             {
