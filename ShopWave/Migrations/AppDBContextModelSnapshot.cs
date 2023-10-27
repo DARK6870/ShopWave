@@ -509,20 +509,34 @@ namespace ShopWave.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FIO")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                    b.Property<DateTime>("DateBrth")
+                        .HasColumnType("date");
 
-                    b.Property<string>("FullAddress")
+                    b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("varchar(60)");
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.Property<string>("IDPN")
                         .IsRequired()
                         .HasMaxLength(13)
                         .HasColumnType("varchar(13)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
+
+                    b.Property<DateTime>("PassEDate")
+                        .HasColumnType("date");
+
+                    b.Property<string>("PassNr")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("varchar(15)");
+
+                    b.Property<DateTime>("PassSDate")
+                        .HasColumnType("date");
 
                     b.HasKey("Id");
 

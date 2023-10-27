@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ShopWave.Pages.AccountPage.Views
 {
-    public class userdataModel : PageModel
+    public class userDataModel : PageModel
     {
         public void OnGet()
         {

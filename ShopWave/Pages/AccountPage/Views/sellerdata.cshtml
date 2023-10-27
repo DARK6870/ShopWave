@@ -1,0 +1,89 @@
+﻿@model SellerData
+@inject UserManager<IdentityUser> userManager
+@using Microsoft.AspNetCore.Identity
+@{
+    ViewData["Title"] = "Become a seller";
+}
+<style>
+    .card {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+</style>
+<div class="container mt-4">
+    <div class="card mb-4">
+        <div class="card-header text-center"><h3 class="text-secondary">Fill the form to become a seller</h3></div>
+        <div class="card-body">
+            <form asp-action="postSellerData" method="post" enctype="multipart/form-data">
+                <div class="row gx-3 mb-3">
+                    <div class="col-md-6 mb-3">
+                        <label class="small mb-1 text-secondary" for="inputFirstName">
+                            <i class="fas fa-user"></i> First name
+                        </label>
+                        <input required minlength="2" maxlength="20" class="form-control" type="text" placeholder="Enter your first name" asp-for="FirstName">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="small mb-1 text-secondary" for="inputLastName">
+                            <i class="fas fa-user"></i> Last name
+                        </label>
+                        <input required minlength="5" maxlength="20" class="form-control" type="text" placeholder="Enter your last name" asp-for="LastName">
+                    </div>
+                </div>
+                <div class="row gx-3 mb-3">
+                    <div class="col-md-6 mb-3">
+                        <label class="small mb-1 text-secondary">
+                            <i class="fas fa-id-card"></i> IDPN
+                        </label>
+                        <input required minlength="13" maxlength="13" class="form-control" type="text" placeholder="0000000000000" asp-for="IDPN">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="small mb-1 text-secondary">
+                            <i class="fas fa-calendar-alt"></i> Birthday
+                        </label>
+                        <input required class="form-control" type="date" asp-for="DateBrth">
+                    </div>
+                </div>
+                <div class="row gx-3 mb-3">
+                    <div class="col-md-6 mb-3">
+                        <label class="small mb-1 text-secondary">
+                            <i class="fas fa-calendar-alt"></i> Passport issue date
+                        </label>
+                        <input required class="form-control" type="date" asp-for="PassSDate">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="small mb-1 text-secondary">
+                            <i class="fas fa-calendar-alt"></i> Valid until
+                        </label>
+                        <input required class="form-control" type="date" asp-for="PassEDate">
+                    </div>
+                </div>
+                <div class="row gx-3 mb-3">
+                    <div class="col-md-6 mb-3">
+                        <label class="small mb-1 text-secondary">
+                            <i class="fas fa-id-card"></i> Passport number
+                        </label>
+                        <input required min-length="8" maxlength="15" placeholder="B000000000" class="form-control" type="text" asp-for="PassNr">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="small mb-1 text-secondary">
+                            <i class="fas fa-image"></i> Choose a passport photo (png, jpeg)
+                        </label>
+                        <input required type="file" class="form-control" name="file" accept=".png, .jpeg, .jpg" />
+                    </div>
+                </div>
+
+                @{
+                    var user = await userManager.GetUserAsync(User);
+                    string userId = user.Id;
+                }
+                <input type="hidden" asp-for="AppUserId" value="@userId">
+                <button class="btn btn-primary" type="submit">Submit form</button>
+
+            </form>
+        </div>
+    </div>
+</div>

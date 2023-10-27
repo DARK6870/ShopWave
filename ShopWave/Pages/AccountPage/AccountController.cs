@@ -13,32 +13,50 @@ namespace ShopWave.Pages.AccountPage
 {
     [Authorize]
     public class AccountController : Controller
-	{
-		private readonly IMediator _mediator;
+    {
+        private readonly IMediator _mediator;
         private readonly UserManager<IdentityUser> _userManager;
         public AccountController(IMediator mediator, UserManager<IdentityUser> userManager)
-		{
-			_mediator = mediator;
-			_userManager = userManager;
-		}
+        {
+            _mediator = mediator;
+            _userManager = userManager;
+        }
 
+        public async Task<string?> ImageToBase64(IFormFile file)
+        {
+            string? res = null;
+            if (file != null && file.Length > 0)
+            {
+                var allowedExtensions = new[] { ".png", ".jpg", ".jpeg" };
+                var fileExtension = Path.GetExtension(file.FileName);
 
+                if (allowedExtensions.Contains(fileExtension.ToLower()))
+                {
+                    using (var stream = new MemoryStream())
+                    {
+                        await file.CopyToAsync(stream);
+                        res = Convert.ToBase64String(stream.ToArray());
+                    }
+                }
+            }
+            return res;
+        }
 
-		public async Task<IActionResult> profile()
-		{
-			try
-			{
+        public async Task<IActionResult> profile()
+        {
+            try
+            {
                 var currentUser = await _userManager.GetUserAsync(User);
                 var userId = currentUser.Id;
                 var user = await _mediator.Send(new GetUserByIdQuery(userId));
 
                 return View(user);
-			}
-			catch
-			{
-				return Redirect("/Error");
-			}
-		}
+            }
+            catch
+            {
+                return Redirect("/Error");
+            }
+        }
 
 
         public async Task<IActionResult> changeUsername(string username)
@@ -67,7 +85,6 @@ namespace ShopWave.Pages.AccountPage
         }
 
 
-        [Authorize]
         public async Task<IActionResult> userdata()
         {
             try
@@ -90,10 +107,9 @@ namespace ShopWave.Pages.AccountPage
             {
                 return Redirect("/Error");
             }
-            
+
         }
 
-        [Authorize]
         public async Task<IActionResult> updateuser(UserData data)
         {
             try
@@ -105,7 +121,7 @@ namespace ShopWave.Pages.AccountPage
                     return Redirect("/profile");
                 }
                 else
-                {   TempData["Error"] = true;
+                { TempData["Error"] = true;
                     return Redirect("/profile");
                 }
             }
@@ -123,40 +139,30 @@ namespace ShopWave.Pages.AccountPage
             return View();
         }
 
+        public async Task<IActionResult> sellerdata()
+        {
+            return View();
+        }
 
         [HttpPost]
-        public async Task<IActionResult> UploadPhoto(IFormFile file)
+        public async Task<IActionResult> postSellerData(SellerData seller, IFormFile file)
         {
-            if (file != null && file.Length > 0)
+            try
             {
-                var allowedExtensions = new[] { ".png", ".jpg", ".jpeg" };
-                var fileExtension = Path.GetExtension(file.FileName);
-
-                if (allowedExtensions.Contains(fileExtension.ToLower()))
+                var img = await ImageToBase64(file);
+                if (img != null)
                 {
-                    var currentUser = await _userManager.GetUserAsync(User);
-                    var userId = currentUser.Id;
-
-                    using (var stream = new MemoryStream())
+                    seller.Data = img;
+                    bool result = await _mediator.Send(new PostSellerDataCommand(seller));
+                    if (result)
                     {
-                        await file.CopyToAsync(stream);
-                        var avatar = new Avatar
-                        {
-                            AppUserId = userId,
-                            Data = Convert.ToBase64String(stream.ToArray())
-                        };
-
-                        bool result = await _mediator.Send(new ChangeAvatarCommand(avatar));
-                        if (result)
-                        {
-                            TempData["Success"] = true;
-                            return Redirect("/profile");
-                        }
-                        else
-                        {
-                            TempData["Error"] = true;
-                            return Redirect("/profile");
-                        }
+                        TempData["Success"] = true;
+                        return Redirect("/profile");
+                    }
+                    else
+                    {
+                        TempData["Error"] = true;
+                        return Redirect("/profile");
                     }
                 }
                 else
@@ -165,7 +171,53 @@ namespace ShopWave.Pages.AccountPage
                     return Redirect("/profile");
                 }
             }
-            return Redirect("/profile");
+            catch
+            {
+                return Redirect("/Error");
+            }
+        }
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> UploadPhoto(IFormFile file)
+        {
+            try
+            {
+                var img = await ImageToBase64(file);
+                if (img != null)
+                {
+                    var currentUser = await _userManager.GetUserAsync(User);
+                    var userId = currentUser.Id;
+                    var avatar = new Avatar
+                    {
+                        AppUserId = userId,
+                        Data = img
+                    };
+
+                    bool result = await _mediator.Send(new ChangeAvatarCommand(avatar));
+                    if (result)
+                    {
+                        TempData["Success"] = true;
+                        return Redirect("/profile");
+                    }
+                    else
+                    {
+                        TempData["Error"] = true;
+                        return Redirect("/profile");
+                    }
+                }
+                else
+                {
+                    TempData["Error"] = true;
+                    return Redirect("/profile");
+                }
+            }
+            catch
+            {
+                TempData["Error"] = true;
+                return Redirect("/profile");
+            }
         }
 
     }
