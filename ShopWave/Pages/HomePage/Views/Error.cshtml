@@ -1,11 +1,14 @@
 ﻿@{
-    Layout = null;
     ViewBag.Title = "Error";
 }
-<link rel="stylesheet" href="~/css/NotFound.css" asp-append-version="true" />
-<div class="cont">
-    <h1>ERROR</h1>
-    <h2>Something went wrong</h2>
-    <p>You can connect support:</p>
-    <a href="/support">click here</a>
+<div class="container" style="margin-top: 200px; padding-bottom: 200px;">
+    <div class="text-center">
+        <h1 class="display-1 fw-bold" style="color: #7480be">500</h1>
+        <p class="fs-3"> <span class="text-danger fw-bold">Opps!</span> Somethign went wrong.</p>
+        <p class="lead">
+            Server error.
+        </p>
+        <a href="/" class="btn btn-primary mt-2"><i class="fas fa-home"></i> Home</a>
+        <a href="/support" class="btn btn-primary ms-3 mt-2"><i class="fas fa-headset"></i> Support</a>
+    </div>
 </div>

@@ -149,6 +149,13 @@ namespace ShopWave.Pages.AccountPage
         {
             try
             {
+                var sellerdata = await _mediator.Send(new GetSellerDataByUserIdQuery(seller.AppUserId));
+                if (seller != null)
+                {
+                    TempData["Message"] = "You have already filled out an application";
+                    return Redirect("/profile");
+                }
+
                 var img = await ImageToBase64(file);
                 if (img != null)
                 {
@@ -156,7 +163,7 @@ namespace ShopWave.Pages.AccountPage
                     bool result = await _mediator.Send(new PostSellerDataCommand(seller));
                     if (result)
                     {
-                        TempData["Success"] = true;
+                        TempData["Message"] = "Your request will be answered within 3 days";
                         return Redirect("/profile");
                     }
                     else

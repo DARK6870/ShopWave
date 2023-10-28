@@ -16,25 +16,25 @@ namespace ShopWave.Pages.HomePage
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IMediator _mediator;
-        private readonly AppDBContext _context;
 
-        public HomeController(ILogger<HomeController> logger, IMediator mediator, AppDBContext context)
+        public HomeController(ILogger<HomeController> logger, IMediator mediator)
         {
             _logger = logger;
             _mediator = mediator;
-           _context = context;
         }
 
         public async Task<IActionResult> Index()
         {
             try
             {
-            var res = await _mediator.Send(new GetAllProductsQuery());
-            return View(res);
+            var products = await _mediator.Send(new GetAllProductsQuery());
+            products = products.OrderByDescending(p => p.ProductDate).Take(24).ToList();
+
+            return View(products);
             }
             catch
             {
-                return NotFound();
+                return Redirect("/Error");
             }
             
         }

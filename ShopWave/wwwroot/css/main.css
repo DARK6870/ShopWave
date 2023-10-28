@@ -145,10 +145,18 @@ body {
     }
 
 .card__top {
-    flex: 0 0 220px;
     position: relative;
     overflow: hidden;
 }
+
+.card__top {
+    flex: 0 0 200px;
+
+    @media (max-width: 576px) {
+        flex: 0 0 120px; 
+    }
+}
+
 
 /* Контейнер для картинки */
 .card__image {
@@ -195,7 +203,6 @@ body {
 
 .card__prices {
     display: flex;
-    margin-bottom: 10px;
     flex: 0 0 50%; /* Размещаем цены равномерно в две колонки */
 }
 
@@ -216,7 +223,6 @@ body {
 
 .card__title {
     display: block;
-    margin-bottom: 10px;
     font-weight: 400;
     font-size: 17px;
     line-height: 150%;

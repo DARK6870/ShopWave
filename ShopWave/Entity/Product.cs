@@ -16,8 +16,8 @@ namespace ShopWave.Entity
 		public virtual AppUser AppUsers { get; set; }
 
 
-		[Required, Column(TypeName = "varchar(50)")]
-		[StringLength(60)]
+		[Required, Column(TypeName = "varchar(100)")]
+		[StringLength(100)]
 		public string ProductName { get; set; }
 
 

@@ -120,54 +120,40 @@
     <div class="row">
         @foreach (var product in Model)
         {
-            <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="col-6 col-lg-4 col-xl-3">
                 <div class="card mb-2">
                     <div class="card__top">
                         <a href="details/@product.ProductId" class="card__image">
                             <img src="data:image/png;base64, @product.ProductImages.FirstOrDefault()?.Data" alt="@product.ProductName">
                         </a>
-                        @* @if (product.sale > 0)
+                        @if (product.ProductDate > DateTime.Now.Date.AddDays(-10))
                         {
-                            <div class="card__label">@product.sale%</div>
+                            <div class="card__label">new</div>
                         }
-                        else
-                        {
-
-                        } *@
                     </div>
                     <div class="card__bottom">
                         <div class="card__prices">
-                            @* @{
-                                decimal? price = @product.ProductVariations.FirstOrDefault()?.price;
-                                if (product.sale > 0) price = price - ((price * product.sale) / 100);
-                            } *@
-                            @* <div class="card__price card__price--discount">@price</div> *@
+                            <div class="card__price card__price--discount">@product.ProductVariations.FirstOrDefault().price</div>
                         </div>
                         <a href="details/@product.ProductId" class="card__title">
                             <span class="truncate-text">
                                 @product.ProductName
                             </span>
                         </a>
-
-                        <div class="d-flex justify-content-between mb-2">
+                        <div class="d-flex justify-content-between">
                             <div class="d-flex flex-row align-items-center">
                                 <i class="fas fa-star text-warning"></i>
                                 <p class="text-secondary fw-bold mt-1 ms-1">@product.AvgStars</p>
                             </div>
                             <p class="text-secondary">@product.OrderCounts orders</p>
                         </div>
-
-
-                        <a href="details/@product.ProductId">
-                            <button class="card__add">Add to card</button>
-                        </a>
                     </div>
                 </div>
             </div>
         }
     </div>
 </div>
-</div>
+
 
 @if (TempData["ShowAlert"] as bool? == true)
 {

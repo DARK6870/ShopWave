@@ -138,8 +138,7 @@
         });
     </script>
 }
-
-@if (TempData["Error"] != null && (bool)TempData["Error"])
+else if (TempData["Error"] != null && (bool)TempData["Error"])
 {
     <script>
         Swal.fire({
@@ -150,3 +149,18 @@
         });
     </script>
 }
+@if (TempData["Message"] != null)
+{
+    <text>
+        <script>
+            var message = '@TempData["Message"]';
+            Swal.fire({
+                icon: 'info',
+                title: 'Info message',
+                text: message,
+                showConfirmButton: true
+            });
+        </script>
+    </text>
+}
+
