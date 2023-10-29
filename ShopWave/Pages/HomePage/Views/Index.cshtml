@@ -27,7 +27,7 @@
 <div class="container mt-0">
     <div class="row">
         <div class="col-md-12">
-            <img src="/img/main_ru.png" alt="E-commerce Banner" id="bannerImage" class="img-fluid shadow" style="border-radius: 20px;">
+            <img src="/img/main_ru.webp" alt="E-commerce Banner" id="bannerImage" class="img-fluid shadow" style="border-radius: 20px;">
         </div>
     </div>
 </div>
@@ -124,7 +124,7 @@
                 <div class="card mb-2">
                     <div class="card__top">
                         <a href="details/@product.ProductId" class="card__image">
-                            <img src="data:image/png;base64, @product.ProductImages.FirstOrDefault()?.Data" alt="@product.ProductName">
+                            <img loading="lazy" src="data:image/webp;base64, @product.ProductImages.FirstOrDefault()?.Data" alt="@product.ProductName">
                         </a>
                         @if (product.ProductDate > DateTime.Now.Date.AddDays(-10))
                         {

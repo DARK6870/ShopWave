@@ -5,6 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="E-commerce open-sourse web site" />
     <title>@ViewData["Title"] - ShopWave</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@200;400;600;700&display=swap">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
@@ -14,7 +15,7 @@
     <link rel="stylesheet" href="~/css/loader.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="icon" type="image/png" href="/img/ShopWaveIco.png">
+    <link rel="icon" type="image/png" href="/img/ShopWaveIco.webp">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
 </head>
@@ -65,10 +66,9 @@
                                                 success: function (avatarBase64) {
                                                     var imgElement = document.getElementById("user-avatar");
                                                     if (avatarBase64) {
-                                                        imgElement.src = "data:image/png;base64, " + avatarBase64;
+                                                        imgElement.src = "data:image/webp;base64, " + avatarBase64;
                                                     } else {
-                                                        // Используйте изображение по умолчанию
-                                                        imgElement.src = "/img/userIcon.png";
+                                                        imgElement.src = "/img/userIcon.webp";
                                                     }
                                                 },
                                                 error: function () {
@@ -83,12 +83,12 @@
                                 }
                                 catch
                                 {
-                                    <img class="avatar" src="/img/userIcon.png">
+                                    <img class="avatar" src="/img/userIcon.webp">
                                 }
                             }
                             else
                             {
-                                <img class="avatar" src="/img/userIcon.png">
+                                <img class="avatar" src="/img/userIcon.webp">
                             }
 
 
@@ -160,9 +160,9 @@
           </div>
       </nav>
     </div>
-  </header>
-</div>
     </header>
+    </div>
+</header>
     <div class="main-container" style="margin-left: 0; margin-right: 0;">
         <main role="main" class="mb-5">
             <div class="loader">
@@ -177,7 +177,7 @@
                 <div class="col-md-4 mt-3 mb-3">
                     <a href="/" class="footer-logo title" style="color: #1E90FF;">ShopWave</a>
                     <p class="t mt-2 mb-1">E-commerce open-source web site</p>
-                    <img height="90" class="mt-2" src="/img/ShopWaveIco.png"/>
+                    <img height="90" class="mt-2" src="/img/ShopWaveIco.webp"/>
                 </div>
                 <div class="col-md-4 mt-3 mb-3">
                     <h4 class="mb-2">Contact Us</h4>

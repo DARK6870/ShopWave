@@ -33,20 +33,20 @@
       "PackagePath": "staticwebassets\\css\\support.css"
     },
     {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\ShopWaveIco.png",
-      "PackagePath": "staticwebassets\\img\\ShopWaveIco.png"
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\ShopWaveIco.webp",
+      "PackagePath": "staticwebassets\\img\\ShopWaveIco.webp"
     },
     {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\main_mobile_ru.jpg",
-      "PackagePath": "staticwebassets\\img\\main_mobile_ru.jpg"
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\main_mobile_ru.webp",
+      "PackagePath": "staticwebassets\\img\\main_mobile_ru.webp"
     },
     {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\main_ru.png",
-      "PackagePath": "staticwebassets\\img\\main_ru.png"
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\main_ru.webp",
+      "PackagePath": "staticwebassets\\img\\main_ru.webp"
     },
     {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\userIcon.png",
-      "PackagePath": "staticwebassets\\img\\userIcon.png"
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\userIcon.webp",
+      "PackagePath": "staticwebassets\\img\\userIcon.webp"
     },
     {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\js\\Banner.js",
