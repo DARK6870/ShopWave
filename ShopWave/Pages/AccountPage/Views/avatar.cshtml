@@ -44,3 +44,18 @@
         }
     });
 </script>
+
+@if (TempData["Message"] != null)
+{
+    <text>
+        <script>
+            var message = '@TempData["Message"]';
+            Swal.fire({
+                icon: 'info',
+                title: 'Info message',
+                text: message,
+                showConfirmButton: true
+            });
+        </script>
+    </text>
+}

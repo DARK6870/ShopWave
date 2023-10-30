@@ -42,6 +42,7 @@ namespace ShopWave.Pages.AccountPage
             return res;
         }
 
+
         public async Task<IActionResult> profile()
         {
             try
@@ -191,6 +192,11 @@ namespace ShopWave.Pages.AccountPage
         {
             try
             {
+                if (file.Length > 2 * 1024 * 1024)
+                {
+                    TempData["Message"] = "File size is too big. You can try compressing the picture and try again.";
+                    return Redirect("/avatar");
+                }
                 var img = await ImageToBase64(file);
                 if (img != null)
                 {
