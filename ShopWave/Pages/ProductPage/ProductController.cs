@@ -8,6 +8,7 @@ using ShopWave.Pages.CartPage.Commands;
 using ShopWave.Pages.ProductPage.Queryes;
 using ShopWave.Pages.ProductPage.ViewModels;
 using ShopWave.Pages.SupportPage.Commands;
+using System.Drawing.Printing;
 using System.Security.Claims;
 
 namespace ShopWave.Pages.ProductPage
@@ -39,10 +40,10 @@ namespace ShopWave.Pages.ProductPage
             }
         }
 
-        public async Task<IActionResult> products(string name, List<string> category, string sort, int page)
+        public async Task<IActionResult> products(string name, string category, string sort, int page)
         {
             ViewBag.name = name;
-            ViewBag.Selectedcategoryes = category;
+            ViewBag.category = category;
             ViewBag.sort = sort;
             try
             {
@@ -57,9 +58,16 @@ namespace ShopWave.Pages.ProductPage
                 {
                     foreach(var cat in category)
                     {
-                        if (!string.IsNullOrEmpty(cat))
+                        if (!string.IsNullOrEmpty(category))
                         {
-                            product = product.Where(p => p.Categoriess.CategoryName == cat).ToList();
+                            if (category == "all")
+                            {
+
+                            }
+                            else
+                            {
+                                product = product.Where(p => p.Categoriess.CategoryName == category).ToList();
+                            }
                         }
                     }
                 }
@@ -86,12 +94,28 @@ namespace ShopWave.Pages.ProductPage
                     {
                         product = product.OrderByDescending(p => p.ProductName).ToList();
                     }
+                    else if (sort == "order")
+                    {
+                        product = product.OrderByDescending(p => p.OrderCounts).ToList();
+                    }
                 }
+
+                //pages
+                int totalProducts = product.Count;
+                int pagesize = 20;
+                int skip = (page - 1) * pagesize;
+                product = product.Skip(skip).Take(pagesize).ToList();
+
+                
+                int total = (int)Math.Ceiling((double)totalProducts / pagesize);
+
 
                 var productmodel = new ProductViewModel()
                 {
                     products = product,
-                    categories = await _mediator.Send(new GetAllCategoryesQuery())
+                    categories = await _mediator.Send(new GetAllCategoryesQuery()),
+                    page = page,
+                    totalPages = total
                 };
 
 

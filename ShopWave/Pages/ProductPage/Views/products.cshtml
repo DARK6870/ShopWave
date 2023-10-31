@@ -1,5 +1,5 @@
 ﻿@{
-    List<string> Selectedcategoryes = ViewBag.Selectedcategoryes;
+    string category = ViewBag.category;
     string sort = ViewBag.sort;
     string name = ViewBag.name;
     ViewData["Title"] = "Products";
@@ -9,6 +9,7 @@
 
 <form action="/products">
 <div class="container" style="margin-top: 50px;">
+    <input type="hidden" name="page" value="1" readonly/>
         <div class="input-group mb-3 justify-content-center">
             <input type="text" class="form-control custom-input limited" name="name" placeholder="Search for products..." aria-label="Search" aria-describedby="search-button" value="@ViewBag.name">
             <div class="input-group-append">
@@ -77,11 +78,23 @@
                                     Date: newest
                                 </label>
                             </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sort" value="order" checked="@((string)ViewBag.sort == "order" ? "checked" : null)">
+                                <label class="form-check-label" for="none">
+                                    Order count
+                                </label>
+                            </div>
                         <h5 class="fw-bold text-primary mt-3">Category:</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="all" name="category" checked="checked">
+                                <label class="form-check-label">
+                                    All
+                                </label>
+                            </div>
                         @foreach (var item in Model.categories.Select(x => x.CategoryName).Distinct())
                         {
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" value="@item" id="@("modalFlexCheckCategory_" + item)" name="category" checked="@(Selectedcategoryes.Contains(item) ? "checked" : null)">
+                                    <input class="form-check-input" type="radio" value="@item" id="@("modalFlexCheckCategory_" + item)" name="category" checked="@(category == item ? "checked" : null)">
                                 <label class="form-check-label" for="@("modalFlexCheckCategory_" + item)">
                                     @item
                                 </label>
@@ -138,4 +151,27 @@
             </div>
         }
     </div>
-</div>
+@if (Model.products.Count() != 0)
+{
+    <div class="col-12">
+        <nav class="text-center" aria-label="Product Pagination">
+            <ul class="pagination justify-content-center">
+
+                <li class="page-item @(Model.page == 1 ? "disabled" : "")">
+                    <a class="page-link" href="/products?category=@ViewBag.category&sort=@ViewBag.sort&name=@ViewBag.name&page=@(Model.page - 1)">Previous</a>
+                </li>
+
+                @for (int i = Math.Max(1, Model.page - 4); i <= Math.Min(Model.totalPages, Model.page + 5); i++)
+                {
+                    <li class="page-item @(i == Model.page ? "active" : "")">
+                        <a class="page-link" href="/products?category=@ViewBag.category&sort=@ViewBag.sort&name=@ViewBag.name&page=@i">@i</a>
+                    </li>
+                }
+
+                <li class="page-item @(Model.page == Model.totalPages ? "disabled" : "")">
+                    <a class="page-link" href="/products?category=@ViewBag.category&sort=@ViewBag.sort&name=@ViewBag.name&page=@(Model.page + 1)">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+}

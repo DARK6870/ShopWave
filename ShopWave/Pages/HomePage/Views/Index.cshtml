@@ -9,6 +9,7 @@
         <div class="col-md-6 offset-md-3 mt-2 text-center">
             <p class="title">Welcome to ShopWave</p>
             <form method="get" action="/products">
+                <input type="hidden" readonly value="1" name="page" />
                 <div class="input-group mb-3">
                     <input type="text" class="form-control custom-input limited" name="name" placeholder="Search for products..." aria-label="Search" aria-describedby="search-button">
                     <div class="input-group-append">
