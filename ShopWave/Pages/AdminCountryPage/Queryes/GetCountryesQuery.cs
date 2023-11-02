@@ -20,7 +20,10 @@ namespace ShopWave.Pages.AdminCountryPage.Queryes
 
         public async Task<List<Countryes>> Handle(GetCountryesQuery request, CancellationToken cancellationToken)
         {
-            var countrydata = await _context.Countryes.ToListAsync();
+            var countrydata = await _cache.GetOrAddAsync("country_data", async () =>
+            {
+               return await _context.Countryes.ToListAsync();
+            }, TimeSpan.FromDays(30));
 
             return countrydata;
         }

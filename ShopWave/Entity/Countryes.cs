@@ -21,6 +21,7 @@ namespace ShopWave.Entity
 		[Required, DefaultValue(0), Column(TypeName = "tinyint")]
 		public byte DeliveryPrice { get; set; }
 
+
 		[NotMapped]		
 		public virtual UserData UserDatas { get; set; }
 		

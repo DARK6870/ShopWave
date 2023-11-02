@@ -11,6 +11,11 @@ namespace ShopWave.Entity
 		public int OrderId { get; set; }
 
 
+		[Required, ForeignKey(nameof(Products))]
+		public int ProductId { get; set; }
+		public virtual Product Products { get; set; }
+
+
 		[Required, ForeignKey(nameof(ProductVariations))]
 		public int VariationId { get; set; }
 		public virtual ProductVariation ProductVariations { get; set; }
@@ -24,5 +29,14 @@ namespace ShopWave.Entity
 		[Required, ForeignKey(nameof(Statuses))]
 		public byte StatusId { get; set; }
 		public virtual Status Statuses { get; set; }
+
+
+		[Required, Column(TypeName = "datetime")]
+		public DateTime Date { get; set; }
+
+
+		[Required, Column(TypeName = "Decimal(6,2)")]
+		public decimal TotalPrice { get; set; }
+
 	}
 }

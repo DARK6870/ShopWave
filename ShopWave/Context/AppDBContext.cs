@@ -64,7 +64,13 @@ namespace ShopWave.Context
 				.HasForeignKey(o => o.VariationId)
 				.OnDelete(DeleteBehavior.Restrict);
 
-			base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.Products)
+                .WithMany()
+                .HasForeignKey(o => o.ProductId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            base.OnModelCreating(modelBuilder);
 		}
 	}
 }

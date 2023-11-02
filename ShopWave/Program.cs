@@ -44,7 +44,8 @@ builder.Services.Configure<RazorViewEngineOptions>(o =>
 	o.ViewLocationFormats.Add("/Pages/AuthorizePage/Views/{0}" + RazorViewEngine.ViewExtension);
 	o.ViewLocationFormats.Add("/Pages/SupportPage/Views/{0}" + RazorViewEngine.ViewExtension);
 	o.ViewLocationFormats.Add("/Pages/ProductPage/Views/{0}" + RazorViewEngine.ViewExtension);
-	o.ViewLocationFormats.Add("/Pages/Shared/{0}" + RazorViewEngine.ViewExtension);
+    o.ViewLocationFormats.Add("/Pages/OrderPage/Views/{0}" + RazorViewEngine.ViewExtension);
+    o.ViewLocationFormats.Add("/Pages/Shared/{0}" + RazorViewEngine.ViewExtension);
 	o.ViewLocationFormats.Add("/Pages/{0}" + RazorViewEngine.ViewExtension);
 });
 
@@ -101,6 +102,11 @@ app.MapControllerRoute(
     name: "cart",
     pattern: "{action}",
     defaults: new { Controller = "Cart" });
+
+app.MapControllerRoute(
+    name: "order",
+    pattern: "{action}",
+    defaults: new { Controller = "Order" });
 
 app.MapControllerRoute(
 	name: "details",

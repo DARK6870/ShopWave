@@ -337,11 +337,23 @@ namespace ShopWave.Migrations
                     b.Property<string>("AppUserId1")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProductId1")
+                        .HasColumnType("int");
+
                     b.Property<int?>("ProductVariationVariationId")
                         .HasColumnType("int");
 
                     b.Property<byte>("StatusId")
                         .HasColumnType("tinyint");
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("Decimal(6,2)");
 
                     b.Property<int>("VariationId")
                         .HasColumnType("int");
@@ -351,6 +363,10 @@ namespace ShopWave.Migrations
                     b.HasIndex("AppUserId");
 
                     b.HasIndex("AppUserId1");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("ProductId1");
 
                     b.HasIndex("ProductVariationVariationId");
 
@@ -763,6 +779,16 @@ namespace ShopWave.Migrations
                         .WithMany("Orders")
                         .HasForeignKey("AppUserId1");
 
+                    b.HasOne("ShopWave.Entity.Product", "Products")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("ShopWave.Entity.Product", null)
+                        .WithMany("Orders")
+                        .HasForeignKey("ProductId1");
+
                     b.HasOne("ShopWave.Entity.ProductVariation", null)
                         .WithMany("Orders")
                         .HasForeignKey("ProductVariationVariationId");
@@ -782,6 +808,8 @@ namespace ShopWave.Migrations
                     b.Navigation("AppUsers");
 
                     b.Navigation("ProductVariations");
+
+                    b.Navigation("Products");
 
                     b.Navigation("Statuses");
                 });
@@ -887,6 +915,8 @@ namespace ShopWave.Migrations
 
             modelBuilder.Entity("ShopWave.Entity.Product", b =>
                 {
+                    b.Navigation("Orders");
+
                     b.Navigation("ProductImages");
 
                     b.Navigation("ProductVariations");
