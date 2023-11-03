@@ -18,7 +18,7 @@ namespace ShopWave.Pages.AccountPage.Queryes
 
         public async Task<UserData> Handle(GetPostalDataByIdQuery request, CancellationToken cancellationToken)
         {
-            UserData? user = await _context.UserDatas.FirstOrDefaultAsync(p => p.AppUserId == request.id);
+            UserData? user = await _context.UserDatas.Include(p => p.Countryess).FirstOrDefaultAsync(p => p.AppUserId == request.id);
 
             return user;
         }

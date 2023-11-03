@@ -35,8 +35,7 @@ namespace ShopWave.Pages.OrderPage
                     return Redirect("/profile");
                 }
 
-                var countryes = await _mediator.Send(new GetCountryesQuery());
-                byte deliveryprice = countryes.FirstOrDefault(p => p.CountryId == userdata.CountryId).DeliveryPrice;
+                byte deliveryprice = userdata.Countryess.DeliveryPrice;
 
                 short count = 0;
 
@@ -44,7 +43,7 @@ namespace ShopWave.Pages.OrderPage
                 {
                     if (await _mediator.Send(new OrderProductCommand(item, deliveryprice)) == false)
                     {
-                        count++;
+                        count++; 
                     }
                 }
 

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using ShopWave.Context;
 using ShopWave.Entity;
 using ShopWave.Pages.ProductPage.Queryes;
+using Z.EntityFramework.Plus;
 
 namespace ShopWave.Pages.OrderPage.Commands
 {
@@ -21,8 +22,13 @@ namespace ShopWave.Pages.OrderPage.Commands
         public async Task<bool> Handle(OrderProductCommand request, CancellationToken cancellationToken)
         {
             var product = await _mediator.Send(new GetProductByIdQuery(request.cart.ProductId));
-            var item = product.ProductVariations.FirstOrDefault(p => p.VariationId == request.cart.VariationId);
-            if (product != null && item.quantity > 0)
+            ProductVariation? variation = product.ProductVariations.FirstOrDefault(p => p.VariationId == request.cart.VariationId);
+            if (variation == null)
+            {
+                return false;
+            }
+            
+            if (product != null && variation.quantity > 0)
             {
                 using (var transaction = await _context.Database.BeginTransactionAsync())
                 {
@@ -35,11 +41,13 @@ namespace ShopWave.Pages.OrderPage.Commands
                             VariationId = request.cart.VariationId,
                             Date = DateTime.Now,
                             StatusId = 1,
-                            TotalPrice = item.price + request.deliveryprice
+                            TotalPrice = variation.price + request.deliveryprice
                         };
 
                         await _context.Orders.AddAsync(order);
                         _context.Carts.Remove(request.cart);
+
+                        variation.quantity -= 1;
                         await _context.SaveChangesAsync();
 
                         transaction.Commit();

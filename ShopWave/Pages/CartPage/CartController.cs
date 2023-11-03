@@ -2,7 +2,11 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using ShopWave.Entity;
+using ShopWave.Pages.AccountPage.Queryes;
+using ShopWave.Pages.AdminCountryPage.Queryes;
 using ShopWave.Pages.CartPage.Commands;
+using ShopWave.Pages.CartPage.Models;
 using ShopWave.Pages.CartPage.Queryes;
 
 namespace ShopWave.Pages.CartPage
@@ -24,9 +28,24 @@ namespace ShopWave.Pages.CartPage
             try
             {
                 var user = await _userManager.GetUserAsync(User);
+                List<Cart> res = await _mediator.Send(new GetAllCartQuery(user.Id));
+                UserData? userdata = await _mediator.Send(new GetPostalDataByIdQuery(user.Id));
 
-                var res = await _mediator.Send(new GetAllCartQuery(user.Id));
-                return View(res);
+                CartViewModel cart = new CartViewModel()
+                {
+                    Carts = res
+                };
+                if (userdata != null)
+                {
+                    cart.CountryName = userdata.Countryess.CountryName;
+                    cart.DeliveryPrice = userdata.Countryess.DeliveryPrice;
+                }
+                else
+                {
+                    cart.CountryName = "n";
+                    cart.DeliveryPrice = 0;
+                }
+                return View(cart);
             }
             catch
             {

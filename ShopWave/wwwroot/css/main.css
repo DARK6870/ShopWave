@@ -281,3 +281,10 @@ body {
     .modal-scroll::-webkit-scrollbar-track {
         background-color: #F5F6F8;
     }
+
+.alert {
+    padding: 20px;
+    background-color: #7480be;
+    color: white;
+    margin-bottom: 15px;
+}
