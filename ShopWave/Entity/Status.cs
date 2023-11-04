@@ -9,8 +9,8 @@ namespace ShopWave.Entity
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity), Column(TypeName = "tinyint")]
 		public byte StatusId { get; set; }
 
-		[Required, Column(TypeName = "varchar(20)")]
-		[StringLength(20)]
+		[Required, Column(TypeName = "varchar(30)")]
+		[StringLength(30)]
 		public string StatusName { get; set; }
 
 

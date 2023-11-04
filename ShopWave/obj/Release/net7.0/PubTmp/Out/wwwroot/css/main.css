@@ -239,6 +239,8 @@ body {
 .avatar {
     width: 40px;
     height: 40px;
+    border: none;
+    background: none;
     object-fit: cover;
     border-radius: 50%;
 }
@@ -281,3 +283,10 @@ body {
     .modal-scroll::-webkit-scrollbar-track {
         background-color: #F5F6F8;
     }
+
+.alert {
+    padding: 20px;
+    background-color: #7480be;
+    color: white;
+    margin-bottom: 15px;
+}

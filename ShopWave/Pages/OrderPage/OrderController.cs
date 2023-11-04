@@ -6,6 +6,8 @@ using ShopWave.Pages.AccountPage.Queryes;
 using ShopWave.Pages.AdminCountryPage.Queryes;
 using ShopWave.Pages.CartPage.Queryes;
 using ShopWave.Pages.OrderPage.Commands;
+using ShopWave.Pages.OrderPage.Queryes;
+using ShopWave.Pages.OrderPage.ViewModels;
 
 namespace ShopWave.Pages.OrderPage
 {
@@ -62,6 +64,35 @@ namespace ShopWave.Pages.OrderPage
             {
                 TempData["Error"] = true;
                 return Redirect("/profile");
+            }
+        }
+
+        public async Task<IActionResult> myorders(int page)
+        {
+            try
+            {
+                var user = await _userManager.GetUserAsync(User);
+                var orders = await _mediator.Send(new GetAllOrdersQuery(user.Id));
+
+                int pagesize = 12;
+                int count = orders.Count();
+                int skip = (page - 1) * pagesize;
+                orders = orders.Skip(skip).Take(pagesize).ToList();
+                int total = (int)Math.Ceiling((double)count / pagesize);
+
+                OrderViewModel order = new OrderViewModel()
+                {
+                    Order = orders,
+                    page = page,
+                    totalpages = total
+                };
+
+
+                return View(order);
+            }
+            catch
+            {
+                return Redirect("/Error");
             }
         }
     }

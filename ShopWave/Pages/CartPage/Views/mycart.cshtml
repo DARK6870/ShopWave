@@ -3,7 +3,14 @@
 }
 @model CartViewModel
 
+@{
+    int count = Model.Carts.Count();
+    int avalible = Model.Carts.Where(p => p.ProductVariations.quantity > 0).Count();
+}
+@if (count > 0)
+{
 <div class="container mt-4">
+    <h1 class="title text-secondary">Your cart:</h1>
     <div class="row justify-content-center">
         @foreach (var product in Model.Carts)
         {
@@ -39,12 +46,6 @@
         }
     </div>
 </div>
-@{
-    int count = Model.Carts.Count();
-    int avalible = Model.Carts.Where(p => p.ProductVariations.quantity > 0).Count();
-}
-@if (count > 0)
-{
     <div class="container mt-3">
         <div class="d-flex justify-content-center">
             <div class="d-block justify-content-center">
@@ -69,7 +70,6 @@
         </div>
     </div>
 }
-
 else
 {
     <div class="container" style="margin-top: 200px; padding-bottom: 200px;">

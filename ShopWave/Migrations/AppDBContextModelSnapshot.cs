@@ -571,8 +571,8 @@ namespace ShopWave.Migrations
 
                     b.Property<string>("StatusName")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("varchar(20)");
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.HasKey("StatusId");
 
