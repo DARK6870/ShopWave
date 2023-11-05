@@ -158,7 +158,7 @@
             <ul class="pagination justify-content-center">
 
                 <li class="page-item @(Model.page == 1 ? "disabled" : "")">
-                    <a class="page-link" href="/products?category=@ViewBag.category&sort=@ViewBag.sort&name=@ViewBag.name&page=@(Model.page - 1)">Previous</a>
+                    <a class="page-link" href="/products?category=@ViewBag.category&sort=@ViewBag.sort&name=@ViewBag.name&page=@(Model.page - 1)"><i class="fas fa-angle-left"></i></a>
                 </li>
 
                 @for (int i = Math.Max(1, Model.page - 4); i <= Math.Min(Model.totalPages, Model.page + 5); i++)
@@ -169,7 +169,7 @@
                 }
 
                 <li class="page-item @(Model.page == Model.totalPages ? "disabled" : "")">
-                    <a class="page-link" href="/products?category=@ViewBag.category&sort=@ViewBag.sort&name=@ViewBag.name&page=@(Model.page + 1)">Next</a>
+                    <a class="page-link" href="/products?category=@ViewBag.category&sort=@ViewBag.sort&name=@ViewBag.name&page=@(Model.page + 1)"><i class="fas fa-angle-right"></i></a>
                 </li>
             </ul>
         </nav>

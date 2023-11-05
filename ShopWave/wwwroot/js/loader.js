@@ -7,5 +7,5 @@ window.addEventListener("load", () => {
         loader.addEventListener("transitionend", () => {
             loader.remove();
         });
-    }, 300);
+    });
 });
