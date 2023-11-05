@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using ShopWave.Entity;
 using ShopWave.Pages.AccountPage.Queryes;
 using ShopWave.Pages.AdminCountryPage.Queryes;
 using ShopWave.Pages.CartPage.Queryes;
@@ -87,6 +88,26 @@ namespace ShopWave.Pages.OrderPage
                     totalpages = total
                 };
 
+
+                return View(order);
+            }
+            catch
+            {
+                return Redirect("/Error");
+            }
+        }
+
+        public async Task<IActionResult> confirm(int id)
+        {
+            try
+            {
+                Order order = await _mediator.Send(new GetOrderByIdQuery(id));
+
+                if (order == null)
+                {
+                    TempData["Error"] = true;
+                    return Redirect("/profile");
+                }
 
                 return View(order);
             }

@@ -6,6 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using ShopWave.Context;
 using ShopWave.Entity;
 using ShopWave.Models;
+using ShopWave.Pages.AccountPage.Queryes;
 using ShopWave.Pages.ProductPage.Queryes;
 using ShopWave.Pages.UserAvatarPage.Queryes;
 using System.Diagnostics;
@@ -53,10 +54,9 @@ namespace ShopWave.Pages.HomePage
 
         public async Task<string?> GetAvatar(string? userId)
         {
-            var users = await _mediator.Send(new GetAllAvatarsQuery());
+            string avatar = await _mediator.Send(new GetUserAvatarByIdQuery(userId));
 
-            var user = users.FirstOrDefault(p => p.AppUserId == userId);
-            return user?.Data;
+            return avatar;
         }
 
     }

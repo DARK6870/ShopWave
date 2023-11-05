@@ -6,7 +6,11 @@
     @model ProductViewModel
 
 }
-
+<style>
+    body{
+        background: #ffff;
+    }
+</style>
 <form action="/products">
 <div class="container" style="margin-top: 50px;">
     <input type="hidden" name="page" value="1" readonly/>
@@ -120,7 +124,7 @@
         @foreach (var product in Model.products)
         {
             <div class="col-6 col-lg-4 col-xl-3">
-                <div class="card mb-2">
+                <div class="card mb-2 back">
                     <div class="card__top">
                         <a href="details/@product.ProductId" class="card__image">
                             <img loading="lazy" src="data:image/webp;base64, @product.ProductImages.FirstOrDefault()?.Data" alt="@product.ProductName">

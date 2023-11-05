@@ -112,7 +112,7 @@
                                     </a>
                                 }
 
-                                <input type="hidden" asp-for="ProductId"/>
+                                <input type="hidden" asp-for="ProductId" />
                             </div>
                         </div>
                     </div>
@@ -134,7 +134,8 @@
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
-                            <i class="fas fa-comment cas"></i>Reviews</button>
+                            <i class="fas fa-comment cas"></i>Reviews
+                        </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">
@@ -146,29 +147,49 @@
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                             <h2 class="text-primary mb-2">@Model.ProductName description</h2>
-                           @Html.Raw(Model.Description.Replace("\n", "<br/>"))
+                            @Html.Raw(Model.Description.Replace("\n", "<br/>"))
                         </div>
+
+
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                            Some text 2. Vestibulum in convallis risus. Nullam viverra est sit amet nunc iaculis ullamcorper.
+                            @foreach (var review in Model.Reviews)
+                            {
+                                <img class="avatar" src="data:image/webp;base64, @review.AppUserId" />
+                                <div class="comment pb-4">
+                                    <div class="stars">
+                                        @for (byte i = 0; i < review.NumOfStarts; i++)
+                                        {
+                                            <span class="star text-warning">★</span>
+                                        }
+                                        @for (byte i = review.NumOfStarts; i < 5; i++)
+                                        {
+                                            <span class="star text-secondary">★</span>
+                                        }
+                                    </div>
+                                    <p class="comment-text">@review.ReviewText</p>
+                                </div>
+                            }
                         </div>
+
+
                         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                             <div class="row">
-                                    <div>
-                                        <h2><i class="fas fa-shipping-fast text-primary"></i> Our Deliveries</h2>
-                                        <p>We take pride in our outstanding delivery services that have made us leaders in the industry. Here's why we're exceptional and why you can always rely on us:</p>
-                                        <ul>
-                                            <li><i class="fas fa-check-circle fa-sm text-success"></i> Instant delivery to Moldova, the USA, China, Ukraine, and many more countries.</li>
-                                            <li><i class="fas fa-check-circle fa-sm text-success"></i> High reliability - your order will always be delivered on time.</li>
-                                            <li><i class="fas fa-check-circle fa-sm text-success"></i> A wide range of delivery options to meet your needs.</li>
-                                            <li><i class="fas fa-check-circle fa-sm text-success"></i> Professional couriers and secure packaging for the safety of your order.</li>
-                                            <li><i class="fas fa-check-circle fa-sm text-success"></i> Transparent order tracking at every stage of delivery.</li>
-                                        </ul>
-                                    </div>
-                                    <div class="mt-4">
-                                        <h2><i class="fas fa-globe text-primary"></i> Available Countries</h2>
-                                        <p>We take pride in delivering goods to various corners of the world. Here are some of the countries we deliver to:</p>
-                                        <ul>
-                                            <li><i class="fas fa-globe-americas fa-sm text-success"></i> USA</li>
+                                <div>
+                                    <h2><i class="fas fa-shipping-fast text-primary"></i> Our Deliveries</h2>
+                                    <p>We take pride in our outstanding delivery services that have made us leaders in the industry. Here's why we're exceptional and why you can always rely on us:</p>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle fa-sm text-success"></i> Instant delivery to Moldova, the USA, China, Ukraine, and many more countries.</li>
+                                        <li><i class="fas fa-check-circle fa-sm text-success"></i> High reliability - your order will always be delivered on time.</li>
+                                        <li><i class="fas fa-check-circle fa-sm text-success"></i> A wide range of delivery options to meet your needs.</li>
+                                        <li><i class="fas fa-check-circle fa-sm text-success"></i> Professional couriers and secure packaging for the safety of your order.</li>
+                                        <li><i class="fas fa-check-circle fa-sm text-success"></i> Transparent order tracking at every stage of delivery.</li>
+                                    </ul>
+                                </div>
+                                <div class="mt-4">
+                                    <h2><i class="fas fa-globe text-primary"></i> Available Countries</h2>
+                                    <p>We take pride in delivering goods to various corners of the world. Here are some of the countries we deliver to:</p>
+                                    <ul>
+                                        <li><i class="fas fa-globe-americas fa-sm text-success"></i> USA</li>
                                         <li><i class="fas fa-globe-europe fa-sm text-success"></i> Moldova</li>
                                         <li><i class="fas fa-globe-asia fa-sm text-success"></i> China</li>
                                         <li><i class="fas fa-globe-europe fa-sm text-success"></i> Ukraine</li>
@@ -178,9 +199,9 @@
                                         <li><i class="fas fa-globe-europe fa-sm text-success"></i> Italy</li>
                                         <li><i class="fas fa-globe-asia fa-sm text-success"></i> Germany</li>
                                         <li><i class="fas fa-globe-europe fa-sm text-success"></i> India</li>
-                                        </ul>
-                                    </div>
+                                    </ul>
                                 </div>
+                            </div>
 
                         </div>
                     </div>

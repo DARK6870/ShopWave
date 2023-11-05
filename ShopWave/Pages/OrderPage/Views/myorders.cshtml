@@ -22,13 +22,21 @@
                                 <div class="card-body">
                                     <a href="details/@product.ProductId" class="card-title truncate-text text-primary" style="font-size: 17px;">@product.Products.ProductName</a>
                                     <p class="card-text text-secondary">Variation: @product.ProductVariations.VariationName</p>
-                                    @if (product.Statuses.StatusId != 4)
+                                    @if (product.Statuses.StatusId != 4 && product.Statuses.StatusId != 5 && product.Statuses.StatusId != 6)
                                     {
                                         <p class="card-text text-secondary">Status: @product.Statuses.StatusName</p>
+                                        <a href="/confirm?id=@product.OrderId" style="position: absolute; top:5px; right: 5px;"><span class="badge rounded-pill bg-success">Confirm</span></a>
                                     }
                                     else
                                     {
-                                        <p class="card-text text-success">Status: @product.Statuses.StatusName</p>
+                                        if (product.Statuses.StatusId == 5)
+                                        {
+                                            <p class="card-text text-danger">Status: @product.Statuses.StatusName</p>
+                                        }
+                                        else
+                                        {
+                                            <p class="card-text text-success">Status: @product.Statuses.StatusName</p>
+                                        }
                                     }
                                     <p class="card-text text-secondary mt-2">Price: $@product.TotalPrice</p>
                                     <span class="small text-secondary">Order date: @product.Date.ToString("dd.MM.yyyy")</span>

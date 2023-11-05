@@ -2,6 +2,12 @@
 @{
     ViewData["Title"] = "Home";
 }
+<style>
+    body
+    {
+        background: #ffff;
+    }
+</style>
 <script src="~/js/Banner.js" asp-append-version="true"></script>
 <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
 <div class="container">
@@ -122,7 +128,7 @@
         @foreach (var product in Model)
         {
             <div class="col-6 col-lg-4 col-xl-3">
-                <div class="card mb-2">
+                <div class="card mb-2 back">
                     <div class="card__top">
                         <a href="details/@product.ProductId" class="card__image">
                             <img loading="lazy" src="data:image/webp;base64, @product.ProductImages.FirstOrDefault()?.Data" alt="@product.ProductName">
