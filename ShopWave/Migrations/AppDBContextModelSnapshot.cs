@@ -486,13 +486,13 @@ namespace ShopWave.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("AppUserId1")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<byte>("NumOfStarts")
                         .HasColumnType("tinyint");
 
                     b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ProductId1")
                         .HasColumnType("int");
 
                     b.Property<string>("ReviewText")
@@ -502,9 +502,9 @@ namespace ShopWave.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("AppUserId1");
 
-                    b.HasIndex("ProductId1");
+                    b.HasIndex("ProductId");
 
                     b.ToTable("Review");
                 });
@@ -858,20 +858,20 @@ namespace ShopWave.Migrations
             modelBuilder.Entity("ShopWave.Entity.Review", b =>
                 {
                     b.HasOne("ShopWave.Entity.AppUser", "AppUsers")
-                        .WithMany("Reviews")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ShopWave.Entity.Product", "Products")
                         .WithMany()
-                        .HasForeignKey("ProductId")
+                        .HasForeignKey("AppUserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("ShopWave.Entity.Product", null)
+                    b.HasOne("ShopWave.Entity.AppUser", null)
                         .WithMany("Reviews")
-                        .HasForeignKey("ProductId1");
+                        .HasForeignKey("AppUserId1");
+
+                    b.HasOne("ShopWave.Entity.Product", "Products")
+                        .WithMany("Reviews")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("AppUsers");
 

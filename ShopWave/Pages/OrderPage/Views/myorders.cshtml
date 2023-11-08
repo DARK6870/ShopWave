@@ -22,7 +22,7 @@
                                 <div class="card-body">
                                     <a href="details/@product.ProductId" class="card-title truncate-text text-primary" style="font-size: 17px;">@product.Products.ProductName</a>
                                     <p class="card-text text-secondary">Variation: @product.ProductVariations.VariationName</p>
-                                    @if (product.Statuses.StatusId != 4 && product.Statuses.StatusId != 5 && product.Statuses.StatusId != 6)
+                                    @if (product.Statuses.StatusId != 1 && product.Statuses.StatusId != 5 && product.Statuses.StatusId != 6)
                                     {
                                         <p class="card-text text-secondary">Status: @product.Statuses.StatusName</p>
                                         <a href="/confirm?id=@product.OrderId" style="position: absolute; top:5px; right: 5px;"><span class="badge rounded-pill bg-success">Confirm</span></a>

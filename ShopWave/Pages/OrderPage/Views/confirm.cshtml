@@ -38,8 +38,9 @@
                         </div>
                         <div class="form-group mt-3">
                             <label for="review">Review text:</label>
-                            <textarea class="form-control" name="reviewtext" rows="4"></textarea>
+                            <textarea class="form-control" name="reviewtext" maxlength="400" rows="4"></textarea>
                         </div>
+                        <input type="hidden" value="@Model.OrderId" name="orderId"/>
                         <button type="submit" class="btn btn-success mt-3 mb-4">
                             Submit my review <i class="fas fa-check-circle"></i>
                         </button>

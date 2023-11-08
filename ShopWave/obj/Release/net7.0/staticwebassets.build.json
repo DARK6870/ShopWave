@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "H0yYXjcNiTt2B0ffrTpFtKluuMF/fosVpPFKaA2gdf0=",
+  "Hash": "O8PvQKKpPj8RFF/QTDDfTDJuDivUMdjS/LfThvKyer0=",
   "Source": "ShopWave",
   "BasePath": "_content/ShopWave",
   "Mode": "Default",
@@ -697,23 +697,6 @@
       "OriginalItemSpec": "wwwroot\\css\\home.css"
     },
     {
-      "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\loader.css",
-      "SourceId": "ShopWave",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\",
-      "BasePath": "_content/ShopWave",
-      "RelativePath": "css/loader.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\loader.css"
-    },
-    {
       "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\main.css",
       "SourceId": "ShopWave",
       "SourceType": "Discovered",
@@ -848,23 +831,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\details.js"
-    },
-    {
-      "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\js\\loader.js",
-      "SourceId": "ShopWave",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\",
-      "BasePath": "_content/ShopWave",
-      "RelativePath": "js/loader.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\loader.js"
     },
     {
       "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\js\\site.js",

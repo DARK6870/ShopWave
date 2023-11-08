@@ -25,11 +25,12 @@ namespace ShopWave.Pages.ProductPage.Queryes
                 .Include(p => p.ProductVariations)
                 .Include(p => p.Reviews)
                 .FirstOrDefaultAsync(p => p.ProductId == request.id);
+
             if (result != null)
             {
                 foreach (var item in result.Reviews)
                 {
-                    item.AppUserId = await _mediator.Send(new GetUserAvatarByIdQuery(item.AppUserId));
+                    item.Avatar = await _mediator.Send(new GetUserAvatarByIdQuery(item.AppUserId));
                 }
             }
 

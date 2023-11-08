@@ -152,9 +152,17 @@
 
 
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            <h2 class="text-primary mb-2">Product reviews:</h2>
                             @foreach (var review in Model.Reviews)
                             {
-                                <img class="avatar" src="data:image/webp;base64, @review.AppUserId" />
+                                if (review.Avatar != "")
+                                {
+                                    <img class="avatar" src="data:image/webp;base64, @review.Avatar" />
+                                }
+                                else
+                                {
+                                    <img class="avatar" src="/img/userIcon.webp" />
+                                }
                                 <div class="comment pb-4">
                                     <div class="stars">
                                         @for (byte i = 0; i < review.NumOfStarts; i++)

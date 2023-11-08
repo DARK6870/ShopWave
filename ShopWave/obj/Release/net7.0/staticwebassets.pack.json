@@ -21,10 +21,6 @@
       "PackagePath": "staticwebassets\\css\\home.css"
     },
     {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\loader.css",
-      "PackagePath": "staticwebassets\\css\\loader.css"
-    },
-    {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\css\\main.css",
       "PackagePath": "staticwebassets\\css\\main.css"
     },
@@ -55,10 +51,6 @@
     {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\js\\details.js",
       "PackagePath": "staticwebassets\\js\\details.js"
-    },
-    {
-      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\js\\loader.js",
-      "PackagePath": "staticwebassets\\js\\loader.js"
     },
     {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\js\\site.js",

@@ -51,5 +51,6 @@ namespace ShopWave.Entity
 		public ICollection<Review> Reviews { get; set; }
         public ICollection<ProductVariation> ProductVariations { get; set; }
 		public ICollection<Order> Orders { get; set; }
+
     }
 }

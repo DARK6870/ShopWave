@@ -116,5 +116,35 @@ namespace ShopWave.Pages.OrderPage
                 return Redirect("/Error");
             }
         }
+
+        public async Task<IActionResult> postreview(int orderId, byte rating, string reviewtext)
+        {
+            try
+            {
+                var user = await _userManager.GetUserAsync(User);
+                Order order = await _mediator.Send(new GetOrderByIdQuery(orderId));
+
+                if (order.AppUserId != user.Id || order.StatusId == 1 || order.StatusId == 5 || order.StatusId == 6)
+                {
+                    TempData["Error"] = true;
+                    return Redirect("/profile");
+                }
+
+                bool res = await _mediator.Send(new PostReviewCommand(orderId, rating, reviewtext));
+                if (res)
+                {
+                    TempData["Success"] = true;
+                }
+                else
+                {
+                    TempData["Error"] = true;
+                }
+                return Redirect("/profile");
+            }
+            catch
+            {
+                return Redirect("/Error");
+            }
+        }
     }
 }

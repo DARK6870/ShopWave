@@ -15,12 +15,19 @@ namespace ShopWave.Pages.AccountPage.Queryes
             _mediator = mediator;
         }
 
-        public async Task<string> Handle(GetUserAvatarByIdQuery request, CancellationToken cancellationToken)
+        public async Task<string?> Handle(GetUserAvatarByIdQuery request, CancellationToken cancellationToken)
         {
+            try
+            { 
             var users = await _mediator.Send(new GetAllAvatarsQuery());
 
             var user = users.FirstOrDefault(p => p.AppUserId == request.id);
-            return user.Data;
+                return user.Data;
+            }
+            catch
+            {
+                return "";   
+            }    
         }
     }
 }
