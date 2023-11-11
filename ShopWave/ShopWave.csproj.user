@@ -9,5 +9,6 @@
     <NameOfLastUsedPublishProfile>D:\Repositoryes\ShopWave\ShopWave\Properties\PublishProfiles\shopwavzer-001-site1 - Web Deploy1.pubxml</NameOfLastUsedPublishProfile>
     <View_SelectedScaffolderID>RazorViewEmptyScaffolder</View_SelectedScaffolderID>
     <View_SelectedScaffolderCategoryPath>root/Common/MVC/View</View_SelectedScaffolderCategoryPath>
+    <WebStackScaffolding_ViewDialogWidth>650</WebStackScaffolding_ViewDialogWidth>
   </PropertyGroup>
 </Project>

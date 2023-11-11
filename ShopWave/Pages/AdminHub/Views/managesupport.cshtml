@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Support requests";
+    @model List<Support>
+
+}
+
+<div class="container mt-5">
+    <h2 class="text-primary text-center fw-bold">Support Requests</h2>
+
+    <div class="row mt-4">
+        @foreach (var supportItem in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card c">
+                    <div class="card-body">
+                        <h5 class="card-title">@supportItem.FirstName @supportItem.LastName</h5>
+                        <p class="card-text">Problem: @supportItem.ProblemText</p>
+                        <p class="card-text text-secondary fw-bold mt-2">Email: @supportItem.Email</p>
+                        <p class="card-text"><small class="text-muted">Submitted on @supportItem.SupportDate.ToString("MM/dd/yyyy")</small></p>
+
+                        <!-- Add SweetAlert confirmation dialog -->
+                        <a href="#" class="delete-support" data-id="@supportItem.SupportId" style="position:absolute; top:5px; right: 5px; color: #7480be;">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.delete-support').forEach(item => {
+        item.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            // Get the SupportId from the data-id attribute
+            var supportId = this.getAttribute('data-id');
+
+            // Display SweetAlert confirmation dialog
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You won\'t be able to revert this!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#7480be',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirect to the delete URL after confirmation
+                    window.location.href = '/admin/deletesupport/' + supportId;
+                }
+            });
+        });
+    });
+</script>
+
+@if (TempData["Success"] != null && (bool)TempData["Success"])
+{
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            showConfirmButton: true,
+        });
+    </script>
+}
+else if (TempData["Error"] != null && (bool)TempData["Error"])
+{
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Something went wrong',
+            showConfirmButton: true
+        });
+    </script>
+}

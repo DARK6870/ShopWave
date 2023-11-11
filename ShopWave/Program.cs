@@ -39,7 +39,8 @@ builder.Services.Configure<RazorViewEngineOptions>(o =>
 {
 	o.ViewLocationFormats.Clear();
 	o.ViewLocationFormats.Add("/Pages/HomePage/Views/{0}" + RazorViewEngine.ViewExtension);
-	o.ViewLocationFormats.Add("/Pages/CartPage/Views/{0}" + RazorViewEngine.ViewExtension);
+    o.ViewLocationFormats.Add("/Pages/AdminHub/Views/{0}" + RazorViewEngine.ViewExtension);
+    o.ViewLocationFormats.Add("/Pages/CartPage/Views/{0}" + RazorViewEngine.ViewExtension);
 	o.ViewLocationFormats.Add("/Pages/AccountPage/Views/{0}" + RazorViewEngine.ViewExtension);
 	o.ViewLocationFormats.Add("/Pages/AuthorizePage/Views/{0}" + RazorViewEngine.ViewExtension);
 	o.ViewLocationFormats.Add("/Pages/SupportPage/Views/{0}" + RazorViewEngine.ViewExtension);

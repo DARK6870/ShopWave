@@ -312,3 +312,7 @@ body {
     border: none;
     box-shadow: none;
 }
+
+.c {
+    border-left: 0.25rem solid #7480be !important;
+}
