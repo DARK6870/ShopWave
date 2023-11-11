@@ -40,6 +40,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5IdWJcVmlld3NcbWFuYWdlc3VwcG9ydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Repositoryes/ShopWave/ShopWave/Pages/AdminHub/Views/seller.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5IdWJcVmlld3Ncc2VsbGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Repositoryes/ShopWave/ShopWave/Pages/AdminHub/Views/sellerrequests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5IdWJcVmlld3Ncc2VsbGVycmVxdWVzdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Repositoryes/ShopWave/ShopWave/Pages/AuthorizePage/Views/login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aG9yaXplUGFnZVxWaWV3c1xsb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

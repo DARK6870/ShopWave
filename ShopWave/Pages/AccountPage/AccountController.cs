@@ -151,7 +151,7 @@ namespace ShopWave.Pages.AccountPage
             try
             {
                 var sellerdata = await _mediator.Send(new GetSellerDataByUserIdQuery(seller.AppUserId));
-                if (seller != null)
+                if (sellerdata != null)
                 {
                     TempData["Message"] = "You have already filled out an application";
                     return Redirect("/profile");

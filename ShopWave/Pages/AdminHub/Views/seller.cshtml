@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Seller";
+}
+@model SellerData
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card p-4">
+                <h2 class="text-primary fw-bold text-center mb-4">Seller Data</h2>
+                <div class="mb-3">
+                    <h5 class="card-text">Full Name:</h5>
+                    <p class="fw-bold">@Model.FirstName @Model.LastName</p>
+                </div>
+                <div class="mb-3">
+                    <h5 class="card-text">IDPN:</h5>
+                    <p class="fw-bold">@Model.IDPN</p>
+                </div>
+                <div class="mb-3">
+                    <h5 class="card-text">Passport Number:</h5>
+                    <p class="fw-bold">@Model.PassNr</p>
+                </div>
+                <div class="mb-3">
+                    <h5 class="card-text">Passport date:</h5>
+                    <p class="fw-bold">@Model.PassSDate.ToString("dd.MM.yyyy") - @Model.PassEDate.ToString("dd.MM.yyyy")</p>
+                </div>
+                <div class="mb-3">
+                    <h5 class="card-text">Birthday:</h5>
+                    <p class="fw-bold">@Model.DateBrth.ToString("dd.MM.yyyy")</p>
+                </div>
+                <img class="rounded" src="data:image/png;base64, @Model.Data"/>
+            </div>
+        </div>
+    </div>
+</div>

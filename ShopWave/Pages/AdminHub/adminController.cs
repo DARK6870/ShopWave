@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using ShopWave.Entity;
+using ShopWave.Pages.AdminHub.AdminSeller.Queryes;
 using ShopWave.Pages.AdminHub.AdminSupport.Commands;
 using ShopWave.Pages.AdminHub.AdminSupport.Queryes;
 
@@ -55,6 +56,32 @@ namespace ShopWave.Pages.AdminHub
             {
                 TempData["Error"] = true;
                 return Redirect("/admin/managesupport");
+            }
+        }
+
+        public async Task<IActionResult> sellerrequests()
+        {
+            try
+            {
+                List<SellerData> sellers = await _mediator.Send(new GetAllSellerRequestsQuery());
+                return View(sellers);
+            }
+            catch
+            {
+                return Redirect("/Error");
+            }
+        }
+
+        public async Task<IActionResult> seller(int id)
+        {
+            try
+            {
+                SellerData seller = await _mediator.Send(new GetSellerByIdQuery(id));
+                return View(seller);
+            }
+            catch
+            {
+                return Redirect("/Error");
             }
         }
     }
