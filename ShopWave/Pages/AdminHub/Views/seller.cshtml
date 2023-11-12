@@ -29,6 +29,10 @@
                     <p class="fw-bold">@Model.DateBrth.ToString("dd.MM.yyyy")</p>
                 </div>
                 <img class="rounded" src="data:image/png;base64, @Model.Data"/>
+                <div class="text-center mt-3">
+                    <a class="btn btn-success" href="/admin/AssignRole/@Model.Id">Grand role</a>
+                    <a class="btn btn-danger" href="/admin/DeleteSellerRequest/@Model.Id">Decline</a>
+                </div>
             </div>
         </div>
     </div>

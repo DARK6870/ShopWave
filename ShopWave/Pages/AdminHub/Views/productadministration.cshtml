@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Product administration";
+}
+@model List<Product>
+
+<style>
+    body {
+        background: #ffff;
+    }
+</style>
+
+<div class="container" style="margin-top: 50px;">
+    @if (Model.Count > 0)
+    {
+        <h2 class="text-primary fw-bold text-center">Products:</h2>
+        <div class="row">
+            @foreach (var product in Model)
+            {
+                <div class="col-6 col-lg-4 col-xl-3">
+                    <div class="card mb-2 back">
+                        <div class="card__top">
+                            <a href="/details/@product.ProductId" class="card__image">
+                                <img loading="lazy" src="data:image/webp;base64, @product.ProductImages.FirstOrDefault()?.Data" alt="@product.ProductName">
+                            </a>
+                            @if (product.ProductDate > DateTime.Now.Date.AddDays(-10))
+                            {
+                                <div class="card__label">new</div>
+                            }
+                        </div>
+                        <div class="card__bottom">
+                            <div class="card__prices">
+                                <div class="card__price card__price--discount">@product.ProductVariations.FirstOrDefault().price</div>
+                            </div>
+                            <a href="/details/@product.ProductId" class="card__title">
+                                <span class="truncate-text">
+                                    @product.ProductName
+                                </span>
+                            </a>
+                            <div class="d-flex justify-content-between">
+                                <div class="d-flex flex-row align-items-center">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <p class="text-secondary fw-bold mt-1 ms-1">@product.AvgStars</p>
+                                </div>
+                                <p class="text-secondary">@product.OrderCounts orders</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <h1 class="text-center text-primary fw-bold" style="margin-top: 50px;">Products not found</h1>
+    }
+</div>

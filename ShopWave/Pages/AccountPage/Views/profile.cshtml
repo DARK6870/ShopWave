@@ -15,8 +15,8 @@
     <div class="row">
         <div class="col-xl-4">
             <div class="card mb-4 mb-xl-0">
-                <div class="card-header">Profile Picture</div>
                 <div class="card-body text-center">
+                    <h4 class="text-primary">Profile picture</h4>
                     @if (User.Identity.IsAuthenticated)
                     {
                             <script>
@@ -53,8 +53,8 @@
         </div>
         <div class="col-xl-8">
             <div class="card mb-4">
-                <div class="card-header">UserName</div>
                 <div class="card-body">
+                    <h4 class="text-primary">User name</h4>
                     <form method="post" action="/changeUsername" id="usernameForm">
                         <div class="mb-3">
                             <label class="small mb-1 text-secondary" for="inputUsername"><i class="fas fa-user"></i> Username</label>

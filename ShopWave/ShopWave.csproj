@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\ProductPage\Commands\**" />
+    <Content Remove="Pages\ProductPage\Commands\**" />
+    <EmbeddedResource Remove="Pages\ProductPage\Commands\**" />
+    <None Remove="Pages\ProductPage\Commands\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CurrieTechnologies.Razor.SweetAlert2" Version="5.5.0" />
     <PackageReference Include="LazyCache.AspNetCore" Version="2.4.0" />
     <PackageReference Include="MediatR" Version="12.1.1" />
@@ -26,7 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\ProductPage\Commands\" />
+    <Folder Include="Pages\SellerHub\SellerProduct\Commands\" />
   </ItemGroup>
 
 </Project>

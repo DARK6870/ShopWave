@@ -554,6 +554,9 @@ namespace ShopWave.Migrations
                     b.Property<DateTime>("PassSDate")
                         .HasColumnType("date");
 
+                    b.Property<bool>("admitered")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AppUserId");

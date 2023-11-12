@@ -26,6 +26,7 @@ namespace ShopWave.Pages.ProductPage.Queryes
                 .Include(p => p.Categoriess)
                 .Include(p => p.ProductImages)
                 .Include(p => p.ProductVariations)
+                .Where(p => p.Admitered)
                 .ToListAsync();
 
                 return result;

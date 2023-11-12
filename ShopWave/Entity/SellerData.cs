@@ -46,5 +46,8 @@ namespace ShopWave.Entity
         [Required]
         [MaxLength]
         public string Data { get; set; }
+
+		[Required]
+		public bool admitered { get; set; }
     }
 }

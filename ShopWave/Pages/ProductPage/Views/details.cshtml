@@ -4,6 +4,8 @@
     ViewData["Title"] = "Product Details";
 }
 @using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> userManager
+
 <link rel="stylesheet" href="~/css/details.css" />
 <div class="container mt-5 mb-5">
     <div class="row d-flex justify-content-center">
@@ -114,6 +116,32 @@
 
                                 <input type="hidden" asp-for="ProductId" />
                             </div>
+                            @if (User.IsInRole("Admin") && Model.Admitered == false)
+                            {
+                                <div class="mt-2">
+                                <a class="btn btn-success" href="/admin/acceptproduct/@Model.ProductId">Accept product</a>
+                                <a class="btn btn-warning text-white" href="/admin/declineproduct/@Model.ProductId">Decline product</a>
+                                </div>
+                            }
+
+                            @{
+                                var user = await userManager.GetUserAsync(User);
+                            }
+                            @if (User.IsInRole("Seller") && Model.AppUserId == user.Id)
+                            {
+                                <div class="btn-group mt-2" role="group" aria-label="Button group with nested dropdown">
+                                    <button type="button" class="btn btn-danger">Edit</button>
+                                    <div class="btn-group" role="group">
+                                        <button id="btnGroupDrop4" type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop4" style="">
+                                            <a class="dropdown-item" href="/seller/editproduct">Edit product info</a>
+                                            <a class="dropdown-item" href="/seller/editimages">Edit images</a>
+                                            <a class="dropdown-item" href="/seller/editvariations">Edit variations</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
                         </div>
                     </div>
                 </div>
