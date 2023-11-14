@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Manage orders";
+}
+@model List<SellerOrderViewModel>
+
+<div class="container mt-4">
+    <h2 class="text-primary text-center fw-bold">Orders</h2>
+    <div class="row mt-4">
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered" style="border-radius: 5px; overflow: hidden;">
+                <thead>
+                    <tr class="table-dark">
+                        <th>ID</th>
+                        <th>ProductName</th>
+                        <th>Variation Name</th>
+                        <th>TotalPrice</th>
+                        <th>CountryName</th>
+                        <th>Adress</th>
+                        <th>PostalCode</th>
+                        <th>PhoneNumber</th>
+                        <th>Status</th>
+                        @* <th></th> *@
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td><a href="/seller/order/@item.ID" class="fw-bold">@item.ID</a></td>
+                            <td>@item.ProductName</td>
+                            <td>@item.VariationName</td>
+                            <td>@item.totalPrice</td>
+                            <td>@item.CountryName</td>
+                            <td>@item.Address</td>
+                            <td>@item.PostalCode</td>
+                            <td>@item.Phone</td>
+                            <td>@item.Status</td>
+                            @* <td><a href="/seller/order/@item.ID" class="btn btn-primary"><i class="fas fa-info-circle"></i></a></td> *@
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

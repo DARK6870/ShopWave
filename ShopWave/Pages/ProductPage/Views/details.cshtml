@@ -101,16 +101,25 @@
                                 }
                             </div>
                             <div class="cart mt-4 align-items-center">
-                                @if (User.Identity.IsAuthenticated)
+                                @if (Model.Admitered)
                                 {
-                                    <a href="#" class="btn btn-danger text-uppercase mr-2 px-4" onclick="addToCart()">
-                                        <i class="fa fa-shopping-cart text-white"></i>Add to cart
-                                    </a>
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <a href="#" class="btn btn-danger text-uppercase mr-2 px-4" onclick="addToCart()">
+                                            <i class="fa fa-shopping-cart text-white"></i>Add to cart
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="/login" class="btn btn-danger text-uppercase mr-2 px-4">
+                                            <i class="fa fa-shopping-cart text-white"></i>Add to cart
+                                        </a>
+                                    }
                                 }
                                 else
                                 {
-                                    <a href="/login" class="btn btn-danger text-uppercase mr-2 px-4">
-                                        <i class="fa fa-shopping-cart text-white"></i>Add to cart
+                                    <a href="#" class="btn btn-danger text-uppercase mr-2 px-4">
+                                        <i class="fa fa-shopping-cart text-white"></i>Product on administration
                                     </a>
                                 }
 
