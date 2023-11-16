@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Order";
 }
-@model SellerOrderViewModel
+@model OrderStatusViewModel
 <style>
     .order-card {
         border: 1px solid #ddd;
@@ -32,43 +32,77 @@
     }
 
 </style>
-<div class="order-card">
-    <div class="order-details">
-        <div class="row">
-            <div class="label">Order ID:</div>
-            <div class="value"><a href="/seller/order/@Model.ID" class="fw-bold">@Model.ID</a></div>
+<form method="post" action="/seller/setstatus">
+<div class="container mt-4 mb-5">
+    <div class="order-card shadow mt-5" style="border-left: 0.25rem solid #7480be !important;">
+        <h2 class="text-center text-primary fw-bold mt-2 mb-5">Order @Model.order.ID</h2>
+        <div class="order-details">
+            <div class="row">
+                <div class="label">Product Name:</div>
+                <div class="value">@Model.order.ProductName</div>
+            </div>
+            <div class="row">
+                <div class="label">Variation Name:</div>
+                <div class="value">@Model.order.VariationName</div>
+            </div>
+            <div class="row">
+                <div class="label">Total Price:</div>
+                <div class="value">@Model.order.totalPrice</div>
+            </div>
+            <div class="row">
+                <div class="label">Country:</div>
+                <div class="value">@Model.order.CountryName</div>
+            </div>
+            <div class="row">
+                <div class="label">Address:</div>
+                <div class="value">@Model.order.Address</div>
+            </div>
+            <div class="row">
+                <div class="label">Postal Code:</div>
+                <div class="value">@Model.order.PostalCode</div>
+            </div>
+            <div class="row">
+                <div class="label">Phone:</div>
+                <div class="value">@Model.order.Phone</div>
+            </div>
+            <div class="row">
+                <div class="label">Status:</div>
+                <div class="value">@Model.order.Status</div>
+            </div>
+            <div class="row align-items-center">
+                <div class="label">Status:</div>
+                <select required class="form-select value" id="CountryId" onchange="updateInputValue(this, 'CT')">
+                    @foreach (var item in Model.statuses)
+                    {
+                        if (item.StatusName == Model.order.Status)
+                        {
+                            <option selected="selected" value="@item.StatusId">@item.StatusName</option>
+                        }
+                        else
+                        {
+                            <option value="@item.StatusId">@item.StatusName</option>
+                        }
+                    }
+                </select>
+                <input type="text" hidden class="w-100" id="CT" required name="StatusId">
+                <input type="text" hidden class="w-100" value="@Model.order.ID" required name="OrderId">
+            </div>
         </div>
-        <div class="row">
-            <div class="label">Product Name:</div>
-            <div class="value">@Model.ProductName</div>
-        </div>
-        <div class="row">
-            <div class="label">Variation Name:</div>
-            <div class="value">@Model.VariationName</div>
-        </div>
-        <div class="row">
-            <div class="label">Total Price:</div>
-            <div class="value">@Model.totalPrice</div>
-        </div>
-        <div class="row">
-            <div class="label">Country:</div>
-            <div class="value">@Model.CountryName</div>
-        </div>
-        <div class="row">
-            <div class="label">Address:</div>
-            <div class="value">@Model.Address</div>
-        </div>
-        <div class="row">
-            <div class="label">Postal Code:</div>
-            <div class="value">@Model.PostalCode</div>
-        </div>
-        <div class="row">
-            <div class="label">Phone:</div>
-            <div class="value">@Model.Phone</div>
-        </div>
-        <div class="row">
-            <div class="label">Status:</div>
-            <div class="value">@Model.Status</div>
-        </div>
+            <div class="text-center"><button type="submit" class="btn btn-success col-md-3 mt-2"><i class="fas fa-check"></i> Save changes</button></div>
     </div>
 </div>
+</form>
+
+
+<script>
+    function updateInputValue(selectElement, inputId) {
+        var inputElement = document.getElementById(inputId);
+        var selectedOption = selectElement.options[selectElement.selectedIndex];
+        inputElement.value = selectedOption.value;
+    }
+
+    window.onload = function () {
+        var selectElement = document.getElementById("StatusId");
+        updateInputValue(selectElement, "CT");
+    }
+</script>

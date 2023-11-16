@@ -24,10 +24,11 @@ namespace ShopWave.Pages.SellerHub.SellerOrders.Queryes
             Order order = await _context.Orders
                             .Include(p => p.Statuses)
                             .Include(p => p.Products)
-                            .Include(p => p.Products.ProductVariations)
-                            .ThenInclude(p => p.Products.ProductImages)
+                            .Include(p => p.ProductVariations)
+                            .Include(p => p.Products.ProductImages)
                             .OrderByDescending(p => p.Date)
                             .FirstOrDefaultAsync(p => p.OrderId == request.id);
+
 
             UserData user = await _mediator.Send(new GetPostalDataByIdQuery(order.AppUserId));
 
@@ -42,7 +43,8 @@ namespace ShopWave.Pages.SellerHub.SellerOrders.Queryes
                 CountryName = user.Countryess.CountryName,
                 Phone = user.PhoneNumber,
                 Status = order.Statuses.StatusName,
-                ImageData = order.Products.ProductImages.FirstOrDefault().Data
+                ImageData = order.Products.ProductImages.FirstOrDefault().Data,
+                SellerId = order.Products.AppUserId
             };
 
             return orderViewModel;

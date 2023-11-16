@@ -14,6 +14,7 @@ namespace ShopWave.Pages.SellerHub.SellerOrders.ViewModels
         public string? CountryName { get; set; }
         public string? Phone { get; set; }
         public string? Status { get; set; }
+        public string? SellerId { get; set; }
 
         [MaxLength]
         public string? ImageData { get; set; }
