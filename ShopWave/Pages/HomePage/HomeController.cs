@@ -58,6 +58,5 @@ namespace ShopWave.Pages.HomePage
 
             return avatar;
         }
-
     }
 }

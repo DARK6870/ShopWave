@@ -39,6 +39,7 @@ builder.Services.Configure<RazorViewEngineOptions>(o =>
 {
 	o.ViewLocationFormats.Clear();
 	o.ViewLocationFormats.Add("/Pages/HomePage/Views/{0}" + RazorViewEngine.ViewExtension);
+    o.ViewLocationFormats.Add("/Pages/Documentation/Views/{0}" + RazorViewEngine.ViewExtension);
     o.ViewLocationFormats.Add("/Pages/SellerHub/Views/{0}" + RazorViewEngine.ViewExtension);
     o.ViewLocationFormats.Add("/Pages/AdminHub/Views/{0}" + RazorViewEngine.ViewExtension);
     o.ViewLocationFormats.Add("/Pages/CartPage/Views/{0}" + RazorViewEngine.ViewExtension);
@@ -84,6 +85,11 @@ app.MapControllerRoute(
 	name: "account",
 	pattern: "{action}",
 	defaults: new { Controller = "Account" });
+
+app.MapControllerRoute(
+    name: "documentation",
+    pattern: "{action}",
+    defaults: new { Controller = "Documentation" });
 
 app.MapControllerRoute(
 	name: "authorize",

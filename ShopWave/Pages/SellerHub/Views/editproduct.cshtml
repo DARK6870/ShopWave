@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "Edit product info";
+}
+@model 
+<style>
+    .card {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+</style>
+<div class="container mt-4">
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3 class="text-primary text-center mb-2 fw-bold">Edit rimary product data</h3>
+            <form action="/seller/PostProduct" method="post" enctype="multipart/form-data">
+                <div class="row gx-3 mb-3">
+                    <div class="col-md-6 mb-3">
+                        <label class="small mb-1 text-secondary">
+                            <i class="fas fa-cube"></i> Product Name
+                        </label>
+                        <input required minlength="10" maxlength="100" class="form-control" type="text" placeholder="Enter product name" asp-for="ProductName">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="small mb-1 text-secondary">
+                            <i class="fas fa-info-circle"></i> Product Description
+                        </label>
+                        <textarea required minlength="50" maxlength="800" class="form-control" type="text" placeholder="Product Description" asp-for="ProductDescription"></textarea>
+                    </div>
+                </div>
+                <div class="row gx-3 mb-3">
+                    <div class="col-md-6 mb-3">
+                        <label class="small mb-1 text-secondary">
+                            <i class="fas fa-cubes"></i> Variation Name
+                        </label>
+                        <input required minlength="2" maxlength="10" class="form-control" type="text" placeholder="Enter variation name" asp-for="VariationName">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="small mb-1 text-secondary">
+                            <i class="fas fa-dollar-sign"></i> Variation Price
+                        </label>
+                        <input required step="0.01" class="form-control" type="number" placeholder="Variation price" asp-for="Price">
+                    </div>
+                </div>
+                <div class="row gx-3 mb-3">
+                    <div class="col-md-6 mb-3">
+                        <label class="small mb-1 text-secondary">
+                            <i class="fas fa-cube"></i> Variation Quantity
+                        </label>
+                        <input required min="0" placeholder="Quantity" class="form-control" type="number" asp-for="Quantity">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="small mb-1 text-secondary">
+                            <i class="fas fa-image"></i> Choose a passport photo (png, jpeg, no larger than 1MB)
+                        </label>
+                        <input required type="file" class="form-control" asp-for="Image" accept=".png, .jpeg, .jpg" />
+                    </div>
+                </div>
+                <div class="row gx-3 mb-3">
+                    <div class="col-md-6 mb-3">
+                        <label class="small mb-1 text-secondary" for="inputLocation">
+                            Category
+                        </label>
+                        <select required class="form-select" id="CountryId" onchange="updateInputValue(this, 'CT')">
+                            <option value="">Select Category</option>
+                            @foreach (var item in Model.categoryes)
+                            {
+                                <option value="@item.CategoryId">@item.CategoryName</option>
+                            }
+                        </select>
+                        @{
+                            var user = await userManager.GetUserAsync(User);
+                        }
+                        <input type="text" hidden class="w-100" id="CT" required asp-for="CategoryId">
+                        <input type="text" hidden value="@user.Id" asp-for="SellerId">
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Submit form</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function updateInputValue(selectElement, inputId) {
+        var inputElement = document.getElementById(inputId);
+        var selectedOption = selectElement.options[selectElement.selectedIndex];
+        inputElement.value = selectedOption.value;
+    }
+</script>

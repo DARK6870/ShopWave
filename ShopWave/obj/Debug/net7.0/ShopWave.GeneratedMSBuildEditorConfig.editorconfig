@@ -64,6 +64,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydFBhZ2VcVmlld3NcbXljYXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Repositoryes/ShopWave/ShopWave/Pages/Documentation/Views/about_us.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRG9jdW1lbnRhdGlvblxWaWV3c1xhYm91dF91cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Repositoryes/ShopWave/ShopWave/Pages/HomePage/Views/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVBhZ2VcVmlld3NcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -94,6 +98,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Repositoryes/ShopWave/ShopWave/Pages/ProductPage/Views/products.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdFBhZ2VcVmlld3NccHJvZHVjdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Repositoryes/ShopWave/ShopWave/Pages/SellerHub/Views/addproduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VsbGVySHViXFZpZXdzXGFkZHByb2R1Y3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Repositoryes/ShopWave/ShopWave/Pages/SellerHub/Views/editproduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VsbGVySHViXFZpZXdzXGVkaXRwcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Repositoryes/ShopWave/ShopWave/Pages/SellerHub/Views/manageorders.cshtml]

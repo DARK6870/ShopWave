@@ -40,3 +40,18 @@
         </div>
     </div>
 </div>
+
+@if (TempData["Message"] != null)
+{
+    <text>
+        <script>
+            var message = '@TempData["Message"]';
+            Swal.fire({
+                icon: '@TempData["Icon"]',
+                title: 'Info message',
+                text: message,
+                showConfirmButton: true
+            });
+        </script>
+    </text>
+}
