@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Variations";
+}
+@model List<ProductVariation>
+
+<div class="container">
+    <div class="card mt-5" style="padding: 20px;">
+        <h2 class="text-primary text-center fw-bold mt-3 mb-2">Manage product variations</h2>
+        <button type="button" class="btn btn-secondary col-md-2 mx-auto mt-1 mb-3" href="#" data-toggle="modal" data-target="#addVariationModal"><i class="fas fa-plus"></i> Add variation</button>
+        <div class="d-flex flex-wrap justify-content-center ">
+            @foreach(var item in Model)
+            {
+                <div class="card text-center c justify-content-center mb-1" style="width: 300px; height: 100px; padding: 10px; margin-right: 10px;">
+                    <p class="text-primary fw-bold">@item.VariationName</p>
+                    <p class="text-secondary">Quantity: @item.quantity</p>
+                    <p class="text-secondary">Price: $@item.price</p>
+                    <a style="position: absolute; top: 5px; right: 5px;" class="text-secondary" href="/seller/editvar/@item.VariationId"><i class="fas fa-edit"></i></a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addVariationModal" tabindex="-1" role="dialog" aria-labelledby="addVariationModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="border-radius: 15px!important;">
+            <div class="modal-body">
+                <h5 class="text-center text-primary fw-bold">Add new variation</h5>
+                <form action="/seller/addnewvariation" method="post">
+                    <div class="form-group">
+                        <p class="text-secondary mt-3 mb-1">Fill the data</p>
+                        <input placeholder="Variation name" class="form-control mb-2" required name="varName" type="text" min-length="2" maxlength="10"/>
+                        <input placeholder="Variation price" class="form-control mb-2" required name="varprice" type="number" min="0.1" step="0.1"/>
+                        <input placeholder="Quantity" class="form-control mb-2" required name="varquantity" type="number" min="0" />
+                    </div>
+                    <div class="mt-4 mb-3 d-flex justify-content-end">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" style="margin-left: 10px;">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

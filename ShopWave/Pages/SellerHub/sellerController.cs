@@ -307,5 +307,18 @@ namespace ShopWave.Pages.SellerHub
                 return Redirect("/Error");
             }
         }
+
+        public async Task<IActionResult> editvariations(int id)
+        {
+            try
+            {
+                List<ProductVariation> variations = await _mediator.Send(new GetProductVariationsQuery(id));
+                return View(variations);
+            }
+            catch
+            {
+                return Redirect("/Error");
+            }
+        }
     }
 }
