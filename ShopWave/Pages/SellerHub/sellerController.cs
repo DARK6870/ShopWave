@@ -233,5 +233,79 @@ namespace ShopWave.Pages.SellerHub
                 return Redirect("/Error");
             }
         }
+
+        public async Task<IActionResult> editimages(int id)
+        {
+            try
+            {
+                List<ProductImages> model = await _mediator.Send(new GetProductImagesQuery(id));
+                return View(model);
+            }
+            catch
+            {
+                return Redirect("/Error");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> uploadnewimage(int ProductId, IFormFile ImageFile)
+        {
+            try
+            {
+                Product? product = await _mediator.Send(new GetOnlyProductByIdQuery(ProductId));
+                if (await validateSeller(product.AppUserId))
+                {
+                    List<ProductImages> model = await _mediator.Send(new GetProductImagesQuery(ProductId));
+
+                    if (model.Count() >= 8)
+                    {
+                        TempData["Message"] = "You cannot add more than 8 images to product";
+                        TempData["Icon"] = "error";
+                        return Redirect("/seller/panel");
+                    }
+
+                    if (ImageFile.Length >= (1 * 1024 * 1024))
+                    {
+                        TempData["Message"] = "The image size is too big, try compressing the image and try again.";
+                        TempData["Icon"] = "info";
+                        return Redirect("/seller/panel");
+                    }
+
+                    await _mediator.Send(new UploadNewImageCommand(ProductId, ImageFile));
+                }
+
+                return Redirect($"/seller/editimages/{ProductId}");
+            }
+            catch
+            {
+                return Redirect("/Error");
+            }
+        }
+
+        public async Task<IActionResult> deleteimage(int id, int ProductId)
+        {
+            try
+            {
+                Product? product = await _mediator.Send(new GetOnlyProductByIdQuery(ProductId));
+                if (await validateSeller(product.AppUserId))
+                {
+                    List<ProductImages>? model = await _mediator.Send(new GetProductImagesQuery(ProductId));
+
+                    if (model.Count() == 1)
+                    {
+                        TempData["Message"] = "You cannot delete last product image.";
+                        TempData["Icon"] = "error";
+                        return Redirect("/seller/panel");
+                    }
+
+                    await _mediator.Send(new DeleteImageCommand(id));
+                }
+                return Redirect($"/seller/editimages/{ProductId}");
+            }
+            catch
+            {
+                return Redirect("/Error");
+            }
+        }
     }
 }

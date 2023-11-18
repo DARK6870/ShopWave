@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Edit images";
+}
+
+@model List<ProductImages>
+
+<style>
+    .image-container {
+        position: relative;
+        margin-bottom: 15px;
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .img-fluid {
+        border-radius: 5px;
+        height: 200px;
+        width: 200px;
+        object-fit: contain;
+        margin-left: 10px;
+        padding: 5px;
+    }
+</style>
+
+<div class="container">
+    <div class="card mt-5 mb-5" style="padding: 20px;">
+        <h2 class="text-primary text-center fw-bold mt-2 mb-2">Product Images</h2>
+        <button type="button" class="btn btn-secondary col-md-2 mx-auto mt-1 mb-3" href="#" data-toggle="modal" data-target="#addImageModal"><i class="fas fa-plus"></i> Add image</button>
+        <div class="d-flex flex-wrap justify-content-center">
+            @foreach (var item in Model)
+            {
+                <div class="image-container">
+                    <img class="img-fluid" src="data:image/webp;base64,@item.Data" />
+                    <a class="btn btn-secondary" style="position: absolute; top: 5px; right: 5px;" onclick="confirmDelete(@item.Id, @item.ProductId)"><i class="fas fa-trash"></i></a>
+                </div>
+            }
+        </div>
+        <a class="btn btn-primary col-md-3 mx-auto mt-4 mb-3" href="/details/@Model.FirstOrDefault().ProductId">Go to product details page</a>
+    </div>
+</div>
+
+<div class="modal fade" id="addImageModal" tabindex="-1" role="dialog" aria-labelledby="addImageModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h5 class="text-center text-primary fw-bold">Add new image</h5>
+                <form action="/seller/uploadnewimage" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <p class="text-secondary mt-3 mb-1">Upload new image (size <= 1mb)</p>
+                        <input required type="file" class="form-control" name="ImageFile" accept=".png, .jpeg, .jpg" />
+                        <input type="hidden" value="@Model.FirstOrDefault().ProductId" name="ProductId" />  
+                    </div>
+                    <div class="mt-4 mb-3 d-flex justify-content-end">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" style="margin-left: 10px;">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function confirmDelete(imageId, productId) {
+        Swal.fire({
+            title: 'Delete confirmation',
+            text: 'Are you sure want to delete this?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete!',
+            cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/seller/deleteimage?id=" + imageId + "&ProductId=" + productId;
+            }
+        });
+    }
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
