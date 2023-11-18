@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ShopWave.Entity;
 using ShopWave.Pages.AdminCategoryPage.Queryes;
+using ShopWave.Pages.ProductPage.Queryes;
 using ShopWave.Pages.ProductPage.ViewModels;
 using ShopWave.Pages.SellerHub.SellerOrders.Commands;
 using ShopWave.Pages.SellerHub.SellerOrders.Queryes;
@@ -170,6 +171,62 @@ namespace ShopWave.Pages.SellerHub
                     TempData["Icon"] = "error";
                     return Redirect("/seller/panel");
                 }
+            }
+            catch
+            {
+                return Redirect("/Error");
+            }
+        }
+
+        public async Task<IActionResult> editproduct(int id)
+        {
+            try
+            {
+                Product? product = await _mediator.Send(new GetOnlyProductByIdQuery(id));
+                if (await validateSeller(product.AppUserId))
+                {
+                    EditProductViewModel model = new EditProductViewModel()
+                    {
+                        Name = product.ProductName,
+                        Description = product.Description,
+                        Id = product.ProductId,
+                        CategoryId = product.CategoryId,
+                        categories = await _mediator.Send(new GetAllCategoryesQuery())
+                    };
+
+                    return View(model);
+                }
+                else
+                {
+                    return Redirect("/Error");
+                }
+            }
+            catch
+            {
+                return Redirect("/Error");
+            }
+        }
+
+        public async Task<IActionResult> updateinfo(EditProductViewModel model)
+        {
+            try
+            {
+                Product? product = await _mediator.Send(new GetOnlyProductByIdQuery(model.Id));
+                if (await validateSeller(product.AppUserId))
+                {
+                    if (await _mediator.Send(new UpdateProductInfoCommand(model)))
+                    {
+                        TempData["Icon"] = "success";
+                        TempData["Message"] = "Product updated successfull.";
+                    }
+                    else
+                    {
+                        TempData["Icon"] = "error";
+                        TempData["Message"] = "Something went wrong.";
+                    }
+                }
+                return Redirect("/seller/panel");
+
             }
             catch
             {

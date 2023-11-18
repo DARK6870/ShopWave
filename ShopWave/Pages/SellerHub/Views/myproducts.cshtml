@@ -13,7 +13,13 @@
     @if (Model.Count > 0)
     {
         <h2 class="text-primary fw-bold text-center">Products:</h2>
-        <div class="col-md-2"><a href="/seller/addproduct" class="btn btn-warning text-white ms-1">Add new product</a></div>
+        <div class="d-flex justify-content-center align-items-center mb-2 mt-2">
+            <div class="col-md-3 row ms-1">
+                <a href="/seller/addproduct" class="btn btn-secondary">
+                    <i class="fas fa-plus"></i> Add new product
+                </a>
+            </div>
+        </div>
         <div class="row">
             @foreach (var product in Model)
             {
@@ -53,5 +59,12 @@
     else
     {
         <h1 class="text-center text-primary fw-bold" style="margin-top: 50px;">Products not found</h1>
+        <div class="d-flex justify-content-center align-items-center mb-2 mt-2">
+            <div class="col-md-3 row ms-1">
+                <a href="/seller/addproduct" class="btn btn-secondary">
+                    <i class="fas fa-plus"></i> Add new product
+                </a>
+            </div>
+        </div>
     }
 </div>
