@@ -320,5 +320,22 @@ namespace ShopWave.Pages.SellerHub
                 return Redirect("/Error");
             }
         }
+
+        public async Task<IActionResult> addnewvariation(ProductVariation variation)
+        {
+            try
+            {
+                Product? product = await _mediator.Send(new GetOnlyProductByIdQuery(variation.ProductId));
+                if (await validateSeller(product.AppUserId))
+                {
+                    await _mediator.Send(new PostNewVariationCommand(variation));
+                }
+                return Redirect($"/seller/editvariations/{variation.ProductId}");
+            }
+            catch
+            {
+                return Redirect("/Error");
+            }
+        }
     }
 }
