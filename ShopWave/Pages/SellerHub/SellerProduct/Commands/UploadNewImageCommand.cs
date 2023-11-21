@@ -23,7 +23,7 @@ namespace ShopWave.Pages.SellerHub.SellerProduct.Commands
                     ProductId = request.ProductId
                 };
 
-                var allowedExtensions = new[] { ".png", ".jpg", ".jpeg" };
+                var allowedExtensions = new[] { ".png", ".jpg", ".jpeg", ".webp" };
                 var fileExtension = Path.GetExtension(request.Image.FileName);
 
                 if (allowedExtensions.Contains(fileExtension.ToLower()))

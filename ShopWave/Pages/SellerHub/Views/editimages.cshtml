@@ -47,7 +47,7 @@
                 <form action="/seller/uploadnewimage" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <p class="text-secondary mt-3 mb-1">Upload new image (size <= 1mb)</p>
-                        <input required type="file" class="form-control" name="ImageFile" accept=".png, .jpeg, .jpg" />
+                        <input required type="file" class="form-control" name="ImageFile" accept=".png, .jpeg, .jpg, .webp" />
                         <input type="hidden" value="@Model.FirstOrDefault().ProductId" name="ProductId" />  
                     </div>
                     <div class="mt-4 mb-3 d-flex justify-content-end">

@@ -29,7 +29,7 @@ namespace ShopWave.Pages.HomePage
             try
             {
             var products = await _mediator.Send(new GetAllProductsQuery());
-            products = products.OrderByDescending(p => p.ProductDate).Take(24).ToList();
+            products = products.OrderByDescending(p => p.ProductDate).Take(20).ToList();
 
             return View(products);
             }

@@ -102,7 +102,7 @@ namespace ShopWave.Pages.ProductPage
 
                 //pages
                 int totalProducts = product.Count;
-                int pagesize = 4;
+                int pagesize = 20;
                 int skip = (page - 1) * pagesize;
                 product = product.Skip(skip).Take(pagesize).ToList();
 

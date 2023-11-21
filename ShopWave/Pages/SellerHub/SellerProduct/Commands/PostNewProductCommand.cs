@@ -54,7 +54,7 @@ namespace ShopWave.Pages.SellerHub.SellerProduct.Commands
 
                     if (request.newproduct.Image != null && request.newproduct.Image.Length > 0)
                     {
-                        var allowedExtensions = new[] { ".png", ".jpg", ".jpeg" };
+                        var allowedExtensions = new[] { ".png", ".jpg", ".jpeg", ".webp" };
                         var fileExtension = Path.GetExtension(request.newproduct.Image.FileName);
 
                         if (allowedExtensions.Contains(fileExtension.ToLower()))

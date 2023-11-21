@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\css\\support.css"
     },
     {
+      "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\Screenshot_82.png",
+      "PackagePath": "staticwebassets\\img\\Screenshot_82.png"
+    },
+    {
       "Id": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\ShopWaveIco.webp",
       "PackagePath": "staticwebassets\\img\\ShopWaveIco.webp"
     },

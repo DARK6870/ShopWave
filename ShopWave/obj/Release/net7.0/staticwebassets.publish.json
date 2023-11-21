@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mUXo2uu+dL8nY0EE4C1O81cLm0xyncLqNPxNRnl30ik=",
+  "Hash": "ncXFKkLeXUfHRnQsA4stzFtV1+B5EddElTVKqyBN+bU=",
   "Source": "ShopWave",
   "BasePath": "_content/ShopWave",
   "Mode": "Default",
@@ -763,6 +763,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\main_ru.webp"
+    },
+    {
+      "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\Screenshot_82.png",
+      "SourceId": "ShopWave",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\",
+      "BasePath": "_content/ShopWave",
+      "RelativePath": "img/Screenshot_82.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Screenshot_82.png"
     },
     {
       "Identity": "D:\\Repositoryes\\ShopWave\\ShopWave\\wwwroot\\img\\ShopWaveIco.webp",

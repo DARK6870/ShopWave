@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using ShopWave.Context;
 using ShopWave.Entity;
-using ShopWave.Migrations;
 using ShopWave.Pages.AccountPage.Queryes;
 using ShopWave.Pages.OrderPage.ViewModels;
 using ShopWave.Pages.SellerHub.SellerOrders.ViewModels;

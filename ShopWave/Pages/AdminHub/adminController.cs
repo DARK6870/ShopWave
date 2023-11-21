@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using LazyCache;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -20,13 +21,15 @@ namespace ShopWave.Pages.AdminHub
         private readonly UserManager<IdentityUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly AppDBContext _context;
+        private readonly IAppCache _cache;
 
-        public adminController(IMediator mediator, RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager, AppDBContext context)
+        public adminController(IMediator mediator, RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager, AppDBContext context, IAppCache cache)
         {
             _mediator = mediator;
             _roleManager = roleManager;
             _userManager = userManager;
             _context = context;
+            _cache = cache;
         }
 
 
@@ -181,6 +184,19 @@ namespace ShopWave.Pages.AdminHub
             {
                 bool res = await _mediator.Send(new DeclineProductCommand(id));
                 return Redirect("/admin/productadministration");
+            }
+            catch
+            {
+                return Redirect("/Error");
+            }
+        }
+        
+        public async Task<IActionResult> removecache()
+        {
+            try
+            {
+                _cache.Remove("products_data");
+                return Redirect("/admin/dashboard");
             }
             catch
             {

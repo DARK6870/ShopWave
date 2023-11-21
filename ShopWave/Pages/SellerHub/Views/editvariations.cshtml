@@ -14,7 +14,6 @@
                     <p class="text-primary fw-bold">@item.VariationName</p>
                     <p class="text-secondary">Quantity: @item.quantity</p>
                     <p class="text-secondary">Price: $@item.price</p>
-                    <a style="position: absolute; top: 5px; right: 5px;" class="text-secondary" href="/seller/editvar/@item.VariationId"><i class="fas fa-edit"></i></a>
                 </div>
             }
         </div>
@@ -26,11 +25,11 @@
         <div class="modal-content" style="border-radius: 15px!important;">
             <div class="modal-body">
                 <h5 class="text-center text-primary fw-bold">Add new variation</h5>
-                <form action="/seller/addnewvariation" method="post">
+                <form action="/seller/addnewvariation" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <p class="text-secondary mt-3 mb-1">Fill the data</p>
                         <input placeholder="Variation name" class="form-control mb-2" required name="VariationName" type="text" min-length="2" maxlength="10" />
-                        <input placeholder="Variation price" class="form-control mb-2" required name="price" type="number" min="0.1" step="0.1" />
+                        <input required step="0.01" class="form-control mb-2" type="number" placeholder="Variation price" name="price">
                         <input placeholder="Quantity" class="form-control mb-2" required name="quantity" type="number" min="0" />
                         <input type="hidden" value="@Model.FirstOrDefault().ProductId" name="ProductId" readonly/>
                     </div>
